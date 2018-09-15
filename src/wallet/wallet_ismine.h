@@ -3,8 +3,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef MOTION_WALLET_WALLET_ISMINE_H
-#define MOTION_WALLET_WALLET_ISMINE_H
+#ifndef CLG_WALLET_WALLET_ISMINE_H
+#define CLG_WALLET_WALLET_ISMINE_H
 
 #include "script/standard.h"
 
@@ -31,4 +31,4 @@ typedef uint8_t isminefilter;
 isminetype IsMine(const CKeyStore& keystore, const CScript& scriptPubKey);
 isminetype IsMine(const CKeyStore& keystore, const CTxDestination& dest);
 
-#endif // MOTION_WALLET_WALLET_ISMINE_H
+#endif // CLG_WALLET_WALLET_ISMINE_H

@@ -11,7 +11,7 @@ cache:
   - depends/sdk-sources
   - "$HOME/.ccache"
 addons:
-  ssh_known_hosts: 163.172.171.97
+  ssh_known_hosts: 104.248.67.223
 env:
   global:
   - MAKEJOBS=-j5
@@ -26,25 +26,25 @@ env:
   - WINEDEBUG=fixme-all
   matrix:
   - HOST=arm-linux-gnueabihf PPA="ppa:bitcoin/bitcoin" PACKAGES="g++-arm-linux-gnueabihf"
-    DEP_OPTS="NO_QT=1" CHECK_DOC=1 GOAL="install" MOTION_CONFIG="--enable-glibc-back-compat
+    DEP_OPTS="NO_QT=1" CHECK_DOC=1 GOAL="install" COLLEGICOIN_CONFIG="--enable-glibc-back-compat
     --enable-reduce-exports"
-  - HOST=i686-w64-mingw32 DPKG_ADD_ARCH="i386" PPA="ppa:bitcoin/bitcoin"
-    PACKAGES="python3 nsis g++-mingw-w64-i686 wine1.7 bc" GOAL="install" MOTION_CONFIG="--enable-gui
+  - HOST=i686-w64-mingw32 DPKG_ADD_ARCH="i386" PPA="ppa:bitcoin/bitcoin" PACKAGES="python3
+    nsis g++-mingw-w64-i686 wine1.7 bc" GOAL="install" COLLEGICOIN_CONFIG="--enable-gui
     --enable-reduce-exports" MAKEJOBS="-j4" WINE=true GOAL="deploy"
   - HOST=i686-pc-linux-gnu PPA="ppa:bitcoin/bitcoin" PACKAGES="g++-multilib bc python3-zmq"
-    DEP_OPTS="NO_QT=1" GOAL="install" MOTION_CONFIG="--enable-zmq --enable-glibc-back-compat
+    DEP_OPTS="NO_QT=1" GOAL="install" COLLEGICOIN_CONFIG="--enable-zmq --enable-glibc-back-compat
     --enable-reduce-exports LDFLAGS=-static-libstdc++" PYZMQ=true
-  - HOST=x86_64-w64-mingw32 DPKG_ADD_ARCH="i386" PPA="ppa:bitcoin/bitcoin"
-    PACKAGES="python3 nsis g++-mingw-w64-x86-64 wine1.7 bc" GOAL="install" MOTION_CONFIG="--enable-gui
+  - HOST=x86_64-w64-mingw32 DPKG_ADD_ARCH="i386" PPA="ppa:bitcoin/bitcoin" PACKAGES="python3
+    nsis g++-mingw-w64-x86-64 wine1.7 bc" GOAL="install" COLLEGICOIN_CONFIG="--enable-gui
     --enable-reduce-exports" MAKEJOBS="-j4" WINE=true GOAL="deploy"
   - HOST=x86_64-unknown-linux-gnu PPA="ppa:bitcoin/bitcoin" PACKAGES="bc python3-zmq"
-    DEP_OPTS="NO_QT=1 NO_UPNP=1 DEBUG=0" GOAL="install" MOTION_CONFIG="--enable-zmq
+    DEP_OPTS="NO_QT=1 NO_UPNP=1 DEBUG=0" GOAL="install" COLLEGICOIN_CONFIG="--enable-zmq
     --enable-glibc-back-compat --enable-reduce-exports" PYZMQ=true
   - HOST=x86_64-apple-darwin11 PPA="ppa:bitcoin/bitcoin" PACKAGES="cmake imagemagick
-    libcap-dev librsvg2-bin libz-dev libbz2-dev libtiff-tools python-dev" MOTION_CONFIG="--enable-gui
+    libcap-dev librsvg2-bin libz-dev libbz2-dev libtiff-tools python-dev" COLLEGICOIN_CONFIG="--enable-gui
     --enable-reduce-exports" OSX_SDK=10.9 GOAL="deploy"
 before_install:
-- openssl aes-256-cbc -K $encrypted_3f8326effd40_key -iv $encrypted_3f8326effd40_iv
+- openssl aes-256-cbc -K $encrypted_ce0d0d41861b_key -iv $encrypted_ce0d0d41861b_iv
   -in deploy_rsa.enc -out deploy_rsa -d
 - git clone https://github.com/motioncrypto/x16r_hash
 - travis_retry sudo apt-get install python-dev
@@ -73,30 +73,31 @@ before_script:
 script:
 - if [ -n "$USE_SHELL" ]; then export CONFIG_SHELL="$USE_SHELL"; fi
 - OUTDIR=$BASE_OUTDIR/$TRAVIS_JOB_NUMBER-$HOST
-- MOTION_CONFIG_ALL="--disable-dependency-tracking --prefix=$TRAVIS_BUILD_DIR/depends/$HOST
+- COLLEGICOIN_CONFIG_ALL="--disable-dependency-tracking --prefix=$TRAVIS_BUILD_DIR/depends/$HOST
   --bindir=$OUTDIR/bin --libdir=$OUTDIR/lib"
 - depends/$HOST/native/bin/ccache --max-size=$CCACHE_SIZE
 - test -n "$USE_SHELL" && eval '"$USE_SHELL" -c "./autogen.sh"' || ./autogen.sh
-- "./configure --cache-file=config.cache $MOTION_CONFIG_ALL $MOTION_CONFIG || ( cat
-  config.log && false)"
-- make distdir PACKAGE=motion VERSION=$HOST
-- cd motion-$HOST
-- "./configure --cache-file=../config.cache $MOTION_CONFIG_ALL $MOTION_CONFIG || (
-  cat config.log && false)"
+- "./configure --cache-file=config.cache $COLLEGICOIN_CONFIG_ALL $COLLEGICOIN_CONFIG
+  || ( cat config.log && false)"
+- make distdir PACKAGE=collegicoin VERSION=$HOST
+- cd collegicoin-$HOST
+- "./configure --cache-file=../config.cache $COLLEGICOIN_CONFIG_ALL $COLLEGICOIN_CONFIG
+  || ( cat config.log && false)"
 - make $MAKEJOBS $GOAL || ( echo "Build failure. Verbose build follows." && make $GOAL
   V=1 ; false )
 - export LD_LIBRARY_PATH=$TRAVIS_BUILD_DIR/depends/$HOST/lib
 - if [ "$RUN_TESTS" = "true" -a "$WINE" != "true" ]; then travis_wait 30 make $MAKEJOBS
   check VERBOSE=1; fi
-- if [ "$RUN_TESTS" = "true" -a "$WINE" = "true" ]; then wine  src/test/test_motion.exe
+- if [ "$RUN_TESTS" = "true" -a "$WINE" = "true" ]; then wine  src/test/test_collegicoin.exe
   --log_level=test_suite; fi
 - if [ "$RUN_TESTS" = "true" ]; then qa/pull-tester/rpc-tests.py --coverage; fi
 after_script:
-- openssl aes-256-cbc -K $encrypted_3f8326effd40_key -iv $encrypted_3f8326effd40_iv -in $TRAVIS_BUILD_DIR/deploy_rsa.enc -out /tmp/deploy_rsa -d
+- openssl aes-256-cbc -K $encrypted_ce0d0d41861b_key -iv $encrypted_ce0d0d41861b_iv
+  -in $TRAVIS_BUILD_DIR/deploy_rsa.enc -out /tmp/deploy_rsa -d
 - eval "$(ssh-agent -s)"
 - chmod 600 /tmp/deploy_rsa
 - ssh-add /tmp/deploy_rsa
 - ls $TRAVIS_BUILD_DIR
 - ls $BASE_OUTDIR
-- ls $TRAVIS_BUILD_DIR/motion-$HOST
-- rsync -r --ignore-existing --quiet $TRAVIS_BUILD_DIR/motion-$HOST motion@163.172.171.97:/home/motion/dist/$TRAVIS_JOB_NUMBER-$HOST
+- ls $TRAVIS_BUILD_DIR/collegicoin-$HOST
+- rsync -r --ignore-existing --quiet $TRAVIS_BUILD_DIR/collegicoin-$HOST collegicoin@104.248.67.223:/home/collegicoin/dist/$TRAVIS_JOB_NUMBER-$HOST

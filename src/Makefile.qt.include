@@ -1,24 +1,24 @@
-bin_PROGRAMS += qt/motion-qt
-EXTRA_LIBRARIES += qt/libmotionqt.a
+bin_PROGRAMS += qt/collegicoin-qt
+EXTRA_LIBRARIES += qt/libcollegicoinqt.a
 
-# motion qt core #
+# collegicoin qt core #
 QT_TS = \
-  qt/locale/motion_bg.ts \
-  qt/locale/motion_de.ts \
-  qt/locale/motion_en.ts \
-  qt/locale/motion_es.ts \
-  qt/locale/motion_fi.ts \
-  qt/locale/motion_fr.ts \
-  qt/locale/motion_it.ts \
-  qt/locale/motion_ja.ts \
-  qt/locale/motion_pl.ts \
-  qt/locale/motion_pt.ts \
-  qt/locale/motion_ru.ts \
-  qt/locale/motion_sk.ts \
-  qt/locale/motion_sv.ts \
-  qt/locale/motion_vi.ts \
-  qt/locale/motion_zh_CN.ts \
-  qt/locale/motion_zh_TW.ts
+  qt/locale/collegicoin_bg.ts \
+  qt/locale/collegicoin_de.ts \
+  qt/locale/collegicoin_en.ts \
+  qt/locale/collegicoin_es.ts \
+  qt/locale/collegicoin_fi.ts \
+  qt/locale/collegicoin_fr.ts \
+  qt/locale/collegicoin_it.ts \
+  qt/locale/collegicoin_ja.ts \
+  qt/locale/collegicoin_pl.ts \
+  qt/locale/collegicoin_pt.ts \
+  qt/locale/collegicoin_ru.ts \
+  qt/locale/collegicoin_sk.ts \
+  qt/locale/collegicoin_sv.ts \
+  qt/locale/collegicoin_vi.ts \
+  qt/locale/collegicoin_zh_CN.ts \
+  qt/locale/collegicoin_zh_TW.ts
 
 QT_FORMS_UI = \
   qt/forms/addressbookpage.ui \
@@ -48,10 +48,10 @@ QT_MOC_CPP = \
   qt/moc_addresstablemodel.cpp \
   qt/moc_askpassphrasedialog.cpp \
   qt/moc_bantablemodel.cpp \
-  qt/moc_motionaddressvalidator.cpp \
-  qt/moc_motionamountfield.cpp \
-  qt/moc_motiongui.cpp \
-  qt/moc_motionunits.cpp \
+  qt/moc_collegicoinaddressvalidator.cpp \
+  qt/moc_collegicoinamountfield.cpp \
+  qt/moc_collegicoingui.cpp \
+  qt/moc_collegicoinunits.cpp \
   qt/moc_clientmodel.cpp \
   qt/moc_coincontroldialog.cpp \
   qt/moc_coincontroltreewidget.cpp \
@@ -94,35 +94,35 @@ QT_MOC_CPP = \
   qt/moc_walletmodel.cpp \
   qt/moc_walletview.cpp
 
-MOTION_MM = \
+CLG_MM = \
   qt/macdockiconhandler.mm \
   qt/macnotificationhandler.mm
 
 QT_MOC = \
-  qt/motion.moc \
-  qt/motionamountfield.moc \
+  qt/collegicoin.moc \
+  qt/collegicoinamountfield.moc \
   qt/intro.moc \
   qt/overviewpage.moc \
   qt/rpcconsole.moc
 
-QT_QRC_CPP = qt/qrc_motion.cpp
-QT_QRC = qt/motion.qrc
-QT_QRC_LOCALE_CPP = qt/qrc_motion_locale.cpp
-QT_QRC_LOCALE = qt/motion_locale.qrc
+QT_QRC_CPP = qt/qrc_collegicoin.cpp
+QT_QRC = qt/collegicoin.qrc
+QT_QRC_LOCALE_CPP = qt/qrc_collegicoin_locale.cpp
+QT_QRC_LOCALE = qt/collegicoin_locale.qrc
 
 PROTOBUF_CC = qt/paymentrequest.pb.cc
 PROTOBUF_H = qt/paymentrequest.pb.h
 PROTOBUF_PROTO = qt/paymentrequest.proto
 
-MOTION_QT_H = \
+CLG_QT_H = \
   qt/addressbookpage.h \
   qt/addresstablemodel.h \
   qt/askpassphrasedialog.h \
   qt/bantablemodel.h \
-  qt/motionaddressvalidator.h \
-  qt/motionamountfield.h \
-  qt/motiongui.h \
-  qt/motionunits.h \
+  qt/collegicoinaddressvalidator.h \
+  qt/collegicoinamountfield.h \
+  qt/collegicoingui.h \
+  qt/collegicoinunits.h \
   qt/clientmodel.h \
   qt/coincontroldialog.h \
   qt/coincontroltreewidget.h \
@@ -174,8 +174,8 @@ MOTION_QT_H = \
   qt/winshutdownmonitor.h
 
 RES_ICONS = \
-  qt/res/icons/motion.ico \
-  qt/res/icons/motion.png \
+  qt/res/icons/collegicoin.ico \
+  qt/res/icons/collegicoin.png \
   qt/res/icons/chevron.png \
   qt/res/icons/warning.png \
   qt/res/icons/drkblue/add.png \
@@ -410,12 +410,12 @@ RES_ICONS = \
   qt/res/icons/trad/transaction_abandoned.png \
   qt/res/icons/trad/network_disabled.png
 
-MOTION_QT_CPP = \
+CLG_QT_CPP = \
   qt/bantablemodel.cpp \
-  qt/motionaddressvalidator.cpp \
-  qt/motionamountfield.cpp \
-  qt/motiongui.cpp \
-  qt/motionunits.cpp \
+  qt/collegicoinaddressvalidator.cpp \
+  qt/collegicoinamountfield.cpp \
+  qt/collegicoingui.cpp \
+  qt/collegicoinunits.cpp \
   qt/clientmodel.cpp \
   qt/csvmodelwriter.cpp \
   qt/guiutil.cpp \
@@ -436,11 +436,11 @@ MOTION_QT_CPP = \
   qt/utilitydialog.cpp
 
 if TARGET_WINDOWS
-MOTION_QT_CPP += qt/winshutdownmonitor.cpp
+CLG_QT_CPP += qt/winshutdownmonitor.cpp
 endif
 
 if ENABLE_WALLET
-MOTION_QT_CPP += \
+CLG_QT_CPP += \
   qt/addressbookpage.cpp \
   qt/addresstablemodel.cpp \
   qt/askpassphrasedialog.cpp \
@@ -477,7 +477,7 @@ RES_IMAGES = \
   qt/res/images/drkblue/about.png \
   qt/res/images/drkblue/splash.png \
   qt/res/images/drkblue/splash_testnet.png \
-  qt/res/images/drkblue/motion_logo_horizontal.png \
+  qt/res/images/drkblue/collegicoin_logo_horizontal.png \
   qt/res/images/drkblue/unchecked.png \
   qt/res/images/drkblue/checked.png \
   qt/res/images/drkblue/drkblue_downArrow.png \
@@ -490,7 +490,7 @@ RES_IMAGES = \
   qt/res/images/crownium/about.png \
   qt/res/images/crownium/splash.png \
   qt/res/images/crownium/splash_testnet.png \
-  qt/res/images/crownium/motion_logo_horizontal.png \
+  qt/res/images/crownium/collegicoin_logo_horizontal.png \
   qt/res/images/crownium/unchecked.png \
   qt/res/images/crownium/checked.png \
   qt/res/images/crownium/drkblue_downArrow.png \
@@ -503,7 +503,7 @@ RES_IMAGES = \
   qt/res/images/light/about.png \
   qt/res/images/light/splash.png \
   qt/res/images/light/splash_testnet.png \
-  qt/res/images/light/motion_logo_horizontal.png \
+  qt/res/images/light/collegicoin_logo_horizontal.png \
   qt/res/images/light/unchecked.png \
   qt/res/images/light/checked.png \
   qt/res/images/light/drkblue_downArrow.png \
@@ -522,7 +522,7 @@ RES_IMAGES = \
   qt/res/images/trad/about.png \
   qt/res/images/trad/splash.png \
   qt/res/images/trad/splash_testnet.png \
-  qt/res/images/trad/motion_logo_horizontal.png \
+  qt/res/images/trad/collegicoin_logo_horizontal.png \
   qt/res/images/trad/drkblue_downArrow.png \
   qt/res/images/trad/drkblue_downArrow_small.png \
   qt/res/images/trad/drkblue_upArrow_small.png \
@@ -539,19 +539,19 @@ RES_CSS = \
 
 RES_MOVIES = $(wildcard qt/res/movies/spinner-*.png)
 
-MOTION_RC = qt/res/motion-qt-res.rc
+CLG_RC = qt/res/collegicoin-qt-res.rc
 
-MOTION_QT_INCLUDES = -I$(builddir)/qt -I$(srcdir)/qt -I$(srcdir)/qt/forms \
+CLG_QT_INCLUDES = -I$(builddir)/qt -I$(srcdir)/qt -I$(srcdir)/qt/forms \
   -I$(builddir)/qt/forms -DQT_NO_KEYWORDS
 
-qt_libmotionqt_a_CPPFLAGS = $(AM_CPPFLAGS) $(MOTION_INCLUDES) $(MOTION_QT_INCLUDES) \
+qt_libcollegicoinqt_a_CPPFLAGS = $(AM_CPPFLAGS) $(CLG_INCLUDES) $(CLG_QT_INCLUDES) \
   $(QT_INCLUDES) $(QT_DBUS_INCLUDES) $(PROTOBUF_CFLAGS) $(QR_CFLAGS)
-qt_libmotionqt_a_CXXFLAGS = $(AM_CXXFLAGS) $(QT_PIE_FLAGS)
+qt_libcollegicoinqt_a_CXXFLAGS = $(AM_CXXFLAGS) $(QT_PIE_FLAGS)
 
-qt_libmotionqt_a_SOURCES = $(MOTION_QT_CPP) $(MOTION_QT_H) $(QT_FORMS_UI) \
+qt_libcollegicoinqt_a_SOURCES = $(CLG_QT_CPP) $(CLG_QT_H) $(QT_FORMS_UI) \
   $(QT_QRC) $(QT_QRC_LOCALE) $(QT_TS) $(PROTOBUF_PROTO) $(RES_ICONS) $(RES_IMAGES) $(RES_CSS) $(RES_MOVIES)
 
-nodist_qt_libmotionqt_a_SOURCES = $(QT_MOC_CPP) $(QT_MOC) $(PROTOBUF_CC) \
+nodist_qt_libcollegicoinqt_a_SOURCES = $(QT_MOC_CPP) $(QT_MOC) $(PROTOBUF_CC) \
   $(PROTOBUF_H) $(QT_QRC_CPP) $(QT_QRC_LOCALE_CPP)
 
 # forms/foo.h -> forms/ui_foo.h
@@ -560,70 +560,70 @@ QT_FORMS_H=$(join $(dir $(QT_FORMS_UI)),$(addprefix ui_, $(notdir $(QT_FORMS_UI:
 # Most files will depend on the forms and moc files as includes. Generate them
 # before anything else.
 $(QT_MOC): $(QT_FORMS_H)
-$(qt_libmotionqt_a_OBJECTS) $(qt_motion_qt_OBJECTS) : | $(QT_MOC)
+$(qt_libcollegicoinqt_a_OBJECTS) $(qt_collegicoin_qt_OBJECTS) : | $(QT_MOC)
 
 #Generating these with a half-written protobuf header leads to wacky results.
 #This makes sure it's done.
 $(QT_MOC): $(PROTOBUF_H)
 $(QT_MOC_CPP): $(PROTOBUF_H)
 
-# motion-qt binary #
-qt_motion_qt_CPPFLAGS = $(AM_CPPFLAGS) $(MOTION_INCLUDES) $(MOTION_QT_INCLUDES) \
+# collegicoin-qt binary #
+qt_collegicoin_qt_CPPFLAGS = $(AM_CPPFLAGS) $(CLG_INCLUDES) $(CLG_QT_INCLUDES) \
   $(QT_INCLUDES) $(PROTOBUF_CFLAGS) $(QR_CFLAGS)
-qt_motion_qt_CXXFLAGS = $(AM_CXXFLAGS) $(QT_PIE_FLAGS)
+qt_collegicoin_qt_CXXFLAGS = $(AM_CXXFLAGS) $(QT_PIE_FLAGS)
 
-qt_motion_qt_SOURCES = qt/motion.cpp
+qt_collegicoin_qt_SOURCES = qt/collegicoin.cpp
 if TARGET_DARWIN
-  qt_motion_qt_SOURCES += $(MOTION_MM)
+  qt_collegicoin_qt_SOURCES += $(CLG_MM)
 endif
 if TARGET_WINDOWS
-  qt_motion_qt_SOURCES += $(MOTION_RC)
+  qt_collegicoin_qt_SOURCES += $(CLG_RC)
 endif
-qt_motion_qt_LDADD = qt/libmotionqt.a $(LIBMOTION_SERVER)
+qt_collegicoin_qt_LDADD = qt/libcollegicoinqt.a $(LIBCLG_SERVER)
 if ENABLE_WALLET
-qt_motion_qt_LDADD += $(LIBMOTION_WALLET)
+qt_collegicoin_qt_LDADD += $(LIBCLG_WALLET)
 endif
 if ENABLE_ZMQ
-qt_motion_qt_LDADD += $(LIBMOTION_ZMQ) $(ZMQ_LIBS)
+qt_collegicoin_qt_LDADD += $(LIBCLG_ZMQ) $(ZMQ_LIBS)
 endif
-qt_motion_qt_LDADD += $(LIBMOTION_CLI) $(LIBMOTION_COMMON) $(LIBMOTION_UTIL) $(LIBMOTION_CRYPTO) $(LIBUNIVALUE) $(LIBLEVELDB) $(LIBMEMENV) \
+qt_collegicoin_qt_LDADD += $(LIBCLG_CLI) $(LIBCLG_COMMON) $(LIBCLG_UTIL) $(LIBCLG_CRYPTO) $(LIBUNIVALUE) $(LIBLEVELDB) $(LIBMEMENV) \
   $(BOOST_LIBS) $(QT_LIBS) $(QT_DBUS_LIBS) $(QR_LIBS) $(PROTOBUF_LIBS) $(BDB_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(MINIUPNPC_LIBS) $(LIBSECP256K1) \
   $(EVENT_PTHREADS_LIBS) $(EVENT_LIBS)
-qt_motion_qt_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(QT_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
-qt_motion_qt_LIBTOOLFLAGS = --tag CXX
+qt_collegicoin_qt_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(QT_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
+qt_collegicoin_qt_LIBTOOLFLAGS = --tag CXX
 
 #locale/foo.ts -> locale/foo.qm
 QT_QM=$(QT_TS:.ts=.qm)
 
 SECONDARY: $(QT_QM)
 
-qt/motionstrings.cpp: $(libmotion_server_a_SOURCES) $(libmotion_wallet_a_SOURCES) $(libmotion_common_a_SOURCES) $(libmotion_zmq_a_SOURCES) $(libmotion_consensus_a_SOURCES) $(libmotion_util_a_SOURCES)
+qt/collegicoinstrings.cpp: $(libcollegicoin_server_a_SOURCES) $(libcollegicoin_wallet_a_SOURCES) $(libcollegicoin_common_a_SOURCES) $(libcollegicoin_zmq_a_SOURCES) $(libcollegicoin_consensus_a_SOURCES) $(libcollegicoin_util_a_SOURCES)
 	@test -n $(XGETTEXT) || echo "xgettext is required for updating translations"
 	$(AM_V_GEN) cd $(srcdir); XGETTEXT=$(XGETTEXT) ../share/qt/extract_strings_qt.py $^
 
-translate: qt/motionstrings.cpp $(QT_FORMS_UI) $(QT_FORMS_UI) $(MOTION_QT_CPP) qt/motion.cpp $(MOTION_QT_H) $(MOTION_MM)
+translate: qt/collegicoinstrings.cpp $(QT_FORMS_UI) $(QT_FORMS_UI) $(CLG_QT_CPP) qt/collegicoin.cpp $(CLG_QT_H) $(CLG_MM)
 	@test -n $(LUPDATE) || echo "lupdate is required for updating translations"
-	$(AM_V_GEN) QT_SELECT=$(QT_SELECT) $(LUPDATE) $^ -locations relative -no-obsolete -ts qt/locale/motion_en.ts
+	$(AM_V_GEN) QT_SELECT=$(QT_SELECT) $(LUPDATE) $^ -locations relative -no-obsolete -ts qt/locale/collegicoin_en.ts
 
 $(QT_QRC_LOCALE_CPP): $(QT_QRC_LOCALE) $(QT_QM)
 	@test -f $(RCC)
 	@test -f $(@D)/$(<F) || cp -f $< $(@D)
-	$(AM_V_GEN) QT_SELECT=$(QT_SELECT) $(RCC) $(RCCFLAGS) -name motion_locale $(@D)/$(<F) | \
+	$(AM_V_GEN) QT_SELECT=$(QT_SELECT) $(RCC) $(RCCFLAGS) -name collegicoin_locale $(@D)/$(<F) | \
 	  $(SED) -e '/^\*\*.*Created:/d' -e '/^\*\*.*by:/d' > $@
 
 $(QT_QRC_CPP): $(QT_QRC) $(QT_FORMS_H) $(RES_ICONS) $(RES_IMAGES) $(RES_CSS) $(RES_MOVIES) $(PROTOBUF_H)
 	@test -f $(RCC)
-	$(AM_V_GEN) QT_SELECT=$(QT_SELECT) $(RCC) $(RCCFLAGS) -name motion $< | \
+	$(AM_V_GEN) QT_SELECT=$(QT_SELECT) $(RCC) $(RCCFLAGS) -name collegicoin $< | \
 	  $(SED) -e '/^\*\*.*Created:/d' -e '/^\*\*.*by:/d' > $@
 
-CLEAN_QT = $(nodist_qt_libmotionqt_a_SOURCES) $(QT_QM) $(QT_FORMS_H) qt/*.gcda qt/*.gcno
+CLEAN_QT = $(nodist_qt_libcollegicoinqt_a_SOURCES) $(QT_QM) $(QT_FORMS_H) qt/*.gcda qt/*.gcno
 
 CLEANFILES += $(CLEAN_QT)
 
-motion_qt_clean: FORCE
-	rm -f $(CLEAN_QT) $(qt_libmotionqt_a_OBJECTS) $(qt_motion_qt_OBJECTS) qt/motion-qt$(EXEEXT) $(LIBMOTIONQT)
+collegicoin_qt_clean: FORCE
+	rm -f $(CLEAN_QT) $(qt_libcollegicoinqt_a_OBJECTS) $(qt_collegicoin_qt_OBJECTS) qt/collegicoin-qt$(EXEEXT) $(LIBCLGQT)
 
-motion_qt : qt/motion-qt$(EXEEXT)
+collegicoin_qt : qt/collegicoin-qt$(EXEEXT)
 
 ui_%.h: %.ui
 	@test -f $(UIC)

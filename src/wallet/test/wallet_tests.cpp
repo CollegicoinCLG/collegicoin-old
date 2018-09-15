@@ -9,7 +9,7 @@
 #include <utility>
 #include <vector>
 
-#include "test/test_motion.h"
+#include "test/test_collegicoin.h"
 
 #include <boost/foreach.hpp>
 #include <boost/test/unit_test.hpp>
@@ -178,11 +178,11 @@ BOOST_AUTO_TEST_CASE(coin_selection_tests)
         add_coin( 3*COIN);
         add_coin( 4*COIN); // now we have 5+6+7+8+18+20+30+100+200+300+400 = 1094 cents
         BOOST_CHECK( wallet.SelectCoinsMinConf(95 * CENT, 1, 1, vCoins, setCoinsRet, nValueRet));
-        BOOST_CHECK_EQUAL(nValueRet, 1 * COIN);  // we should get 1 XMN in 1 coin
+        BOOST_CHECK_EQUAL(nValueRet, 1 * COIN);  // we should get 1 CLG in 1 coin
         BOOST_CHECK_EQUAL(setCoinsRet.size(), 1U);
 
         BOOST_CHECK( wallet.SelectCoinsMinConf(195 * CENT, 1, 1, vCoins, setCoinsRet, nValueRet));
-        BOOST_CHECK_EQUAL(nValueRet, 2 * COIN);  // we should get 2 XMN in 1 coin
+        BOOST_CHECK_EQUAL(nValueRet, 2 * COIN);  // we should get 2 CLG in 1 coin
         BOOST_CHECK_EQUAL(setCoinsRet.size(), 1U);
 
         // empty the wallet and start again, now with fractions of a cent, to test small change avoidance
@@ -338,8 +338,8 @@ BOOST_AUTO_TEST_CASE(ApproximateBestSubset)
     empty_wallet();
 
     // Test vValue sort order
-    for (int i = 0; i < 1000; i++)
-        add_coin(1000 * COIN);
+    for (int i = 0; i < 50000; i++)
+        add_coin(50000 * COIN);
     add_coin(3 * COIN);
 
     BOOST_CHECK(wallet.SelectCoinsMinConf(1003 * COIN, 1, 6, vCoins, setCoinsRet, nValueRet));
@@ -352,7 +352,7 @@ BOOST_AUTO_TEST_CASE(ApproximateBestSubset)
     for (int i = 0; i < 100; i++)
         add_coin(10 * COIN);
     for (int i = 0; i < 100; i++)
-        add_coin(1000 * COIN);
+        add_coin(50000 * COIN);
 
     BOOST_CHECK(wallet.SelectCoinsMinConf(100001 * COIN, 1, 6, vCoins, setCoinsRet, nValueRet));
     // We need all 100 larger coins and exactly one small coin.

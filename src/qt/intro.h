@@ -2,8 +2,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef MOTION_QT_INTRO_H
-#define MOTION_QT_INTRO_H
+#ifndef CLG_QT_INTRO_H
+#define CLG_QT_INTRO_H
 
 #include <QDialog>
 #include <QMutex>
@@ -72,4 +72,4 @@ private:
     friend class FreespaceChecker;
 };
 
-#endif // MOTION_QT_INTRO_H
+#endif // CLG_QT_INTRO_H

@@ -8,11 +8,11 @@
  * Server/client environment: argument handling, config file parsing,
  * logging, thread wrappers
  */
-#ifndef MOTION_UTIL_H
-#define MOTION_UTIL_H
+#ifndef CLG_UTIL_H
+#define CLG_UTIL_H
 
 #if defined(HAVE_CONFIG_H)
-#include "config/motion-config.h"
+#include "config/collegicoin-config.h"
 #endif
 
 #include "compat.h"
@@ -34,14 +34,14 @@
 
 // Uncomment the following line to enable debugging messages
 // or enable on a per file basis prior to inclusion of util.h
-//#define ENABLE_MOTION_DEBUG
-#ifdef ENABLE_MOTION_DEBUG
+//#define ENABLE_CLG_DEBUG
+#ifdef ENABLE_CLG_DEBUG
 #define DBG( x ) x
 #else
 #define DBG( x ) 
 #endif
 
-//Motion only features
+//Collegicoin only features
 
 extern bool fMasterNode;
 extern bool fLiteMode;
@@ -74,8 +74,8 @@ extern bool fLogIPs;
 extern volatile bool fReopenDebugLog;
 extern CTranslationInterface translationInterface;
 
-extern const char * const MOTION_CONF_FILENAME;
-extern const char * const MOTION_PID_FILENAME;
+extern const char * const CLG_CONF_FILENAME;
+extern const char * const CLG_PID_FILENAME;
 
 /**
  * Translation function: Call Translate signal on UI interface, which returns a boost::optional result.
@@ -248,7 +248,7 @@ std::string GetThreadName();
  */
 template <typename Callable> void TraceThread(const char* name,  Callable func)
 {
-    std::string s = strprintf("motion-%s", name);
+    std::string s = strprintf("collegicoin-%s", name);
     RenameThread(s.c_str());
     try
     {
@@ -300,4 +300,4 @@ std::string IntVersionToString(uint32_t nVersion);
 std::string SafeIntVersionToString(uint32_t nVersion);
 
 
-#endif // MOTION_UTIL_H
+#endif // CLG_UTIL_H

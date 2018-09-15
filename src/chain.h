@@ -3,8 +3,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef MOTION_CHAIN_H
-#define MOTION_CHAIN_H
+#ifndef CLG_CHAIN_H
+#define CLG_CHAIN_H
 
 #include "arith_uint256.h"
 #include "primitives/block.h"
@@ -462,4 +462,4 @@ public:
     const CBlockIndex *FindFork(const CBlockIndex *pindex) const;
 };
 
-#endif // MOTION_CHAIN_H
+#endif // CLG_CHAIN_H

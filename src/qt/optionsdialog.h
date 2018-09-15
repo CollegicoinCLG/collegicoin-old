@@ -2,8 +2,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef MOTION_QT_OPTIONSDIALOG_H
-#define MOTION_QT_OPTIONSDIALOG_H
+#ifndef CLG_QT_OPTIONSDIALOG_H
+#define CLG_QT_OPTIONSDIALOG_H
 
 #include <QDialog>
 #include <QValidator>
@@ -67,4 +67,4 @@ private:
     QDataWidgetMapper *mapper;
 };
 
-#endif // MOTION_QT_OPTIONSDIALOG_H
+#endif // CLG_QT_OPTIONSDIALOG_H

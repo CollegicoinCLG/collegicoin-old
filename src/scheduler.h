@@ -2,8 +2,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef MOTION_SCHEDULER_H
-#define MOTION_SCHEDULER_H
+#ifndef CLG_SCHEDULER_H
+#define CLG_SCHEDULER_H
 
 //
 // NOTE:

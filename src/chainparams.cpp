@@ -55,8 +55,8 @@ static CBlock CreateGenesisBlock(const char* pszTimestamp, const CScript& genesi
  */
 static CBlock CreateGenesisBlock(uint32_t nTime, uint32_t nNonce, uint32_t nBits, int32_t nVersion, const CAmount& genesisReward)
 {
-    const char* pszTimestamp = "Wired 26/Mar/2018 This Brooklyn Architect Wants to Rewire Puerto Rico with Solar";
-    const CScript genesisOutputScript = CScript() << ParseHex("04174c0933f7ed53fc996de0c252cd6bbf9e9b8161dcda7615c2503dbd5d48f02bdb72bd216af26b6815e0b2f50381100916a7eb7b1a88aeb8debb0803250d8401") << OP_CHECKSIG;
+    const char* pszTimestamp = "9/14/18 Facebooks AI Can Analyze Memes, but Can It Understand Them?";
+    const CScript genesisOutputScript = CScript() << ParseHex("0492f1dd8e9f737c22dbf2505abc1dea8e90e1f114d877d0645508255a802bf23f980faf2de6678194bf312c530f886c12967483ec50515f8f92fcdbc25703f54b") << OP_CHECKSIG;
     return CreateGenesisBlock(pszTimestamp, genesisOutputScript, nTime, nNonce, nBits, nVersion, genesisReward);
 }
 
@@ -78,32 +78,32 @@ class CMainParams : public CChainParams {
 public:
     CMainParams() {
         strNetworkID = "main";
-        consensus.nSubsidyHalvingInterval = 518400; // Note: actual number of blocks per calendar year with DGW v3 is ~200700 (for example 449750 - 249050)
-        consensus.nMasternodePaymentsStartBlock = 2000; // not true, but it's ok as long as it's less then nMasternodePaymentsIncreaseBlock
-        consensus.nMasternodePaymentsIncreaseBlock = 9999999999; // deactivated on initial launch
-        consensus.nMasternodePaymentsIncreasePeriod = 9999999999; // deactivated on initial launch
+        consensus.nSubsidyHalvingInterval = 400000; // Note: actual number of blocks per calendar year with DGW v3 is ~200700 (for example 449750 - 249050)
+        consensus.nMasternodePaymentsStartBlock = 110; // not true, but it's ok as long as it's less then nMasternodePaymentsIncreaseBlock
+        consensus.nMasternodePaymentsIncreaseBlock = 999999999;
+        consensus.nMasternodePaymentsIncreasePeriod = 999999999;
         consensus.nInstantSendKeepLock = 24;
-        consensus.nBudgetPaymentsStartBlock = 9999999999; // Disabled
-        consensus.nBudgetPaymentsCycleBlocks = 9999999999; // Disabled
-        consensus.nBudgetPaymentsWindowBlocks = 9999999999; // Disabled
-        consensus.nBudgetProposalEstablishingTime = 60*20*9999999999; // Disabled
-        consensus.nSuperblockStartBlock = 99999999999; // Disabled
-        consensus.nSuperblockCycle = 9999999999; // Disabled
+        consensus.nBudgetPaymentsStartBlock = 999999999; // Disabled
+        consensus.nBudgetPaymentsCycleBlocks = 999999999; // Disabled
+        consensus.nBudgetPaymentsWindowBlocks = 999999999; // Disabled
+        consensus.nBudgetProposalEstablishingTime = 60*60*9999999; // Disabled
+        consensus.nSuperblockStartBlock = 2100000000; // Disabled
+        consensus.nSuperblockCycle = 16616; // Disabled
         consensus.nGovernanceMinQuorum = 10;
         consensus.nGovernanceFilterElements = 20000;
         consensus.nMasternodeMinimumConfirmations = 15;
         consensus.nMajorityEnforceBlockUpgrade = 750;
         consensus.nMajorityRejectBlockOutdated = 950;
         consensus.nMajorityWindow = 1000;
-        consensus.BIP34Height = 1;
-        consensus.BIP34Hash = uint256S("0x000007d91d1254d60e2dd1ae580383070a4ddffa4c64c2eeb4a2f9ecc0414343");
+        consensus.BIP34Height = 227931;
+        consensus.BIP34Hash = uint256S("0x000000000000024b89b42a942fe0d9fea3bb44ab7bd1b19115dd6a759c0808b8");
         consensus.powLimit = uint256S("00000fffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
 
-        consensus.nZawyLwmaAveragingWindow = 65;
-        consensus.nZawyLwmaAjustedWeight = 3927;
+        consensus.nZawyLwmaAveragingWindow = 90;
+        consensus.nZawyLwmaAjustedWeight = 2724; // (nZawyLwmaAveragingWindow + 1) / 2 * 0.998 * nPowTargetSpacing
 
-        consensus.nPowTargetTimespan = 30 * 60 * 2; // Motion: 1 hour
-        consensus.nPowTargetSpacing = 2 * 60; // Motion: 2 minutes
+        consensus.nPowTargetTimespan =  30 * 60 * 2; // Collegicoin: 1 hour
+        consensus.nPowTargetSpacing = 1 * 60; // Collegicoin: 1 minute
         consensus.fPowAllowMinDifficultyBlocks = false;
         consensus.fPowNoRetargeting = false;
         consensus.useDarkGravityWave = false;
@@ -115,8 +115,8 @@ public:
 
         // Deployment of BIP68, BIP112, and BIP113.
         consensus.vDeployments[Consensus::DEPLOYMENT_CSV].bit = 0;
-        consensus.vDeployments[Consensus::DEPLOYMENT_CSV].nStartTime = 1486252800; // Feb 5th, 2017
-        consensus.vDeployments[Consensus::DEPLOYMENT_CSV].nTimeout = 1517788800; // Feb 5th, 2018
+        consensus.vDeployments[Consensus::DEPLOYMENT_CSV].nStartTime = 1502280000; // Aug 9th, 2017
+        consensus.vDeployments[Consensus::DEPLOYMENT_CSV].nTimeout = 1533816000; // Aug 9th, 2018
 
         // Deployment of DIP0001
         consensus.vDeployments[Consensus::DEPLOYMENT_DIP0001].bit = 1;
@@ -142,40 +142,40 @@ public:
          * The characters are rarely used upper ASCII, not valid as UTF-8, and produce
          * a large 32-bit integer with any alignment.
          */
-        pchMessageStart[0] = 0xae;
-        pchMessageStart[1] = 0x7e;
-        pchMessageStart[2] = 0x5d;
-        pchMessageStart[3] = 0x74;
-        vAlertPubKey = ParseHex("048c4ef0c2c635687f6077a742be01a05748370a24a6d5209283d727e7825bf5b259256169f638e7f845c923abe6f3b3f64177f8dd354c447fbe2ad933f457febe");
-        nDefaultPort = 7979;
-        nMaxTipAge = 6 * 60 * 60; // ~144 blocks behind -> 2 x fork detection time, was 24 * 60 * 60 in motion
+        pchMessageStart[0] = 0x27;
+        pchMessageStart[1] = 0x13;
+        pchMessageStart[2] = 0x49;
+        pchMessageStart[3] = 0xb3;
+        vAlertPubKey = ParseHex("04251a8ddf2c85652c9673dcbac15563336a86a06c7bc4212904e0b26f6022944b1378431ae9c785a84a01268cfad03243405e09bc8b8de897114b3e027c4f7d23");
+        nDefaultPort = 12034;
+        nMaxTipAge = 1.5 * 60 * 60; // ~144 blocks behind -> 2 x fork detection time, was 24 * 60 * 60 in bitcoin
         nDelayGetHeadersTime = 24 * 60 * 60;
         nPruneAfterHeight = 100000;
 
-        genesis = CreateGenesisBlock(1525487708, 83189, 0x1e0ffff0, 1, 50 * COIN);
+        genesis = CreateGenesisBlock(1537033788, 2828163, 0x1e0ffff0, 1, 50 * COIN);
         consensus.hashGenesisBlock = genesis.GetHash();
-        assert(consensus.hashGenesisBlock == uint256S("0x000001e9dc60dd2618e91f7b9014134922c374496b61c1a272519b1c39979d78"));
-        assert(genesis.hashMerkleRoot == uint256S("0x537fa2dbc0e079d646ce7770b09cbb7e9615ece5cd65e490c7fb3e3b0021f75f"));
+        assert(consensus.hashGenesisBlock == uint256S("0x0000064c7fd2c6e5a2a423ed786207f1866104242352563d7ae70f94a40a984a"));
+        assert(genesis.hashMerkleRoot == uint256S("0xa0b54793d678d2731fad495d97710f8db05636e33e0dcc8920bba1bfa6aac803"));
 
-        vSeeds.push_back(CDNSSeedData("motionproject.org", "seed.motionproject.org"));
-        vSeeds.push_back(CDNSSeedData("fixed-seeds.motionproject.org", "one.fixed-seeds.motionproject.org"));
-        vSeeds.push_back(CDNSSeedData("fixed-seeds.motionproject.org", "two.fixed-seeds.motionproject.org"));
-        vSeeds.push_back(CDNSSeedData("fixed-seeds.motionproject.org", "three.fixed-seeds.motionproject.org"));
+        vSeeds.push_back(CDNSSeedData("collegicoin.com", "seed.collegicoin.com"));
+        vSeeds.push_back(CDNSSeedData("fixed-seeds.collegicoin.com", "one.fixed-seeds.collegicoin.com"));
+        vSeeds.push_back(CDNSSeedData("fixed-seeds.collegicoin.com", "two.fixed-seeds.collegicoin.com"));
+        vSeeds.push_back(CDNSSeedData("fixed-seeds.collegicoin.com", "three.fixed-seeds.collegicoin.com"));
         // vFixedSeeds.clear();
         // vSeeds.clear();
 
-        // Motion addresses start with 'M'
-        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,50);
-        // Motion script addresses start with '8'
-        base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,18);
-        // Motion private keys start with 't'
-        base58Prefixes[SECRET_KEY] =     std::vector<unsigned char>(1,128);
-        // Motion BIP32 pubkeys start with 'xpub' (Motion defaults)
+        // Collegicoin addresses start with 'C'
+        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,28);
+        // Collegicoin script addresses start with '8'
+        base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,15);
+        // Collegicoin private keys start with 't'
+        base58Prefixes[SECRET_KEY] =     std::vector<unsigned char>(1,192);
+        // Collegicoin BIP32 pubkeys start with 'xpub' (Collegicoin defaults)
         base58Prefixes[EXT_PUBLIC_KEY] = boost::assign::list_of(0x04)(0x88)(0xB2)(0x1E).convert_to_container<std::vector<unsigned char> >();
-        // Motion BIP32 prvkeys start with 'xprv' (Motion defaults)
+        // Collegicoin BIP32 prvkeys start with 'xprv' (Collegicoin defaults)
         base58Prefixes[EXT_SECRET_KEY] = boost::assign::list_of(0x04)(0x88)(0xAD)(0xE4).convert_to_container<std::vector<unsigned char> >();
 
-        // Motion BIP44 coin type is '5'
+        // Collegicoin BIP44 coin type is '5'
         nExtCoinType = 5;
 
         vFixedSeeds = std::vector<SeedSpec6>(pnSeed6_main, pnSeed6_main + ARRAYLEN(pnSeed6_main));
@@ -188,16 +188,16 @@ public:
 
         nPoolMaxTransactions = 3;
         nFulfilledRequestExpireTime = 60*60; // fulfilled requests expire in 1 hour
-        strSporkPubKey = "04d0a5652fedcddbae0481c4cfeded5fc563f74c76ac249e1e57335cb7fbce7fd39cc10037169952ce7f3529b86f9d11cd0c8cb96423fce109c5963668997067d4";
+        strSporkPubKey = "0481f577e47592ecc389d3c42ef3c1118fd606cd711c6735c69c512ed8dd10c0f08d152572bd88dde0c560a63aaac04bbb80487bd76fca70663ab15132b64c153b";
 
-        checkpointData = (CCheckpointData) {
-            boost::assign::map_list_of
-            (  0, uint256S("0x000001e9dc60dd2618e91f7b9014134922c374496b61c1a272519b1c39979d78")),
-            1525487708, // * UNIX timestamp of last checkpoint block
-            0,    // * total number of transactions between genesis and last checkpoint
-                        //   (the tx=... number in the SetBestChain debug.log lines)
-            500        // * estimated number of transactions per day after checkpoint
-        };
+        // checkpointData = (CCheckpointData) {
+        //     boost::assign::map_list_of
+        //     (  0, uint256S("0x000004ece9176561c70874832a18b6d0a0e4c15645fdaeacb3d17d341c04fd40")),
+        //     1536582099, // * UNIX timestamp of last checkpoint block
+        //     0,    // * total number of transactions between genesis and last checkpoint
+        //                 //   (the tx=... number in the SetBestChain debug.log lines)
+        //     500        // * estimated number of transactions per day after checkpoint
+        // };
     }
 };
 
@@ -212,32 +212,32 @@ class CTestNetParams : public CChainParams {
 public:
     CTestNetParams() {
         strNetworkID = "test";
-        consensus.nSubsidyHalvingInterval = 21600;
-        consensus.nMasternodePaymentsStartBlock = 2000; // not true, but it's ok as long as it's less then nMasternodePaymentsIncreaseBlock
-        consensus.nMasternodePaymentsIncreaseBlock = 9999;
-        consensus.nMasternodePaymentsIncreasePeriod = 9999;
+        consensus.nSubsidyHalvingInterval = 500000;
+        consensus.nMasternodePaymentsStartBlock = 10000; // not true, but it's ok as long as it's less then nMasternodePaymentsIncreaseBlock
+        consensus.nMasternodePaymentsIncreaseBlock = 46000;
+        consensus.nMasternodePaymentsIncreasePeriod = 576;
         consensus.nInstantSendKeepLock = 6;
-        consensus.nBudgetPaymentsStartBlock = 9999999999; // Disabled
-        consensus.nBudgetPaymentsCycleBlocks = 9999999999; // Disabled
-        consensus.nBudgetPaymentsWindowBlocks = 9999999999; // Disabled
-        consensus.nBudgetProposalEstablishingTime = 60*20*9999999999; // Disabled
-        consensus.nSuperblockStartBlock = 99999999999; // Disabled
-        consensus.nSuperblockCycle = 9999999999; // Disabled
+        consensus.nBudgetPaymentsStartBlock = 2100000000; // Disabled
+        consensus.nBudgetPaymentsCycleBlocks = 50; // Disabled
+        consensus.nBudgetPaymentsWindowBlocks = 10; // Disabled
+        consensus.nBudgetProposalEstablishingTime = 60*20; // Disabled
+        consensus.nSuperblockStartBlock = 2100000000; // Disabled
+        consensus.nSuperblockCycle = 24; // Disabled
         consensus.nGovernanceMinQuorum = 1;
         consensus.nGovernanceFilterElements = 500;
         consensus.nMasternodeMinimumConfirmations = 1;
         consensus.nMajorityEnforceBlockUpgrade = 51;
         consensus.nMajorityRejectBlockOutdated = 75;
         consensus.nMajorityWindow = 100;
-        consensus.BIP34Height = 1;
-        consensus.BIP34Hash = uint256S("0x0000047d24635e347be3aaaeb66c26be94901a2f962feccd4f95090191f208c1");
+        consensus.BIP34Height = 21111;
+        consensus.BIP34Hash = uint256S("0x0000000023b3a96d3484e5abb3755c413e7d41500f8e2a5c3f0dd01299cd8ef8");
         consensus.powLimit = uint256S("00000fffff000000000000000000000000000000000000000000000000000000");
 
-        consensus.nZawyLwmaAveragingWindow = 65;
-        consensus.nZawyLwmaAjustedWeight = 3927;
+        consensus.nZawyLwmaAveragingWindow = 90;
+        consensus.nZawyLwmaAjustedWeight = 2724; // (nZawyLwmaAveragingWindow + 1) / 2 * 0.998 * nPowTargetSpacing
 
-        consensus.nPowTargetTimespan = 30 * 60 * 2; // Motion: 1 hour
-        consensus.nPowTargetSpacing = 2 * 60; // Motion: 2 minutes
+        consensus.nPowTargetTimespan = 60 * 60; // Collegicoin: 1 hour
+        consensus.nPowTargetSpacing = 1 * 60; // Collegicoin: 1 minutes
         consensus.fPowAllowMinDifficultyBlocks = true;
         consensus.fPowNoRetargeting = false;
         consensus.useDarkGravityWave = false;
@@ -265,38 +265,38 @@ public:
         // By default assume that the signatures in ancestors of this block are valid.
         consensus.defaultAssumeValid = uint256S("0x00");
 
-        pchMessageStart[0] = 0xa1;
-        pchMessageStart[1] = 0xbb;
-        pchMessageStart[2] = 0xca;
-        pchMessageStart[3] = 0x45;
-        vAlertPubKey = ParseHex("046e05270f6d736f006cb682c9e15998e3505e6185475f7e1a9bc5a4965984b6933ed8988336006ad07d0b5ae408bf5805183c5a94ab376d0e50f0c51ab30f6662");
-        nDefaultPort = 17979;
+        pchMessageStart[0] = 0x73;
+        pchMessageStart[1] = 0xe9;
+        pchMessageStart[2] = 0x13;
+        pchMessageStart[3] = 0xd3;
+        vAlertPubKey = ParseHex("0477ff7e578595f2bd4c550288cb4756b37d4491e944cec988c52b27fd01e53d88c8de207c0434d1091446efc672a14db6bac0fbcfce49e22b03bccd998e1832fd");
+        nDefaultPort = 112034;
         nMaxTipAge = 0x7fffffff; // allow mining on top of old blocks for testnet
         nDelayGetHeadersTime = 24 * 60 * 60;
         nPruneAfterHeight = 1000;
 
-        genesis = CreateGenesisBlock(1525413615UL, 1507179UL, 0x1e0ffff0, 1, 150000 * COIN);
+        genesis = CreateGenesisBlock(1537033723UL, 794882UL, 0x1e0ffff0, 1, 50 * COIN);
         consensus.hashGenesisBlock = genesis.GetHash();
-        assert(consensus.hashGenesisBlock == uint256S("0x00000ba049e5c1f95474ea3fc62d5f1b1632a294c20c22fea701134a43cf3068"));
-        assert(genesis.hashMerkleRoot == uint256S("0xd5dec0980d7b84cc1c048eb8706afe68bbbdb07fdefab76de8d176dfcb858ae8"));
+        assert(consensus.hashGenesisBlock == uint256S("0x00000f7f2d7ae53c24fefd88dd34fd08c74b0b8a6296af29654d0a29bb3835e3"));
+        assert(genesis.hashMerkleRoot == uint256S("0xa0b54793d678d2731fad495d97710f8db05636e33e0dcc8920bba1bfa6aac803"));
 
-        vSeeds.push_back(CDNSSeedData("testnet.motionproject.org", "testnet.seed.motionproject.org"));
-        vSeeds.push_back(CDNSSeedData("fixed-seeds.motionproject.org", "testnet.fixed-seeds.motionproject.org"));
+        vSeeds.push_back(CDNSSeedData("testnet.collegicoin.com", "testnet.seed.collegicoin.com"));
+        vSeeds.push_back(CDNSSeedData("fixed-seeds.collegicoin.com", "testnet.fixed-seeds.collegicoin.com"));
         // vFixedSeeds.clear();
         // vSeeds.clear();
 
-        // Testnet Motion addresses start with 'm'
-        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,110);
-        // Testnet Motion script addresses start with '9'
-        base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,21);
-        // Testnet private keys start with '9' or 'c' (Motion defaults)
-        base58Prefixes[SECRET_KEY] =     std::vector<unsigned char>(1,239);
-        // Testnet Motion BIP32 pubkeys start with 'tpub' (Motion defaults)
+        // Testnet Collegicoin addresses start with 'n'
+        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,108);
+        // Testnet Collegicoin script addresses start with '9'
+        base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,9);
+        // Testnet private keys start with '9' or 'c' (Collegicoin defaults)
+        base58Prefixes[SECRET_KEY] =     std::vector<unsigned char>(1,240);
+        // Testnet Collegicoin BIP32 pubkeys start with 'tpub' (Collegicoin defaults)
         base58Prefixes[EXT_PUBLIC_KEY] = boost::assign::list_of(0x04)(0x35)(0x87)(0xCF).convert_to_container<std::vector<unsigned char> >();
-        // Testnet Motion BIP32 prvkeys start with 'tprv' (Motion defaults)
+        // Testnet Collegicoin BIP32 prvkeys start with 'tprv' (Collegicoin defaults)
         base58Prefixes[EXT_SECRET_KEY] = boost::assign::list_of(0x04)(0x35)(0x83)(0x94).convert_to_container<std::vector<unsigned char> >();
 
-        // Testnet Motion BIP44 coin type is '1' (All coin's testnet default)
+        // Testnet Collegicoin BIP44 coin type is '1' (All coin's testnet default)
         nExtCoinType = 1;
 
         vFixedSeeds = std::vector<SeedSpec6>(pnSeed6_test, pnSeed6_test + ARRAYLEN(pnSeed6_test));
@@ -309,7 +309,7 @@ public:
 
         nPoolMaxTransactions = 3;
         nFulfilledRequestExpireTime = 5*60; // fulfilled requests expire in 5 minutes
-        strSporkPubKey = "04d10e7758ba66412ddaa7f8b7e6a8532e817d85b3b18d683a0091fa379e5f0f616405b5863ca275547838115827e2fe614ca4ec3d8a36e12db58309f888ae2af8";
+        strSporkPubKey = "0498cec1bedc6a5f4b036f02589ca8c73524040d917a17d9a14db1e337dfc035c4c7e72873145d60bb9a2c76b3d6aa4f8043db8dcbcf85af004b2762b18d1f567c";
 
         // checkpointData = (CCheckpointData) {
         //     boost::assign::map_list_of
@@ -333,9 +333,9 @@ public:
     CRegTestParams() {
         strNetworkID = "regtest";
         consensus.nSubsidyHalvingInterval = 150;
-        consensus.nMasternodePaymentsStartBlock = 2;
-        consensus.nMasternodePaymentsIncreaseBlock = 999;
-        consensus.nMasternodePaymentsIncreasePeriod = 999;
+        consensus.nMasternodePaymentsStartBlock = 240;
+        consensus.nMasternodePaymentsIncreaseBlock = 350;
+        consensus.nMasternodePaymentsIncreasePeriod = 10;
         consensus.nInstantSendKeepLock = 6;
         consensus.nBudgetPaymentsStartBlock = 1000;
         consensus.nBudgetPaymentsCycleBlocks = 50;
@@ -356,11 +356,11 @@ public:
         consensus.nZawyLwmaAveragingWindow = 65;
         consensus.nZawyLwmaAjustedWeight = 3927;
 
-        consensus.nPowTargetTimespan = 30 * 60 * 2; // Motion: 1 hour
-        consensus.nPowTargetSpacing = 2 * 60; // Motion: 2 minutes
+        consensus.nPowTargetTimespan = 60 * 60; // Collegicoin: 1 hour
+        consensus.nPowTargetSpacing = 1 * 60; // Collegicoin: 2 minutes
         consensus.fPowAllowMinDifficultyBlocks = true;
         consensus.fPowNoRetargeting = true;
-        consensus.useDarkGravityWave = false;
+        consensus.useDarkGravityWave = true;
         consensus.nRuleChangeActivationThreshold = 108; // 75% for testchains
         consensus.nMinerConfirmationWindow = 144; // Faster than normal for regtest (144 instead of 2016)
         consensus.vDeployments[Consensus::DEPLOYMENT_TESTDUMMY].bit = 28;
@@ -379,19 +379,19 @@ public:
         // By default assume that the signatures in ancestors of this block are valid.
         consensus.defaultAssumeValid = uint256S("0x00");
 
-        pchMessageStart[0] = 0xf4;
-        pchMessageStart[1] = 0xaf;
-        pchMessageStart[2] = 0xbf;
-        pchMessageStart[3] = 0xf5;
-        nMaxTipAge = 6 * 60 * 60; // ~144 blocks behind -> 2 x fork detection time, was 24 * 60 * 60 in motion
+        pchMessageStart[0] = 0x76;
+        pchMessageStart[1] = 0x9d;
+        pchMessageStart[2] = 0x5e;
+        pchMessageStart[3] = 0xd7;
+        nMaxTipAge = 6 * 60 * 60; // ~144 blocks behind -> 2 x fork detection time, was 24 * 60 * 60 in collegicoin
         nDelayGetHeadersTime = 0; // never delay GETHEADERS in regtests
         nDefaultPort = 17978;
         nPruneAfterHeight = 1000;
 
-        genesis = CreateGenesisBlock(1522201627, 1282268, 0x1e0ffff0, 1, 150000 * COIN);
+        genesis = CreateGenesisBlock(1536985714, 1359492, 0x1e0ffff0, 1, 50 * COIN);
         consensus.hashGenesisBlock = genesis.GetHash();
-        assert(consensus.hashGenesisBlock == uint256S("0x000005ec6d48ac579d697448a82e93127b94403770629399cf561caa216a694b"));
-        assert(genesis.hashMerkleRoot == uint256S("0xd5dec0980d7b84cc1c048eb8706afe68bbbdb07fdefab76de8d176dfcb858ae8"));
+        assert(consensus.hashGenesisBlock == uint256S("0x00000f42764cb0ec612b92d5d83cb58f5d61f523df259e87c6a75d00c083684f"));
+        assert(genesis.hashMerkleRoot == uint256S("0xa0b54793d678d2731fad495d97710f8db05636e33e0dcc8920bba1bfa6aac803"));
 
         vFixedSeeds.clear(); //! Regtest mode doesn't have any fixed seeds.
         vSeeds.clear();  //! Regtest mode doesn't have any DNS seeds.
@@ -406,23 +406,23 @@ public:
 
         checkpointData = (CCheckpointData){
             boost::assign::map_list_of
-            ( 0, uint256S("0x000005ec6d48ac579d697448a82e93127b94403770629399cf561caa216a694b")),
-            1522201627,
+            ( 0, uint256S("0x00000f42764cb0ec612b92d5d83cb58f5d61f523df259e87c6a75d00c083684f")),
+            1536985714,
             0,
-            0
+            1
         };
-        // Regtest Motion addresses start with 'o'
-        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,115);
-        // Regtest Motion script addresses start with 'a'
-        base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,83);
-        // Regtest private keys start with '9' or 'c' (Motion defaults)
-        base58Prefixes[SECRET_KEY] =     std::vector<unsigned char>(1,239);
-        // Regtest Motion BIP32 pubkeys start with 'tpub' (Motion defaults)
+        // Regtest Collegicoin addresses start with 'o'
+        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,108);
+        // Regtest Collegicoin script addresses start with 'a'
+        base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,9);
+        // Regtest private keys start with '9' or 'c' (Collegicoin defaults)
+        base58Prefixes[SECRET_KEY] =     std::vector<unsigned char>(1,240);
+        // Regtest Collegicoin BIP32 pubkeys start with 'tpub' (Collegicoin defaults)
         base58Prefixes[EXT_PUBLIC_KEY] = boost::assign::list_of(0x04)(0x35)(0x87)(0xCF).convert_to_container<std::vector<unsigned char> >();
-        // Regtest Motion BIP32 prvkeys start with 'tprv' (Motion defaults)
+        // Regtest Collegicoin BIP32 prvkeys start with 'tprv' (Collegicoin defaults)
         base58Prefixes[EXT_SECRET_KEY] = boost::assign::list_of(0x04)(0x35)(0x83)(0x94).convert_to_container<std::vector<unsigned char> >();
 
-        // Regtest Motion BIP44 coin type is '1' (All coin's testnet default)
+        // Regtest Collegicoin BIP44 coin type is '1' (All coin's testnet default)
         nExtCoinType = 1;
    }
 };

@@ -1,36 +1,36 @@
-Motion Core 0.12.1
+Collegicoin Core 0.12.1
 =====================
 
-This is the official reference wallet for Motion digital currency and comprises the backbone of the Motion peer-to-peer network. You can [download Motion Core](https://www.motion.org/downloads/) or [build it yourself](#building) using the guides below.
+This is the official reference wallet for Collegicoin digital currency and comprises the backbone of the Collegicoin peer-to-peer network. You can [download Collegicoin Core](https://www.collegicoin.org/downloads/) or [build it yourself](#building) using the guides below.
 
 Running
 ---------------------
-The following are some helpful notes on how to run Motion on your native platform.
+The following are some helpful notes on how to run Collegicoin on your native platform.
 
 ### Unix
 
 Unpack the files into a directory and run:
 
-- `bin/motion-qt` (GUI) or
-- `bin/motiond` (headless)
+- `bin/collegicoin-qt` (GUI) or
+- `bin/collegicoind` (headless)
 
 ### Windows
 
-Unpack the files into a directory, and then run motion-qt.exe.
+Unpack the files into a directory, and then run collegicoin-qt.exe.
 
 ### OS X
 
-Drag Motion-Qt to your applications folder, and then run Motion-Qt.
+Drag Collegicoin-Qt to your applications folder, and then run Collegicoin-Qt.
 
 ### Need Help?
 
-* See the [Motion documentation](https://dashpay.atlassian.net/wiki/display/DOC)
+* See the [Collegicoin documentation](https://dashpay.atlassian.net/wiki/display/DOC)
 for help and more information.
 * Ask for help on the [BitcoinTalk](https://bitcointalk.org/) forums.
 
 Building
 ---------------------
-The following are developer notes on how to build Motion Core on your native platform. They are not complete guides, but include notes on the necessary libraries, compile flags, etc.
+The following are developer notes on how to build Collegicoin Core on your native platform. They are not complete guides, but include notes on the necessary libraries, compile flags, etc.
 
 - [OS X Build Notes](build-osx.md)
 - [Unix Build Notes](build-unix.md)
@@ -40,7 +40,7 @@ The following are developer notes on how to build Motion Core on your native pla
 
 Development
 ---------------------
-The Motion Core repo's [root README](/README.md) contains relevant information on the development process and automated testing.
+The Collegicoin Core repo's [root README](/README.md) contains relevant information on the development process and automated testing.
 
 - [Developer Notes](developer-notes.md)
 - [Multiwallet Qt Development](multiwallet-qt.md)
@@ -56,7 +56,7 @@ The Motion Core repo's [root README](/README.md) contains relevant information o
 - [Dnsseed Policy](dnsseed-policy.md)
 
 ### Resources
-* Discuss on the [MotionTalk](https://motiontalk.org/) forums, in the Development & Technical Discussion board.
+* Discuss on the [CollegicoinTalk](https://collegicointalk.org/) forums, in the Development & Technical Discussion board.
 * Discuss on [#motioncrypto](http://webchat.freenode.net/?channels=motioncrypto) on Freenode. If you don't have an IRC client use [webchat here](http://webchat.freenode.net/?channels=motioncrypto).
 
 ### Miscellaneous

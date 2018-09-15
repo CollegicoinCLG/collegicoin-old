@@ -4,22 +4,22 @@
 
 	* means the category has an associated class
 	
-	CMotionNetwork: MOTION NETWORK (ROOT)
+	CCollegicoinNetwork: CLG NETWORK (ROOT)
 	has:
 		vector<CNetworkVariable> vecNetworkVariables;
-		vector<CMotionProject> vecProjects;
+		vector<CCollegicoinProject> vecProjects;
 		vector<CGovernanceObject> vecProposals;
 		vector<CBudgetContract> vecContracts;
 		vector<CBudgetUsers> vecUsers;
 
-	CMotionProject:
+	CCollegicoinProject:
 	has:
 		name
 		employees
 
 */
 
-	// MOTION NETWORK (ROOT)
+	// CLG NETWORK (ROOT)
 	// 	-> NETWORK VARIABLE
 	// 		-> switch, setting
 	// 	-> CATEGORIES
@@ -49,7 +49,7 @@
 	// 			-> USER1 (only users are allowed here in this scope)
 	// 			-> USER2
 	// 		-> GROUP2 (EVO)
-	// 			-> VALUEOVERRIDE (STORE=MOTIONDRIVE)
+	// 			-> VALUEOVERRIDE (STORE=CLGDRIVE)
 	// 			-> USER1
 
 	// 	-> COMPANIES

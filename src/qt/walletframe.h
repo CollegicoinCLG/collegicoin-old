@@ -2,14 +2,14 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef MOTION_QT_WALLETFRAME_H
-#define MOTION_QT_WALLETFRAME_H
+#ifndef CLG_QT_WALLETFRAME_H
+#define CLG_QT_WALLETFRAME_H
 
 #include "toolspage.h"
 #include <QFrame>
 #include <QMap>
 
-class MotionGUI;
+class CollegicoinGUI;
 class ClientModel;
 class PlatformStyle;
 class SendCoinsRecipient;
@@ -25,7 +25,7 @@ class WalletFrame : public QFrame
     Q_OBJECT
 
 public:
-    explicit WalletFrame(const PlatformStyle *platformStyle, MotionGUI *_gui = 0);
+    explicit WalletFrame(const PlatformStyle *platformStyle, CollegicoinGUI *_gui = 0);
     ~WalletFrame();
 
     void setClientModel(ClientModel *clientModel);
@@ -47,7 +47,7 @@ Q_SIGNALS:
 
 private:
     QStackedWidget *walletStack;
-    MotionGUI *gui;
+    CollegicoinGUI *gui;
     ClientModel *clientModel;
     QMap<QString, WalletView*> mapWalletViews;
 
@@ -95,4 +95,4 @@ public Q_SLOTS:
     void outOfSyncWarningClicked();
 };
 
-#endif // MOTION_QT_WALLETFRAME_H
+#endif // CLG_QT_WALLETFRAME_H

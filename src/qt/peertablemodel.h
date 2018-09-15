@@ -2,8 +2,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef MOTION_QT_PEERTABLEMODEL_H
-#define MOTION_QT_PEERTABLEMODEL_H
+#ifndef CLG_QT_PEERTABLEMODEL_H
+#define CLG_QT_PEERTABLEMODEL_H
 
 #include "net_processing.h" // For CNodeStateStats
 #include "net.h"
@@ -80,4 +80,4 @@ private:
     QTimer *timer;
 };
 
-#endif // MOTION_QT_PEERTABLEMODEL_H
+#endif // CLG_QT_PEERTABLEMODEL_H

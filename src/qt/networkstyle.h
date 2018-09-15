@@ -3,8 +3,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef MOTION_QT_NETWORKSTYLE_H
-#define MOTION_QT_NETWORKSTYLE_H
+#ifndef CLG_QT_NETWORKSTYLE_H
+#define CLG_QT_NETWORKSTYLE_H
 
 #include <QIcon>
 #include <QPixmap>
@@ -35,4 +35,4 @@ private:
     void rotateColors(QImage& img, const int iconColorHueShift, const int iconColorSaturationReduction);
 };
 
-#endif // MOTION_QT_NETWORKSTYLE_H
+#endif // CLG_QT_NETWORKSTYLE_H

@@ -3,11 +3,11 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef MOTION_SUPPORT_CLEANSE_H
-#define MOTION_SUPPORT_CLEANSE_H
+#ifndef CLG_SUPPORT_CLEANSE_H
+#define CLG_SUPPORT_CLEANSE_H
 
 #include <stdlib.h>
 
 void memory_cleanse(void *ptr, size_t len);
 
-#endif // MOTION_SUPPORT_CLEANSE_H
+#endif // CLG_SUPPORT_CLEANSE_H

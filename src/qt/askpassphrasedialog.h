@@ -2,8 +2,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef MOTION_QT_ASKPASSPHRASEDIALOG_H
-#define MOTION_QT_ASKPASSPHRASEDIALOG_H
+#ifndef CLG_QT_ASKPASSPHRASEDIALOG_H
+#define CLG_QT_ASKPASSPHRASEDIALOG_H
 
 #include <QDialog>
 
@@ -50,4 +50,4 @@ protected:
     bool eventFilter(QObject *object, QEvent *event);
 };
 
-#endif // MOTION_QT_ASKPASSPHRASEDIALOG_H
+#endif // CLG_QT_ASKPASSPHRASEDIALOG_H

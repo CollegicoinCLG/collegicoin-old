@@ -1,21 +1,21 @@
 
 Debian
 ====================
-This directory contains files used to package motiond/motion-qt
-for Debian-based Linux systems. If you compile motiond/motion-qt yourself, there are some useful files here.
+This directory contains files used to package collegicoind/collegicoin-qt
+for Debian-based Linux systems. If you compile collegicoind/collegicoin-qt yourself, there are some useful files here.
 
-## motion: URI support ##
+## collegicoin: URI support ##
 
 
-motion-qt.desktop  (Gnome / Open Desktop)
+collegicoin-qt.desktop  (Gnome / Open Desktop)
 To install:
 
-	sudo desktop-file-install motion-qt.desktop
+	sudo desktop-file-install collegicoin-qt.desktop
 	sudo update-desktop-database
 
 If you build yourself, you will either need to modify the paths in
-the .desktop file or copy or symlink your motion-qt binary to `/usr/bin`
-and the `../../share/pixmaps/motion128.png` to `/usr/share/pixmaps`
+the .desktop file or copy or symlink your collegicoin-qt binary to `/usr/bin`
+and the `../../share/pixmaps/collegicoin128.png` to `/usr/share/pixmaps`
 
-motion-qt.protocol (KDE)
+collegicoin-qt.protocol (KDE)
 

@@ -3,8 +3,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef MOTION_SCRIPT_SIGN_H
-#define MOTION_SCRIPT_SIGN_H
+#ifndef CLG_SCRIPT_SIGN_H
+#define CLG_SCRIPT_SIGN_H
 
 #include "script/interpreter.h"
 
@@ -64,4 +64,4 @@ CScript CombineSignatures(const CScript& scriptPubKey, const BaseSignatureChecke
 /** Combine two script signatures on transactions. */
 CScript CombineSignatures(const CScript& scriptPubKey, const CTransaction& txTo, unsigned int nIn, const CScript& scriptSig1, const CScript& scriptSig2);
 
-#endif // MOTION_SCRIPT_SIGN_H
+#endif // CLG_SCRIPT_SIGN_H

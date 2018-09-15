@@ -212,13 +212,13 @@ int CBase58Data::CompareTo(const CBase58Data& b58) const
 
 namespace
 {
-class CMotionAddressVisitor : public boost::static_visitor<bool>
+class CCollegicoinAddressVisitor : public boost::static_visitor<bool>
 {
 private:
-    CMotionAddress* addr;
+    CCollegicoinAddress* addr;
 
 public:
-    CMotionAddressVisitor(CMotionAddress* addrIn) : addr(addrIn) {}
+    CCollegicoinAddressVisitor(CCollegicoinAddress* addrIn) : addr(addrIn) {}
 
     bool operator()(const CKeyID& id) const { return addr->Set(id); }
     bool operator()(const CScriptID& id) const { return addr->Set(id); }
@@ -227,29 +227,29 @@ public:
 
 } // anon namespace
 
-bool CMotionAddress::Set(const CKeyID& id)
+bool CCollegicoinAddress::Set(const CKeyID& id)
 {
     SetData(Params().Base58Prefix(CChainParams::PUBKEY_ADDRESS), &id, 20);
     return true;
 }
 
-bool CMotionAddress::Set(const CScriptID& id)
+bool CCollegicoinAddress::Set(const CScriptID& id)
 {
     SetData(Params().Base58Prefix(CChainParams::SCRIPT_ADDRESS), &id, 20);
     return true;
 }
 
-bool CMotionAddress::Set(const CTxDestination& dest)
+bool CCollegicoinAddress::Set(const CTxDestination& dest)
 {
-    return boost::apply_visitor(CMotionAddressVisitor(this), dest);
+    return boost::apply_visitor(CCollegicoinAddressVisitor(this), dest);
 }
 
-bool CMotionAddress::IsValid() const
+bool CCollegicoinAddress::IsValid() const
 {
     return IsValid(Params());
 }
 
-bool CMotionAddress::IsValid(const CChainParams& params) const
+bool CCollegicoinAddress::IsValid(const CChainParams& params) const
 {
     bool fCorrectSize = vchData.size() == 20;
     bool fKnownVersion = vchVersion == params.Base58Prefix(CChainParams::PUBKEY_ADDRESS) ||
@@ -257,7 +257,7 @@ bool CMotionAddress::IsValid(const CChainParams& params) const
     return fCorrectSize && fKnownVersion;
 }
 
-CTxDestination CMotionAddress::Get() const
+CTxDestination CCollegicoinAddress::Get() const
 {
     if (!IsValid())
         return CNoDestination();
@@ -271,7 +271,7 @@ CTxDestination CMotionAddress::Get() const
         return CNoDestination();
 }
 
-bool CMotionAddress::GetIndexKey(uint160& hashBytes, int& type) const
+bool CCollegicoinAddress::GetIndexKey(uint160& hashBytes, int& type) const
 {
     if (!IsValid()) {
         return false;
@@ -288,7 +288,7 @@ bool CMotionAddress::GetIndexKey(uint160& hashBytes, int& type) const
     return false;
 }
 
-bool CMotionAddress::GetKeyID(CKeyID& keyID) const
+bool CCollegicoinAddress::GetKeyID(CKeyID& keyID) const
 {
     if (!IsValid() || vchVersion != Params().Base58Prefix(CChainParams::PUBKEY_ADDRESS))
         return false;
@@ -298,12 +298,12 @@ bool CMotionAddress::GetKeyID(CKeyID& keyID) const
     return true;
 }
 
-bool CMotionAddress::IsScript() const
+bool CCollegicoinAddress::IsScript() const
 {
     return IsValid() && vchVersion == Params().Base58Prefix(CChainParams::SCRIPT_ADDRESS);
 }
 
-void CMotionSecret::SetKey(const CKey& vchSecret)
+void CCollegicoinSecret::SetKey(const CKey& vchSecret)
 {
     assert(vchSecret.IsValid());
     SetData(Params().Base58Prefix(CChainParams::SECRET_KEY), vchSecret.begin(), vchSecret.size());
@@ -311,7 +311,7 @@ void CMotionSecret::SetKey(const CKey& vchSecret)
         vchData.push_back(1);
 }
 
-CKey CMotionSecret::GetKey()
+CKey CCollegicoinSecret::GetKey()
 {
     CKey ret;
     assert(vchData.size() >= 32);
@@ -319,19 +319,19 @@ CKey CMotionSecret::GetKey()
     return ret;
 }
 
-bool CMotionSecret::IsValid() const
+bool CCollegicoinSecret::IsValid() const
 {
     bool fExpectedFormat = vchData.size() == 32 || (vchData.size() == 33 && vchData[32] == 1);
     bool fCorrectVersion = vchVersion == Params().Base58Prefix(CChainParams::SECRET_KEY);
     return fExpectedFormat && fCorrectVersion;
 }
 
-bool CMotionSecret::SetString(const char* pszSecret)
+bool CCollegicoinSecret::SetString(const char* pszSecret)
 {
     return CBase58Data::SetString(pszSecret) && IsValid();
 }
 
-bool CMotionSecret::SetString(const std::string& strSecret)
+bool CCollegicoinSecret::SetString(const std::string& strSecret)
 {
     return SetString(strSecret.c_str());
 }

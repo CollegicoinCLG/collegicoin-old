@@ -2,8 +2,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef MOTION_BLOOM_H
-#define MOTION_BLOOM_H
+#ifndef CLG_BLOOM_H
+#define CLG_BLOOM_H
 
 #include "serialize.h"
 
@@ -135,4 +135,4 @@ private:
 };
 
 
-#endif // MOTION_BLOOM_H
+#endif // CLG_BLOOM_H

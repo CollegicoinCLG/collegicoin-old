@@ -2,8 +2,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef MOTION_ZMQ_ZMQABSTRACTNOTIFIER_H
-#define MOTION_ZMQ_ZMQABSTRACTNOTIFIER_H
+#ifndef CLG_ZMQ_ZMQABSTRACTNOTIFIER_H
+#define CLG_ZMQ_ZMQABSTRACTNOTIFIER_H
 
 #include "zmqconfig.h"
 
@@ -42,4 +42,4 @@ protected:
     std::string address;
 };
 
-#endif // MOTION_ZMQ_ZMQABSTRACTNOTIFIER_H
+#endif // CLG_ZMQ_ZMQABSTRACTNOTIFIER_H

@@ -3,8 +3,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef MOTION_SCRIPT_SCRIPT_ERROR_H
-#define MOTION_SCRIPT_SCRIPT_ERROR_H
+#ifndef CLG_SCRIPT_SCRIPT_ERROR_H
+#define CLG_SCRIPT_SCRIPT_ERROR_H
 
 typedef enum ScriptError_t
 {
@@ -59,4 +59,4 @@ typedef enum ScriptError_t
 
 const char* ScriptErrorString(const ScriptError error);
 
-#endif // MOTION_SCRIPT_SCRIPT_ERROR_H
+#endif // CLG_SCRIPT_SCRIPT_ERROR_H

@@ -3,8 +3,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef MOTION_COMPRESSOR_H
-#define MOTION_COMPRESSOR_H
+#ifndef CLG_COMPRESSOR_H
+#define CLG_COMPRESSOR_H
 
 #include "primitives/transaction.h"
 #include "script/script.h"
@@ -126,4 +126,4 @@ public:
     }
 };
 
-#endif // MOTION_COMPRESSOR_H
+#endif // CLG_COMPRESSOR_H

@@ -2,8 +2,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef MOTION_QT_TRAFFICGRAPHWIDGET_H
-#define MOTION_QT_TRAFFICGRAPHWIDGET_H
+#ifndef CLG_QT_TRAFFICGRAPHWIDGET_H
+#define CLG_QT_TRAFFICGRAPHWIDGET_H
 
 #include "trafficgraphdata.h"
 
@@ -47,4 +47,4 @@ private:
     TrafficGraphData trafficGraphData;
 };
 
-#endif // MOTION_QT_TRAFFICGRAPHWIDGET_H
+#endif // CLG_QT_TRAFFICGRAPHWIDGET_H

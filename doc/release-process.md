@@ -1,7 +1,7 @@
 Release Process
 ====================
 
-* Update translations, see [translation_process.md](https://github.com/motioncrypto/motion/blob/master/doc/translation_process.md#syncing-with-transifex)
+* Update translations, see [translation_process.md](https://github.com/collegicoindev/collegicoin/blob/master/doc/translation_process.md#syncing-with-transifex)
 * Update hardcoded [seeds](/contrib/seeds)
 
 * * *
@@ -11,13 +11,13 @@ Check out the source code in the following directory hierarchy.
 
 	cd /path/to/your/toplevel/build
 	git clone https://github.com/motioncrypto/gitian.sigs.git
-	git clone https://github.com/motioncrypto/motion-detached-sigs.git
+	git clone https://github.com/collegicoindev/collegicoin-detached-sigs.git
 	git clone https://github.com/devrandom/gitian-builder.git
-	git clone https://github.com/motioncrypto/motion.git
+	git clone https://github.com/collegicoindev/collegicoin.git
 
-### Motion Core maintainers/release engineers, update (commit) version in sources
+### Collegicoin Core maintainers/release engineers, update (commit) version in sources
 
-	pushd ./motion
+	pushd ./collegicoin
 	contrib/verifysfbinaries/verify.sh
 	configure.ac
 	doc/README*
@@ -40,7 +40,7 @@ Check out the source code in the following directory hierarchy.
 
  Setup Gitian descriptors:
 
-	pushd ./motion
+	pushd ./collegicoin
 	export SIGNER=(your Gitian key, ie bluematt, sipa, etc)
 	export VERSION=(new version, e.g. 0.8.0)
 	git fetch
@@ -61,7 +61,7 @@ Check out the source code in the following directory hierarchy.
 ### Fetch and create inputs: (first time, or when dependency versions change)
 
 	mkdir -p inputs
-	wget -P inputs https://motioncore.org/cfields/osslsigncode-Backports-to-1.7.1.patch
+	wget -P inputs https://collegicoincore.org/cfields/osslsigncode-Backports-to-1.7.1.patch
 	wget -P inputs http://downloads.sourceforge.net/project/osslsigncode/osslsigncode/osslsigncode-1.7.1.tar.gz
 
  Register and download the Apple SDK: see [OS X readme](README_osx.txt) for details.
@@ -76,52 +76,52 @@ Check out the source code in the following directory hierarchy.
 
 By default, Gitian will fetch source files as needed. To cache them ahead of time:
 
-	make -C ../motion/depends download SOURCES_PATH=`pwd`/cache/common
+	make -C ../collegicoin/depends download SOURCES_PATH=`pwd`/cache/common
 
 Only missing files will be fetched, so this is safe to re-run for each build.
 
 NOTE: Offline builds must use the --url flag to ensure Gitian fetches only from local URLs. For example:
 ```
-./bin/gbuild --url motion=/path/to/motion,signature=/path/to/sigs {rest of arguments}
+./bin/gbuild --url collegicoin=/path/to/collegicoin,signature=/path/to/sigs {rest of arguments}
 ```
 The gbuild invocations below <b>DO NOT DO THIS</b> by default.
 
-### Build and sign Motion Core for Linux, Windows, and OS X:
+### Build and sign Collegicoin Core for Linux, Windows, and OS X:
 
-	./bin/gbuild --commit motion=v${VERSION} ../motion/contrib/gitian-descriptors/gitian-linux.yml
-	./bin/gsign --signer $SIGNER --release ${VERSION}-linux --destination ../gitian.sigs/ ../motion/contrib/gitian-descriptors/gitian-linux.yml
-	mv build/out/motion-*.tar.gz build/out/src/motion-*.tar.gz ../
+	./bin/gbuild --commit collegicoin=v${VERSION} ../collegicoin/contrib/gitian-descriptors/gitian-linux.yml
+	./bin/gsign --signer $SIGNER --release ${VERSION}-linux --destination ../gitian.sigs/ ../collegicoin/contrib/gitian-descriptors/gitian-linux.yml
+	mv build/out/collegicoin-*.tar.gz build/out/src/collegicoin-*.tar.gz ../
 
-	./bin/gbuild --commit motion=v${VERSION} ../motion/contrib/gitian-descriptors/gitian-win.yml
-	./bin/gsign --signer $SIGNER --release ${VERSION}-win-unsigned --destination ../gitian.sigs/ ../motion/contrib/gitian-descriptors/gitian-win.yml
-	mv build/out/motion-*-win-unsigned.tar.gz inputs/motion-win-unsigned.tar.gz
-	mv build/out/motion-*.zip build/out/motion-*.exe ../
+	./bin/gbuild --commit collegicoin=v${VERSION} ../collegicoin/contrib/gitian-descriptors/gitian-win.yml
+	./bin/gsign --signer $SIGNER --release ${VERSION}-win-unsigned --destination ../gitian.sigs/ ../collegicoin/contrib/gitian-descriptors/gitian-win.yml
+	mv build/out/collegicoin-*-win-unsigned.tar.gz inputs/collegicoin-win-unsigned.tar.gz
+	mv build/out/collegicoin-*.zip build/out/collegicoin-*.exe ../
 
-	./bin/gbuild --commit motion=v${VERSION} ../motion/contrib/gitian-descriptors/gitian-osx.yml
-	./bin/gsign --signer $SIGNER --release ${VERSION}-osx-unsigned --destination ../gitian.sigs/ ../motion/contrib/gitian-descriptors/gitian-osx.yml
-	mv build/out/motion-*-osx-unsigned.tar.gz inputs/motion-osx-unsigned.tar.gz
-	mv build/out/motion-*.tar.gz build/out/motion-*.dmg ../
+	./bin/gbuild --commit collegicoin=v${VERSION} ../collegicoin/contrib/gitian-descriptors/gitian-osx.yml
+	./bin/gsign --signer $SIGNER --release ${VERSION}-osx-unsigned --destination ../gitian.sigs/ ../collegicoin/contrib/gitian-descriptors/gitian-osx.yml
+	mv build/out/collegicoin-*-osx-unsigned.tar.gz inputs/collegicoin-osx-unsigned.tar.gz
+	mv build/out/collegicoin-*.tar.gz build/out/collegicoin-*.dmg ../
 	popd
 
   Build output expected:
 
-  1. source tarball (motion-${VERSION}.tar.gz)
-  2. linux 32-bit and 64-bit dist tarballs (motion-${VERSION}-linux[32|64].tar.gz)
-  3. windows 32-bit and 64-bit unsigned installers and dist zips (motion-${VERSION}-win[32|64]-setup-unsigned.exe, motion-${VERSION}-win[32|64].zip)
-  4. OS X unsigned installer and dist tarball (motion-${VERSION}-osx-unsigned.dmg, motion-${VERSION}-osx64.tar.gz)
+  1. source tarball (collegicoin-${VERSION}.tar.gz)
+  2. linux 32-bit and 64-bit dist tarballs (collegicoin-${VERSION}-linux[32|64].tar.gz)
+  3. windows 32-bit and 64-bit unsigned installers and dist zips (collegicoin-${VERSION}-win[32|64]-setup-unsigned.exe, collegicoin-${VERSION}-win[32|64].zip)
+  4. OS X unsigned installer and dist tarball (collegicoin-${VERSION}-osx-unsigned.dmg, collegicoin-${VERSION}-osx64.tar.gz)
   5. Gitian signatures (in gitian.sigs/${VERSION}-<linux|{win,osx}-unsigned>/(your Gitian key)/
 
 ### Verify other gitian builders signatures to your own. (Optional)
 
   Add other gitian builders keys to your gpg keyring
 
-	gpg --import ../motion/contrib/gitian-downloader/*.pgp
+	gpg --import ../collegicoin/contrib/gitian-downloader/*.pgp
 
   Verify the signatures
 
-	./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-linux ../motion/contrib/gitian-descriptors/gitian-linux.yml
-	./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-win-unsigned ../motion/contrib/gitian-descriptors/gitian-win.yml
-	./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-osx-unsigned ../motion/contrib/gitian-descriptors/gitian-osx.yml
+	./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-linux ../collegicoin/contrib/gitian-descriptors/gitian-linux.yml
+	./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-win-unsigned ../collegicoin/contrib/gitian-descriptors/gitian-win.yml
+	./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-osx-unsigned ../collegicoin/contrib/gitian-descriptors/gitian-osx.yml
 
 	popd
 
@@ -139,25 +139,25 @@ Commit your signature to gitian.sigs:
 
   Wait for Windows/OS X detached signatures:
 	Once the Windows/OS X builds each have 3 matching signatures, they will be signed with their respective release keys.
-	Detached signatures will then be committed to the [motion-detached-sigs](https://github.com/motioncrypto/motion-detached-sigs) repository, which can be combined with the unsigned apps to create signed binaries.
+	Detached signatures will then be committed to the [collegicoin-detached-sigs](https://github.com/collegicoindev/collegicoin-detached-sigs) repository, which can be combined with the unsigned apps to create signed binaries.
 
   Create (and optionally verify) the signed OS X binary:
 
 	pushd ./gitian-builder
-	./bin/gbuild -i --commit signature=v${VERSION} ../motion/contrib/gitian-descriptors/gitian-osx-signer.yml
-	./bin/gsign --signer $SIGNER --release ${VERSION}-osx-signed --destination ../gitian.sigs/ ../motion/contrib/gitian-descriptors/gitian-osx-signer.yml
-	./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-osx-signed ../motion/contrib/gitian-descriptors/gitian-osx-signer.yml
-	mv build/out/motion-osx-signed.dmg ../motion-${VERSION}-osx.dmg
+	./bin/gbuild -i --commit signature=v${VERSION} ../collegicoin/contrib/gitian-descriptors/gitian-osx-signer.yml
+	./bin/gsign --signer $SIGNER --release ${VERSION}-osx-signed --destination ../gitian.sigs/ ../collegicoin/contrib/gitian-descriptors/gitian-osx-signer.yml
+	./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-osx-signed ../collegicoin/contrib/gitian-descriptors/gitian-osx-signer.yml
+	mv build/out/collegicoin-osx-signed.dmg ../collegicoin-${VERSION}-osx.dmg
 	popd
 
   Create (and optionally verify) the signed Windows binaries:
 
 	pushd ./gitian-builder
-	./bin/gbuild -i --commit signature=v${VERSION} ../motion/contrib/gitian-descriptors/gitian-win-signer.yml
-	./bin/gsign --signer $SIGNER --release ${VERSION}-win-signed --destination ../gitian.sigs/ ../motion/contrib/gitian-descriptors/gitian-win-signer.yml
-	./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-win-signed ../motion/contrib/gitian-descriptors/gitian-win-signer.yml
-	mv build/out/motion-*win64-setup.exe ../motion-${VERSION}-win64-setup.exe
-	mv build/out/motion-*win32-setup.exe ../motion-${VERSION}-win32-setup.exe
+	./bin/gbuild -i --commit signature=v${VERSION} ../collegicoin/contrib/gitian-descriptors/gitian-win-signer.yml
+	./bin/gsign --signer $SIGNER --release ${VERSION}-win-signed --destination ../gitian.sigs/ ../collegicoin/contrib/gitian-descriptors/gitian-win-signer.yml
+	./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-win-signed ../collegicoin/contrib/gitian-descriptors/gitian-win-signer.yml
+	mv build/out/collegicoin-*win64-setup.exe ../collegicoin-${VERSION}-win64-setup.exe
+	mv build/out/collegicoin-*win32-setup.exe ../collegicoin-${VERSION}-win32-setup.exe
 	popd
 
 Commit your signature for the signed OS X/Windows binaries:
@@ -182,21 +182,21 @@ rm SHA256SUMS
 (the digest algorithm is forced to sha256 to avoid confusion of the `Hash:` header that GPG adds with the SHA256 used for the files)
 Note: check that SHA256SUMS itself doesn't end up in SHA256SUMS, which is a spurious/nonsensical entry.
 
-- Upload zips and installers, as well as `SHA256SUMS.asc` from last step, to the motion.org server
+- Upload zips and installers, as well as `SHA256SUMS.asc` from last step, to the collegicoin.org server
 
-- Update motion.org
+- Update collegicoin.org
 
 - Announce the release:
 
-  - Release on Motion forum: https://www.motion.org/forum/topic/official-announcements.54/
+  - Release on Collegicoin forum: https://www.collegicoin.org/forum/topic/official-announcements.54/
 
-  - Motion-development mailing list
+  - Collegicoin-development mailing list
 
   - Update title of #motioncrypto on Freenode IRC
 
   - Optionally reddit /r/motioncrypto, ... but this will usually sort out itself
 
-- Notify flare so that he can start building [the PPAs](https://launchpad.net/~motion.org/+archive/ubuntu/motion)
+- Notify flare so that he can start building [the PPAs](https://launchpad.net/~collegicoin.org/+archive/ubuntu/collegicoin)
 
 - Add release notes for the new version to the directory `doc/release-notes` in git master
 

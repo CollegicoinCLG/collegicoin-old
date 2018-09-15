@@ -11,8 +11,8 @@
  * - E-mail usually won't line-break if there's no punctuation to break at.
  * - Double-clicking selects the whole string as one word if it's all alphanumeric.
  */
-#ifndef MOTION_BASE58_H
-#define MOTION_BASE58_H
+#ifndef CLG_BASE58_H
+#define CLG_BASE58_H
 
 #include "chainparams.h"
 #include "key.h"
@@ -95,13 +95,13 @@ public:
     bool operator> (const CBase58Data& b58) const { return CompareTo(b58) >  0; }
 };
 
-/** base58-encoded Motion addresses.
+/** base58-encoded Collegicoin addresses.
  * Public-key-hash-addresses have version 76 (or 140 testnet).
  * The data vector contains RIPEMD160(SHA256(pubkey)), where pubkey is the serialized public key.
  * Script-hash-addresses have version 16 (or 19 testnet).
  * The data vector contains RIPEMD160(SHA256(cscript)), where cscript is the serialized redemption script.
  */
-class CMotionAddress : public CBase58Data {
+class CCollegicoinAddress : public CBase58Data {
 public:
     bool Set(const CKeyID &id);
     bool Set(const CScriptID &id);
@@ -109,10 +109,10 @@ public:
     bool IsValid() const;
     bool IsValid(const CChainParams &params) const;
 
-    CMotionAddress() {}
-    CMotionAddress(const CTxDestination &dest) { Set(dest); }
-    CMotionAddress(const std::string& strAddress) { SetString(strAddress); }
-    CMotionAddress(const char* pszAddress) { SetString(pszAddress); }
+    CCollegicoinAddress() {}
+    CCollegicoinAddress(const CTxDestination &dest) { Set(dest); }
+    CCollegicoinAddress(const std::string& strAddress) { SetString(strAddress); }
+    CCollegicoinAddress(const char* pszAddress) { SetString(pszAddress); }
 
     CTxDestination Get() const;
     bool GetKeyID(CKeyID &keyID) const;
@@ -123,7 +123,7 @@ public:
 /**
  * A base58-encoded secret key
  */
-class CMotionSecret : public CBase58Data
+class CCollegicoinSecret : public CBase58Data
 {
 public:
     void SetKey(const CKey& vchSecret);
@@ -132,11 +132,11 @@ public:
     bool SetString(const char* pszSecret);
     bool SetString(const std::string& strSecret);
 
-    CMotionSecret(const CKey& vchSecret) { SetKey(vchSecret); }
-    CMotionSecret() {}
+    CCollegicoinSecret(const CKey& vchSecret) { SetKey(vchSecret); }
+    CCollegicoinSecret() {}
 };
 
-template<typename K, int Size, CChainParams::Base58Type Type> class CMotionExtKeyBase : public CBase58Data
+template<typename K, int Size, CChainParams::Base58Type Type> class CCollegicoinExtKeyBase : public CBase58Data
 {
 public:
     void SetKey(const K &key) {
@@ -154,18 +154,18 @@ public:
         return ret;
     }
 
-    CMotionExtKeyBase(const K &key) {
+    CCollegicoinExtKeyBase(const K &key) {
         SetKey(key);
     }
 
-    CMotionExtKeyBase(const std::string& strBase58c) {
+    CCollegicoinExtKeyBase(const std::string& strBase58c) {
         SetString(strBase58c.c_str(), Params().Base58Prefix(Type).size());
     }
 
-    CMotionExtKeyBase() {}
+    CCollegicoinExtKeyBase() {}
 };
 
-typedef CMotionExtKeyBase<CExtKey, 74, CChainParams::EXT_SECRET_KEY> CMotionExtKey;
-typedef CMotionExtKeyBase<CExtPubKey, 74, CChainParams::EXT_PUBLIC_KEY> CMotionExtPubKey;
+typedef CCollegicoinExtKeyBase<CExtKey, 74, CChainParams::EXT_SECRET_KEY> CCollegicoinExtKey;
+typedef CCollegicoinExtKeyBase<CExtPubKey, 74, CChainParams::EXT_PUBLIC_KEY> CCollegicoinExtPubKey;
 
-#endif // MOTION_BASE58_H
+#endif // CLG_BASE58_H

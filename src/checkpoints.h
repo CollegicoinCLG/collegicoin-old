@@ -2,8 +2,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef MOTION_CHECKPOINTS_H
-#define MOTION_CHECKPOINTS_H
+#ifndef CLG_CHECKPOINTS_H
+#define CLG_CHECKPOINTS_H
 
 #include "uint256.h"
 
@@ -26,4 +26,4 @@ double GuessVerificationProgress(const CCheckpointData& data, CBlockIndex* pinde
 
 } //namespace Checkpoints
 
-#endif // MOTION_CHECKPOINTS_H
+#endif // CLG_CHECKPOINTS_H

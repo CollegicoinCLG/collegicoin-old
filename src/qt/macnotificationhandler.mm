@@ -13,7 +13,7 @@
 - (NSString *)__bundleIdentifier
 {
     if (self == [NSBundle mainBundle]) {
-        return @"org.motion.Motion-Qt";
+        return @"org.collegicoin.Collegicoin-Qt";
     } else {
         return [self __bundleIdentifier];
     }

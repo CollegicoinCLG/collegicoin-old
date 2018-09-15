@@ -2,11 +2,11 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef MOTION_QT_PAYMENTSERVER_H
-#define MOTION_QT_PAYMENTSERVER_H
+#ifndef CLG_QT_PAYMENTSERVER_H
+#define CLG_QT_PAYMENTSERVER_H
 
 // This class handles payment requests from clicking on
-// motion: URIs
+// collegicoin: URIs
 //
 // This is somewhat tricky, because we have to deal with
 // the situation where the user clicks on a link during
@@ -145,4 +145,4 @@ private:
     OptionsModel *optionsModel;
 };
 
-#endif // MOTION_QT_PAYMENTSERVER_H
+#endif // CLG_QT_PAYMENTSERVER_H

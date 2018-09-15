@@ -2,8 +2,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef MOTION_QT_OVERVIEWPAGE_H
-#define MOTION_QT_OVERVIEWPAGE_H
+#ifndef CLG_QT_OVERVIEWPAGE_H
+#define CLG_QT_OVERVIEWPAGE_H
 
 #include "amount.h"
 
@@ -89,4 +89,4 @@ private Q_SLOTS:
     void handleOutOfSyncWarningClicks();
 };
 
-#endif // MOTION_QT_OVERVIEWPAGE_H
+#endif // CLG_QT_OVERVIEWPAGE_H

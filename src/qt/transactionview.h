@@ -2,8 +2,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef MOTION_QT_TRANSACTIONVIEW_H
-#define MOTION_QT_TRANSACTIONVIEW_H
+#ifndef CLG_QT_TRANSACTIONVIEW_H
+#define CLG_QT_TRANSACTIONVIEW_H
 
 #include "guiutil.h"
 
@@ -120,4 +120,4 @@ public Q_SLOTS:
     void computeSum();
 };
 
-#endif // MOTION_QT_TRANSACTIONVIEW_H
+#endif // CLG_QT_TRANSACTIONVIEW_H

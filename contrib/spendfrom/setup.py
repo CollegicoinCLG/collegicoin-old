@@ -1,9 +1,9 @@
 from distutils.core import setup
-setup(name='XMNspendfrom',
+setup(name='CLGspendfrom',
       version='1.0',
-      description='Command-line utility for motion "coin control"',
+      description='Command-line utility for collegicoin "coin control"',
       author='Gavin Andresen',
-      author_email='gavin@motionfoundation.org',
+      author_email='gavin@collegicoinfoundation.org',
       requires=['jsonrpc'],
       scripts=['spendfrom.py'],
       )

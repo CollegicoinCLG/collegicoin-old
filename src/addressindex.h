@@ -3,8 +3,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef MOTION_ADDRESSINDEX_H
-#define MOTION_ADDRESSINDEX_H
+#ifndef CLG_ADDRESSINDEX_H
+#define CLG_ADDRESSINDEX_H
 
 #include "uint256.h"
 #include "amount.h"
@@ -79,4 +79,4 @@ struct CMempoolAddressDeltaKeyCompare
     }
 };
 
-#endif // MOTION_ADDRESSINDEX_H
+#endif // CLG_ADDRESSINDEX_H

@@ -7,10 +7,10 @@
 # Test -alertnotify 
 #
 
-from test_framework.test_framework import MotionTestFramework
+from test_framework.test_framework import CollegicoinTestFramework
 from test_framework.util import *
 
-class ForkNotifyTest(MotionTestFramework):
+class ForkNotifyTest(CollegicoinTestFramework):
 
     alert_filename = None  # Set by setup_network
 

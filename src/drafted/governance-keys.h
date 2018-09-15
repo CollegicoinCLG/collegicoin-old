@@ -13,7 +13,7 @@ CCriticalSection cs_vGovernanceKeys;
 	
 	- Users will configure their keys, something like this:
 
-	motion.conf:
+	collegicoin.conf:
 
 		addgovkey=PrivKey1:name1 #comments
 		addgovkey=PrivKey2:name2 #comments
@@ -34,7 +34,7 @@ private:
 public:
 	CGovernanceKey::CGovernanceKey(SecureString& strKeyIn, SecureString& strNameIn) {strName = strNameIn; strKey = strKeyIn;}
 
-	bool GetKey(CMotionSecret& secret)
+	bool GetKey(CCollegicoinSecret& secret)
 	{
 	    return secret.SetString(vecTokenized[0]);
 	}

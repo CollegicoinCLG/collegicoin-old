@@ -2,8 +2,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef MOTION_QT_RECEIVEREQUESTDIALOG_H
-#define MOTION_QT_RECEIVEREQUESTDIALOG_H
+#ifndef CLG_QT_RECEIVEREQUESTDIALOG_H
+#define CLG_QT_RECEIVEREQUESTDIALOG_H
 
 #include "walletmodel.h"
 
@@ -67,4 +67,4 @@ private:
     SendCoinsRecipient info;
 };
 
-#endif // MOTION_QT_RECEIVEREQUESTDIALOG_H
+#endif // CLG_QT_RECEIVEREQUESTDIALOG_H

@@ -1,0 +1,12 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Collegicoin
+Comment=Collegicoin P2P Cryptocurrency
+Comment[fr]=Collegicoin, monnaie virtuelle cryptographique pair à pair
+Comment[tr]=Collegicoin, eşten eşe kriptografik sanal para birimi
+Exec=collegicoin-qt %u
+Terminal=false
+Type=Application
+Icon=collegicoin128
+MimeType=x-scheme-handler/collegicoin;
+Categories=Office;Finance;

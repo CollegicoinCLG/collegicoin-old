@@ -17,7 +17,7 @@ than:
       interface.
 
 For a description of arguments recognized by test scripts, see
-`qa/pull-tester/test_framework/test_framework.py:MotionTestFramework.main`.
+`qa/pull-tester/test_framework/test_framework.py:CollegicoinTestFramework.main`.
 
 """
 
@@ -34,8 +34,8 @@ from tests_config import *
 #If imported values are not defined then set to zero (or disabled)
 if 'ENABLE_WALLET' not in vars():
     ENABLE_WALLET=0
-if 'ENABLE_MOTIOND' not in vars():
-    ENABLE_MOTIOND=0
+if 'ENABLE_CLGD' not in vars():
+    ENABLE_CLGD=0
 if 'ENABLE_UTILS' not in vars():
     ENABLE_UTILS=0
 if 'ENABLE_ZMQ' not in vars():
@@ -62,19 +62,19 @@ for arg in sys.argv[1:]:
 
 #Set env vars
 buildDir = BUILDDIR
-if "MOTIOND" not in os.environ:
-    os.environ["MOTIOND"] = buildDir + '/src/motiond' + EXEEXT
-if "MOTIONCLI" not in os.environ:
-    os.environ["MOTIONCLI"] = buildDir + '/src/motion-cli' + EXEEXT
+if "CLGD" not in os.environ:
+    os.environ["CLGD"] = buildDir + '/src/collegicoind' + EXEEXT
+if "CLGCLI" not in os.environ:
+    os.environ["CLGCLI"] = buildDir + '/src/collegicoin-cli' + EXEEXT
 
 if EXEEXT == ".exe" and "-win" not in opts:
-    # https://github.com/motion/motion/commit/d52802551752140cf41f0d9a225a43e84404d3e9
-    # https://github.com/motion/motion/pull/5677#issuecomment-136646964
+    # https://github.com/collegicoin/collegicoin/commit/d52802551752140cf41f0d9a225a43e84404d3e9
+    # https://github.com/collegicoin/collegicoin/pull/5677#issuecomment-136646964
     print "Win tests currently disabled by default.  Use -win option to enable"
     sys.exit(0)
 
-if not (ENABLE_WALLET == 1 and ENABLE_UTILS == 1 and ENABLE_MOTIOND == 1):
-    print "No rpc tests to run. Wallet, utils, and motiond must all be enabled"
+if not (ENABLE_WALLET == 1 and ENABLE_UTILS == 1 and ENABLE_CLGD == 1):
+    print "No rpc tests to run. Wallet, utils, and collegicoind must all be enabled"
     sys.exit(0)
 
 # python-zmq may not be installed. Handle this gracefully and with some helpful info
@@ -139,7 +139,7 @@ testScriptsExt = [
     'bip68-sequence.py',
     'bipdersig-p2p.py', # NOTE: needs x16r_hash to pass
     'bipdersig.py',
-    'getblocktemplate_longpoll.py', # FIXME: "socket.error: [Errno 54] Connection reset by peer" on my Mac, same as  https://github.com/motion/motion/issues/6651
+    'getblocktemplate_longpoll.py', # FIXME: "socket.error: [Errno 54] Connection reset by peer" on my Mac, same as  https://github.com/collegicoin/collegicoin/issues/6651
     'getblocktemplate_proposals.py',
     'txn_doublespend.py',
     'txn_clone.py --mineblock',
@@ -152,7 +152,7 @@ testScriptsExt = [
     'p2p-acceptblock.py', # NOTE: needs x16r_hash to pass
     'mempool_packages.py',
     'maxuploadtarget.py',
-    # 'replace-by-fee.py', # RBF is disabled in Motion Core
+    # 'replace-by-fee.py', # RBF is disabled in Collegicoin Core
 ]
 
 def runtests():
@@ -214,7 +214,7 @@ class RPCCoverage(object):
     Coverage calculation works by having each test script subprocess write
     coverage files into a particular directory. These files contain the RPC
     commands invoked during testing, as well as a complete listing of RPC
-    commands per `motion-cli help` (`rpc_interface.txt`).
+    commands per `collegicoin-cli help` (`rpc_interface.txt`).
 
     After all tests complete, the commands run are combined and diff'd against
     the complete list to calculate uncovered RPC commands.

@@ -7,11 +7,11 @@
 # Test PrioritiseTransaction code
 #
 
-from test_framework.test_framework import MotionTestFramework
+from test_framework.test_framework import CollegicoinTestFramework
 from test_framework.util import *
 from test_framework.mininode import COIN, MAX_BLOCK_SIZE
 
-class PrioritiseTransactionTest(MotionTestFramework):
+class PrioritiseTransactionTest(CollegicoinTestFramework):
 
     def __init__(self):
         self.txouts = gen_return_txouts()

@@ -7,10 +7,10 @@
 # Test the BIP66 changeover logic
 #
 
-from test_framework.test_framework import MotionTestFramework
+from test_framework.test_framework import CollegicoinTestFramework
 from test_framework.util import *
 
-class BIP66Test(MotionTestFramework):
+class BIP66Test(CollegicoinTestFramework):
 
     def setup_network(self):
         self.nodes = []

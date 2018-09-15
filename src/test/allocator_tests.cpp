@@ -5,7 +5,7 @@
 #include "util.h"
 
 #include "support/allocators/secure.h"
-#include "test/test_motion.h"
+#include "test/test_collegicoin.h"
 
 #include <boost/test/unit_test.hpp>
 

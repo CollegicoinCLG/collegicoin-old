@@ -243,11 +243,11 @@ UniValue stop(const UniValue& params, bool fHelp)
     if (fHelp || params.size() > 1)
         throw runtime_error(
             "stop\n"
-            "\nStop Motion Core server.");
+            "\nStop Collegicoin Core server.");
     // Event loop will exit after current HTTP requests have been handled, so
     // this reply will get back to the client.
     StartShutdown();
-    return "Motion Core server stopping";
+    return "Collegicoin Core server stopping";
 }
 
 /**
@@ -343,20 +343,20 @@ static const CRPCCommand vRPCCommands[] =
     { "hidden",             "resendwallettransactions", &resendwallettransactions, true},
 #endif
 
-    /* Motion features */
-    { "motion",               "masternode",             &masternode,             true  },
-    { "motion",               "masternodelist",         &masternodelist,         true  },
-    { "motion",               "masternodebroadcast",    &masternodebroadcast,    true  },
-    { "motion",               "gobject",                &gobject,                true  },
-    { "motion",               "getgovernanceinfo",      &getgovernanceinfo,      true  },
-    { "motion",               "getsuperblockbudget",    &getsuperblockbudget,    true  },
-    { "motion",               "voteraw",                &voteraw,                true  },
-    { "motion",               "mnsync",                 &mnsync,                 true  },
-    { "motion",               "spork",                  &spork,                  true  },
-    { "motion",               "getpoolinfo",            &getpoolinfo,            true  },
-    { "motion",               "sentinelping",           &sentinelping,           true  },
+    /* Collegicoin features */
+    { "collegicoin",               "masternode",             &masternode,             true  },
+    { "collegicoin",               "masternodelist",         &masternodelist,         true  },
+    { "collegicoin",               "masternodebroadcast",    &masternodebroadcast,    true  },
+    { "collegicoin",               "gobject",                &gobject,                true  },
+    { "collegicoin",               "getgovernanceinfo",      &getgovernanceinfo,      true  },
+    { "collegicoin",               "getsuperblockbudget",    &getsuperblockbudget,    true  },
+    { "collegicoin",               "voteraw",                &voteraw,                true  },
+    { "collegicoin",               "mnsync",                 &mnsync,                 true  },
+    { "collegicoin",               "spork",                  &spork,                  true  },
+    { "collegicoin",               "getpoolinfo",            &getpoolinfo,            true  },
+    { "collegicoin",               "sentinelping",           &sentinelping,           true  },
 #ifdef ENABLE_WALLET
-    { "motion",               "privatesend",            &privatesend,            false },
+    { "collegicoin",               "privatesend",            &privatesend,            false },
 
     /* Wallet */
     { "wallet",             "keepass",                &keepass,                true },
@@ -580,13 +580,13 @@ std::vector<std::string> CRPCTable::listCommands() const
 
 std::string HelpExampleCli(const std::string& methodname, const std::string& args)
 {
-    return "> motion-cli " + methodname + " " + args + "\n";
+    return "> collegicoin-cli " + methodname + " " + args + "\n";
 }
 
 std::string HelpExampleRpc(const std::string& methodname, const std::string& args)
 {
     return "> curl --user myusername --data-binary '{\"jsonrpc\": \"1.0\", \"id\":\"curltest\", "
-        "\"method\": \"" + methodname + "\", \"params\": [" + args + "] }' -H 'content-type: text/plain;' http://127.0.0.1:3385/\n";
+        "\"method\": \"" + methodname + "\", \"params\": [" + args + "] }' -H 'content-type: text/plain;' http://127.0.0.1:3386/\n";
 }
 
 void RPCRegisterTimerInterface(RPCTimerInterface *iface)

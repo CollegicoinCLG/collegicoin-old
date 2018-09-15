@@ -2,8 +2,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef MOTION_QT_SENDCOINSDIALOG_H
-#define MOTION_QT_SENDCOINSDIALOG_H
+#ifndef CLG_QT_SENDCOINSDIALOG_H
+#define CLG_QT_SENDCOINSDIALOG_H
 
 #include "walletmodel.h"
 
@@ -28,7 +28,7 @@ QT_END_NAMESPACE
 
 const int defaultConfirmTarget = 25;
 
-/** Dialog for sending motions */
+/** Dialog for sending collegicoins */
 class SendCoinsDialog : public QDialog
 {
     Q_OBJECT
@@ -103,4 +103,4 @@ Q_SIGNALS:
     void message(const QString &title, const QString &message, unsigned int style);
 };
 
-#endif // MOTION_QT_SENDCOINSDIALOG_H
+#endif // CLG_QT_SENDCOINSDIALOG_H

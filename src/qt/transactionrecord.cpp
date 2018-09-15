@@ -63,9 +63,9 @@ QList<TransactionRecord> TransactionRecord::decomposeTransaction(const CWallet *
                 sub.involvesWatchAddress = mine & ISMINE_WATCH_ONLY;
                 if (ExtractDestination(txout.scriptPubKey, address) && IsMine(*wallet, address))
                 {
-                    // Received by Motion Address
+                    // Received by Collegicoin Address
                     sub.type = TransactionRecord::RecvWithAddress;
-                    sub.address = CMotionAddress(address).ToString();
+                    sub.address = CCollegicoinAddress(address).ToString();
                 }
                 else
                 {
@@ -134,8 +134,8 @@ QList<TransactionRecord> TransactionRecord::decomposeTransaction(const CWallet *
                 CTxDestination address;
                 if (ExtractDestination(wtx.vout[0].scriptPubKey, address))
                 {
-                    // Sent to Motion Address
-                    sub.address = CMotionAddress(address).ToString();
+                    // Sent to Collegicoin Address
+                    sub.address = CCollegicoinAddress(address).ToString();
                 }
                 else
                 {
@@ -187,9 +187,9 @@ QList<TransactionRecord> TransactionRecord::decomposeTransaction(const CWallet *
                 CTxDestination address;
                 if (ExtractDestination(txout.scriptPubKey, address))
                 {
-                    // Sent to Motion Address
+                    // Sent to Collegicoin Address
                     sub.type = TransactionRecord::SendToAddress;
-                    sub.address = CMotionAddress(address).ToString();
+                    sub.address = CCollegicoinAddress(address).ToString();
                 }
                 else
                 {

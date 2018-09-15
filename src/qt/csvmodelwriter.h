@@ -2,8 +2,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef MOTION_QT_CSVMODELWRITER_H
-#define MOTION_QT_CSVMODELWRITER_H
+#ifndef CLG_QT_CSVMODELWRITER_H
+#define CLG_QT_CSVMODELWRITER_H
 
 #include <QList>
 #include <QObject>
@@ -43,4 +43,4 @@ private:
     QList<Column> columns;
 };
 
-#endif // MOTION_QT_CSVMODELWRITER_H
+#endif // CLG_QT_CSVMODELWRITER_H

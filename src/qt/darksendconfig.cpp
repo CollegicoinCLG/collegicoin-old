@@ -1,7 +1,7 @@
 #include "darksendconfig.h"
 #include "ui_darksendconfig.h"
 
-#include "motionunits.h"
+#include "collegicoinunits.h"
 #include "guiconstants.h"
 #include "optionsmodel.h"
 #include "privatesend-client.h"
@@ -36,13 +36,13 @@ void DarksendConfig::setModel(WalletModel *model)
 
 void DarksendConfig::clickBasic()
 {
-    configure(true, 1000, 2);
+    configure(true, 50000, 2);
 
-    QString strAmount(MotionUnits::formatWithUnit(
-        model->getOptionsModel()->getDisplayUnit(), 1000 * COIN));
+    QString strAmount(CollegicoinUnits::formatWithUnit(
+        model->getOptionsModel()->getDisplayUnit(), 50000 * COIN));
     QMessageBox::information(this, tr("PrivateSend Configuration"),
         tr(
-            "PrivateSend was successfully set to basic (%1 and 2 rounds). You can change this at any time by opening Motion's configuration screen."
+            "PrivateSend was successfully set to basic (%1 and 2 rounds). You can change this at any time by opening Collegicoin's configuration screen."
         ).arg(strAmount)
     );
 
@@ -51,13 +51,13 @@ void DarksendConfig::clickBasic()
 
 void DarksendConfig::clickHigh()
 {
-    configure(true, 1000, 8);
+    configure(true, 50000, 8);
 
-    QString strAmount(MotionUnits::formatWithUnit(
-        model->getOptionsModel()->getDisplayUnit(), 1000 * COIN));
+    QString strAmount(CollegicoinUnits::formatWithUnit(
+        model->getOptionsModel()->getDisplayUnit(), 50000 * COIN));
     QMessageBox::information(this, tr("PrivateSend Configuration"),
         tr(
-            "PrivateSend was successfully set to high (%1 and 8 rounds). You can change this at any time by opening Motion's configuration screen."
+            "PrivateSend was successfully set to high (%1 and 8 rounds). You can change this at any time by opening Collegicoin's configuration screen."
         ).arg(strAmount)
     );
 
@@ -66,13 +66,13 @@ void DarksendConfig::clickHigh()
 
 void DarksendConfig::clickMax()
 {
-    configure(true, 1000, 16);
+    configure(true, 50000, 16);
 
-    QString strAmount(MotionUnits::formatWithUnit(
-        model->getOptionsModel()->getDisplayUnit(), 1000 * COIN));
+    QString strAmount(CollegicoinUnits::formatWithUnit(
+        model->getOptionsModel()->getDisplayUnit(), 50000 * COIN));
     QMessageBox::information(this, tr("PrivateSend Configuration"),
         tr(
-            "PrivateSend was successfully set to maximum (%1 and 16 rounds). You can change this at any time by opening Motion's configuration screen."
+            "PrivateSend was successfully set to maximum (%1 and 16 rounds). You can change this at any time by opening Collegicoin's configuration screen."
         ).arg(strAmount)
     );
 

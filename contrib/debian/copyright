@@ -1,13 +1,13 @@
 Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
-Upstream-Name: Motion
+Upstream-Name: Collegicoin
 Upstream-Contact: Satoshi Nakamoto <satoshin@gmx.com>
- irc://#motion@freenode.net
-Source: https://github.com/motion/motion
+ irc://#collegicoin@freenode.net
+Source: https://github.com/collegicoin/collegicoin
 
 Files: *
 Copyright: 2009-2016, Bitcoin Core Developers
 License: Expat
-Comment: The Motion Core Developers encompasses the current developers listed on motion.org,
+Comment: The Collegicoin Core Developers encompasses the current developers listed on collegicoin.org,
          as well as the numerous contributors to the project.
 
 Files: debian/*
@@ -54,7 +54,7 @@ Files: src/qt/res/icons/connect*.png
        src/qt/res/icons/*/network_disabled.png
        src/qt/res/src/network_disabled.svg
 Copyright: Marco Falke
-           Luke Motionjr
+           Luke Collegicoinjr
 License: Expat
 Comment: Inspired by Stephan Hutchings Typicons
 
@@ -78,12 +78,12 @@ License: Expat
 Comment: Modifications of Stephan Hutchings Typicons
 
 Files: src/qt/res/icons/about.png
-       src/qt/res/icons/motion.*
-       share/pixmaps/motion*
-       src/qt/res/src/motion.svg
+       src/qt/res/icons/collegicoin.*
+       share/pixmaps/collegicoin*
+       src/qt/res/src/collegicoin.svg
 Copyright: Bitboy, Jonas Schnelli
 License: public-domain
-Comment: Site: https://motiontalk.org/?topic=1756.0
+Comment: Site: https://collegicointalk.org/?topic=1756.0
 
 
 License: Expat

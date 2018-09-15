@@ -2,10 +2,10 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef MOTION_COMPAT_SANITY_H
-#define MOTION_COMPAT_SANITY_H
+#ifndef CLG_COMPAT_SANITY_H
+#define CLG_COMPAT_SANITY_H
 
 bool glibc_sanity_test();
 bool glibcxx_sanity_test();
 
-#endif // MOTION_COMPAT_SANITY_H
+#endif // CLG_COMPAT_SANITY_H

@@ -113,7 +113,7 @@
 								<item row="6" column="0">
 									<widget class="QLabel" name="label_3">
 										<property name="toolTip">
-											<string>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the Motion network.</string>
+											<string>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the Collegicoin network.</string>
 										</property>
 										<property name="text">
 											<string>&amp;Message:</string>
@@ -136,7 +136,7 @@
 								<item row="6" column="2">
 									<widget class="QLineEdit" name="reqMessage">
 										<property name="toolTip">
-											<string>An optional message to attach to the payment request, which will be displayed when the request is opened.&lt;br&gt;Note: The message will not be sent with the payment over the Motion network.</string>
+											<string>An optional message to attach to the payment request, which will be displayed when the request is opened.&lt;br&gt;Note: The message will not be sent with the payment over the Collegicoin network.</string>
 										</property>
 									</widget>
 								</item>
@@ -180,7 +180,7 @@
 									</widget>
 								</item>
 								<item row="5" column="2">
-									<widget class="MotionAmountField" name="reqAmount">
+									<widget class="CollegicoinAmountField" name="reqAmount">
 										<property name="minimumSize">
 											<size>
 												<width>80</width>
@@ -417,9 +417,9 @@
 	</widget>
 	<customwidgets>
 		<customwidget>
-			<class>MotionAmountField</class>
+			<class>CollegicoinAmountField</class>
 			<extends>QLineEdit</extends>
-			<header>motionamountfield.h</header>
+			<header>collegicoinamountfield.h</header>
 			<container>1</container>
 		</customwidget>
 	</customwidgets>
@@ -435,7 +435,7 @@
 		<tabstop>removeRequestButton</tabstop>
 	</tabstops>
 	<resources>
-		<include location="../motion.qrc"/>
+		<include location="../collegicoin.qrc"/>
 	</resources>
 	<connections/>
 </ui>

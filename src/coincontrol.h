@@ -2,8 +2,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef MOTION_COINCONTROL_H
-#define MOTION_COINCONTROL_H
+#ifndef CLG_COINCONTROL_H
+#define CLG_COINCONTROL_H
 
 #include "primitives/transaction.h"
 
@@ -71,4 +71,4 @@ private:
     std::set<COutPoint> setSelected;
 };
 
-#endif // MOTION_COINCONTROL_H
+#endif // CLG_COINCONTROL_H

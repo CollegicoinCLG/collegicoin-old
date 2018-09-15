@@ -7,7 +7,7 @@
 #include "script/script.h"
 #include "script/standard.h"
 #include "uint256.h"
-#include "test/test_motion.h"
+#include "test/test_collegicoin.h"
 
 #include <vector>
 

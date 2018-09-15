@@ -1,5 +1,5 @@
-#ifndef _MOTION_PREVECTOR_H_
-#define _MOTION_PREVECTOR_H_
+#ifndef _CLG_PREVECTOR_H_
+#define _CLG_PREVECTOR_H_
 
 #include <stdlib.h>
 #include <stdint.h>

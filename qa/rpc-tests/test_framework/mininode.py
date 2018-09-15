@@ -1,4 +1,4 @@
-# mininode.py - Motion P2P network half-a-node
+# mininode.py - Collegicoin P2P network half-a-node
 #
 # Distributed under the MIT/X11 software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
@@ -6,12 +6,12 @@
 # This python code was modified from ArtForz' public domain  half-a-node, as
 # found in the mini-node branch of http://github.com/jgarzik/pynode.
 #
-# NodeConn: an object which manages p2p connectivity to a motion node
+# NodeConn: an object which manages p2p connectivity to a collegicoin node
 # NodeConnCB: a base class that describes the interface for receiving
 #             callbacks with network messages from a NodeConn
 # CBlock, CTransaction, CBlockHeader, CTxIn, CTxOut, etc....:
 #     data structures that should map to corresponding structures in
-#     motion/primitives
+#     collegicoin/primitives
 # msg_block, msg_tx, msg_headers, etc.:
 #     data structures that represent network messages
 # ser_*, deser_*: functions that handle serialization/deserialization
@@ -41,7 +41,7 @@ MY_SUBVERSION = b"/python-mininode-tester:0.0.2/"
 MAX_INV_SZ = 50000
 MAX_BLOCK_SIZE = 1000000
 
-COIN = 100000000L # 1 XMN in satoshis
+COIN = 100000000L # 1 CLG in satoshis
 
 # Keep our own socket map for asyncore, so that we can track disconnects
 # ourselves (to workaround an issue with closing an asyncore socket when 
@@ -64,7 +64,7 @@ def sha256(s):
 def hash256(s):
     return sha256(sha256(s))
 
-def motionhash(s):
+def collegicoinhash(s):
     return x16r_hash.getPoWHash(s)
 
 def deser_string(f):
@@ -247,7 +247,7 @@ def FromHex(obj, hex_string):
 def ToHex(obj):
     return hexlify(obj.serialize()).decode('ascii')
 
-# Objects that map to motiond objects, which can be serialized/deserialized
+# Objects that map to collegicoind objects, which can be serialized/deserialized
 
 class CAddress(object):
     def __init__(self):
@@ -496,8 +496,8 @@ class CBlockHeader(object):
             r += struct.pack("<I", self.nTime)
             r += struct.pack("<I", self.nBits)
             r += struct.pack("<I", self.nNonce)
-            self.sha256 = uint256_from_str(motionhash(r))
-            self.hash = encode(motionhash(r)[::-1], 'hex_codec').decode('ascii')
+            self.sha256 = uint256_from_str(collegicoinhash(r))
+            self.hash = encode(collegicoinhash(r)[::-1], 'hex_codec').decode('ascii')
 
     def rehash(self):
         self.sha256 = None
@@ -972,7 +972,7 @@ class msg_headers(object):
         self.headers = []
 
     def deserialize(self, f):
-        # comment in motiond indicates these should be deserialized as blocks
+        # comment in collegicoind indicates these should be deserialized as blocks
         blocks = deser_vector(f, CBlock)
         for x in blocks:
             self.headers.append(CBlockHeader(x))
@@ -1185,7 +1185,7 @@ class NodeConn(asyncore.dispatcher):
         vt.addrFrom.ip = "0.0.0.0"
         vt.addrFrom.port = 0
         self.send_message(vt, True)
-        print 'MiniNode: Connecting to Motion Node IP # ' + dstaddr + ':' \
+        print 'MiniNode: Connecting to Collegicoin Node IP # ' + dstaddr + ':' \
             + str(dstport)
 
         try:

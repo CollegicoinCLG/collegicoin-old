@@ -8,11 +8,11 @@
 # the blockchain is re-organized.
 #
 
-from test_framework.test_framework import MotionTestFramework
+from test_framework.test_framework import CollegicoinTestFramework
 from test_framework.util import *
 
 # Create one-input, one-output, no-fee transaction:
-class MempoolCoinbaseTest(MotionTestFramework):
+class MempoolCoinbaseTest(CollegicoinTestFramework):
 
     def setup_network(self):
         # Just need one node for this test

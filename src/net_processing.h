@@ -3,8 +3,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef MOTION_NET_PROCESSING_H
-#define MOTION_NET_PROCESSING_H
+#ifndef CLG_NET_PROCESSING_H
+#define CLG_NET_PROCESSING_H
 
 #include "net.h"
 #include "validationinterface.h"
@@ -54,4 +54,4 @@ bool ProcessMessages(CNode* pfrom, CConnman& connman, std::atomic<bool>& interru
  */
 bool SendMessages(CNode* pto, CConnman& connman, std::atomic<bool>& interrupt);
 
-#endif // MOTION_NET_PROCESSING_H
+#endif // CLG_NET_PROCESSING_H

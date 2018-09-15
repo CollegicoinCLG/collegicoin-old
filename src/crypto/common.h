@@ -2,11 +2,11 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef MOTION_CRYPTO_COMMON_H
-#define MOTION_CRYPTO_COMMON_H
+#ifndef CLG_CRYPTO_COMMON_H
+#define CLG_CRYPTO_COMMON_H
 
 #if defined(HAVE_CONFIG_H)
-#include "motion-config.h"
+#include "collegicoin-config.h"
 #endif
 
 #include <stdint.h>
@@ -63,4 +63,4 @@ void static inline WriteBE64(unsigned char* ptr, uint64_t x)
     *((uint64_t*)ptr) = htobe64(x);
 }
 
-#endif // MOTION_CRYPTO_COMMON_H
+#endif // CLG_CRYPTO_COMMON_H

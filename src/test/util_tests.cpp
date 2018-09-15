@@ -10,7 +10,7 @@
 #include "sync.h"
 #include "utilstrencodings.h"
 #include "utilmoneystr.h"
-#include "test/test_motion.h"
+#include "test/test_collegicoin.h"
 
 #include <stdint.h>
 #include <vector>

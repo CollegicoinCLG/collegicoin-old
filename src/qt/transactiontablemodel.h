@@ -2,10 +2,10 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef MOTION_QT_TRANSACTIONTABLEMODEL_H
-#define MOTION_QT_TRANSACTIONTABLEMODEL_H
+#ifndef CLG_QT_TRANSACTIONTABLEMODEL_H
+#define CLG_QT_TRANSACTIONTABLEMODEL_H
 
-#include "motionunits.h"
+#include "collegicoinunits.h"
 
 #include <QAbstractTableModel>
 #include <QStringList>
@@ -98,7 +98,7 @@ private:
     QString formatTxDate(const TransactionRecord *wtx) const;
     QString formatTxType(const TransactionRecord *wtx) const;
     QString formatTxToAddress(const TransactionRecord *wtx, bool tooltip) const;
-    QString formatTxAmount(const TransactionRecord *wtx, bool showUnconfirmed=true, MotionUnits::SeparatorStyle separators=MotionUnits::separatorStandard) const;
+    QString formatTxAmount(const TransactionRecord *wtx, bool showUnconfirmed=true, CollegicoinUnits::SeparatorStyle separators=CollegicoinUnits::separatorStandard) const;
     QString formatTooltip(const TransactionRecord *rec) const;
     QVariant txStatusDecoration(const TransactionRecord *wtx) const;
     QVariant txWatchonlyDecoration(const TransactionRecord *wtx) const;
@@ -117,4 +117,4 @@ public Q_SLOTS:
     friend class TransactionTablePriv;
 };
 
-#endif // MOTION_QT_TRANSACTIONTABLEMODEL_H
+#endif // CLG_QT_TRANSACTIONTABLEMODEL_H

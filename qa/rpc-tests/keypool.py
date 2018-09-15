@@ -5,19 +5,19 @@
 
 # Exercise the wallet keypool, and interaction with wallet encryption/locking
 
-# Add python-motionrpc to module search path:
+# Add python-collegicoinrpc to module search path:
 
-from test_framework.test_framework import MotionTestFramework
+from test_framework.test_framework import CollegicoinTestFramework
 from test_framework.util import *
 
-class KeyPoolTest(MotionTestFramework):
+class KeyPoolTest(CollegicoinTestFramework):
 
     def run_test(self):
         nodes = self.nodes
 
         # Encrypt wallet and wait to terminate
         nodes[0].encryptwallet('test')
-        motiond_processes[0].wait()
+        collegicoind_processes[0].wait()
         # Restart node 0
         nodes[0] = start_node(0, self.options.tmpdir, ['-usehd=0'])
         # Keep creating keys

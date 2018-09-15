@@ -1,5 +1,5 @@
-#ifndef MOTION_QT_TOOLSPAGE_H
-#define MOTION_QT_TOOLSPAGE_H
+#ifndef CLG_QT_TOOLSPAGE_H
+#define CLG_QT_TOOLSPAGE_H
 
 #include "guiutil.h"
 #include "peertablemodel.h"

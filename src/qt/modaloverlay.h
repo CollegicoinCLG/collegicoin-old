@@ -2,8 +2,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef MOTION_QT_MODALOVERLAY_H
-#define MOTION_QT_MODALOVERLAY_H
+#ifndef CLG_QT_MODALOVERLAY_H
+#define CLG_QT_MODALOVERLAY_H
 
 #include <QDateTime>
 #include <QWidget>
@@ -49,4 +49,4 @@ private:
     bool foreverHidden;
 };
 
-#endif // MOTION_QT_MODALOVERLAY_H
+#endif // CLG_QT_MODALOVERLAY_H

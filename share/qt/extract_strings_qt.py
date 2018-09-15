@@ -9,7 +9,7 @@ import operator
 import os
 import sys
 
-OUT_CPP="qt/motionstrings.cpp"
+OUT_CPP="qt/collegicoinstrings.cpp"
 EMPTY=['""']
 
 def parse_po(text):
@@ -69,10 +69,10 @@ f.write("""
 #define UNUSED
 #endif
 """)
-f.write('static const char UNUSED *motion_strings[] = {\n')
+f.write('static const char UNUSED *collegicoin_strings[] = {\n')
 messages.sort(key=operator.itemgetter(0))
 for (msgid, msgstr) in messages:
     if msgid != EMPTY:
-        f.write('QT_TRANSLATE_NOOP("motion-core", %s),\n' % ('\n'.join(msgid)))
+        f.write('QT_TRANSLATE_NOOP("collegicoin-core", %s),\n' % ('\n'.join(msgid)))
 f.write('};\n')
 f.close()

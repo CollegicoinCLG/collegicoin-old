@@ -2,8 +2,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef MOTION_QT_GUIUTIL_H
-#define MOTION_QT_GUIUTIL_H
+#ifndef CLG_QT_GUIUTIL_H
+#define CLG_QT_GUIUTIL_H
 
 #include "amount.h"
 
@@ -30,7 +30,7 @@ class QUrl;
 class QWidget;
 QT_END_NAMESPACE
 
-/** Utility functions used by the Motion Qt UI.
+/** Utility functions used by the Collegicoin Qt UI.
  */
 namespace GUIUtil
 {
@@ -45,10 +45,10 @@ namespace GUIUtil
     void setupAddressWidget(QValidatedLineEdit *widget, QWidget *parent);
     void setupAmountWidget(QLineEdit *widget, QWidget *parent);
 
-    // Parse "motion:" URI into recipient object, return true on successful parsing
-    bool parseMotionURI(const QUrl &uri, SendCoinsRecipient *out);
-    bool parseMotionURI(QString uri, SendCoinsRecipient *out);
-    QString formatMotionURI(const SendCoinsRecipient &info);
+    // Parse "collegicoin:" URI into recipient object, return true on successful parsing
+    bool parseCollegicoinURI(const QUrl &uri, SendCoinsRecipient *out);
+    bool parseCollegicoinURI(QString uri, SendCoinsRecipient *out);
+    QString formatCollegicoinURI(const SendCoinsRecipient &info);
 
     // Returns true if given address+amount meets "dust" definition
     bool isDust(const QString& address, const CAmount& amount);
@@ -114,7 +114,7 @@ namespace GUIUtil
     // Open debug.log
     void openDebugLogfile();
 	
-    // Open motion.conf
+    // Open collegicoin.conf
     void openConfigfile();	
 
     // Open masternode.conf
@@ -262,4 +262,4 @@ namespace GUIUtil
 
 } // namespace GUIUtil
 
-#endif // MOTION_QT_GUIUTIL_H
+#endif // CLG_QT_GUIUTIL_H

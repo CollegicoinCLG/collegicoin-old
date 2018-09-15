@@ -45,7 +45,7 @@
  * =========================
  *
  *   // network
- *   CMotionNetwork lvl, network-type, network-status, network-error, milestone-status*
+ *   CCollegicoinNetwork lvl, network-type, network-status, network-error, milestone-status*
  *   CCategory lvl, category-type, status, status-error
  *   CNetworkGlobalVariable lvl, global-type, status, status-error
  *   // base: actor
@@ -79,7 +79,7 @@
  *  TREE STRUCTURE
  *  ===========================================
  * 
- *  MOTION NETWORK (ROOT)
+ *  CLG NETWORK (ROOT)
  *      -> NETWORK GLOBOLS
  *          -> SWITCHES, SETTINGS
  *      -> CATEGORIES
@@ -117,7 +117,7 @@ private:
     int nLevel;
     std::string strCategory;
 
-    // Current OBJECT STATUS (see http://govman.motion.org/index.php/Documentation_:_Status_Field)
+    // Current OBJECT STATUS (see http://govman.collegicoin.org/index.php/Documentation_:_Status_Field)
     int nStatusID;
     std::string strStatusMessage;
 
@@ -130,7 +130,7 @@ public:
 };
 
 // // root node
-class CMotionNetwork : public CGovernanceObject
+class CCollegicoinNetwork : public CGovernanceObject
 {
 private:
     std::string strName;
@@ -138,7 +138,7 @@ private:
 
 
 public:
-    CMotionNetwork(UniValue objIn)
+    CCollegicoinNetwork(UniValue objIn)
     {
         strName = objIn["name"].get_str();
         strURL = objIn["name"].get_str();
@@ -174,9 +174,9 @@ public:
 
 };
 
-// // can be under: MotionNetwork
+// // can be under: CollegicoinNetwork
 // //   -- signature requirements : Key1(User)
-// class CMotionNetworkVariable : public CGovernanceObject
+// class CCollegicoinNetworkVariable : public CGovernanceObject
 // {
 // private:
 
@@ -279,7 +279,7 @@ public:
 //     // isRootCategory()
 //     // {
 //     //     // root categories won't have categories as parents
-//     //     return (IsType() == MotionNetwork);
+//     //     return (IsType() == CollegicoinNetwork);
 //     // }
 
 //     // isSubcategoryOf(std::string strParentName)

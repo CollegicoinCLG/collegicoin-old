@@ -2,8 +2,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef MOTION_QT_MACNOTIFICATIONHANDLER_H
-#define MOTION_QT_MACNOTIFICATIONHANDLER_H
+#ifndef CLG_QT_MACNOTIFICATIONHANDLER_H
+#define CLG_QT_MACNOTIFICATIONHANDLER_H
 
 #include <QObject>
 
@@ -27,4 +27,4 @@ public:
 };
 
 
-#endif // MOTION_QT_MACNOTIFICATIONHANDLER_H
+#endif // CLG_QT_MACNOTIFICATIONHANDLER_H

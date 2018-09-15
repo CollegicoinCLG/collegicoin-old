@@ -2,15 +2,15 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef MOTION_CHAINPARAMSBASE_H
-#define MOTION_CHAINPARAMSBASE_H
+#ifndef CLG_CHAINPARAMSBASE_H
+#define CLG_CHAINPARAMSBASE_H
 
 #include <string>
 #include <vector>
 
 /**
- * CBaseChainParams defines the base parameters (shared between motion-cli and motiond)
- * of a given instance of the Motion system.
+ * CBaseChainParams defines the base parameters (shared between collegicoin-cli and collegicoind)
+ * of a given instance of the Collegicoin system.
  */
 class CBaseChainParams
 {
@@ -59,4 +59,4 @@ std::string ChainNameFromCommandLine();
  */
 bool AreBaseParamsConfigured();
 
-#endif // MOTION_CHAINPARAMSBASE_H
+#endif // CLG_CHAINPARAMSBASE_H

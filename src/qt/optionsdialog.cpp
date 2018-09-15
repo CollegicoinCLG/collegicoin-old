@@ -3,13 +3,13 @@
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #if defined(HAVE_CONFIG_H)
-#include "config/motion-config.h"
+#include "config/collegicoin-config.h"
 #endif
 
 #include "optionsdialog.h"
 #include "ui_optionsdialog.h"
 
-#include "motionunits.h"
+#include "collegicoinunits.h"
 #include "guiutil.h"
 #include "optionsmodel.h"
 
@@ -92,11 +92,11 @@ OptionsDialog::OptionsDialog(QWidget *parent, bool enableWallet) :
     }
     
     /* Theme selector */
-    ui->theme->addItem(QString("MOTION-light"), QVariant("light"));
-    ui->theme->addItem(QString("MOTION-light-hires"), QVariant("light-hires"));
-    ui->theme->addItem(QString("MOTION-blue"), QVariant("drkblue"));
-    ui->theme->addItem(QString("MOTION-Crownium"), QVariant("crownium"));
-    ui->theme->addItem(QString("MOTION-traditional"), QVariant("trad"));
+    ui->theme->addItem(QString("CLG-light"), QVariant("light"));
+    ui->theme->addItem(QString("CLG-light-hires"), QVariant("light-hires"));
+    ui->theme->addItem(QString("CLG-blue"), QVariant("drkblue"));
+    ui->theme->addItem(QString("CLG-Crownium"), QVariant("crownium"));
+    ui->theme->addItem(QString("CLG-traditional"), QVariant("trad"));
     
     /* Language selector */
     QDir translations(":translations");
@@ -131,7 +131,7 @@ OptionsDialog::OptionsDialog(QWidget *parent, bool enableWallet) :
     ui->thirdPartyTxUrls->setPlaceholderText("https://example.com/tx/%s");
 #endif
 
-    ui->unit->setModel(new MotionUnits(this));
+    ui->unit->setModel(new CollegicoinUnits(this));
 
     /* Widget-to-option mapper */
     mapper = new QDataWidgetMapper(this);
@@ -196,7 +196,7 @@ void OptionsDialog::setModel(OptionsModel *model)
 void OptionsDialog::setMapper()
 {
     /* Main */
-    mapper->addMapping(ui->motionAtStartup, OptionsModel::StartAtStartup);
+    mapper->addMapping(ui->collegicoinAtStartup, OptionsModel::StartAtStartup);
     mapper->addMapping(ui->threadsScriptVerif, OptionsModel::ThreadsScriptVerif);
     mapper->addMapping(ui->databaseCache, OptionsModel::DatabaseCache);
 

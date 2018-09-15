@@ -137,7 +137,7 @@
   </layout>
  </widget>
  <resources>
-  <include location="../motion.qrc"/>
+  <include location="../collegicoin.qrc"/>
  </resources>
  <connections/>
 </ui>

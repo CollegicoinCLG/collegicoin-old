@@ -2,8 +2,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef MOTION_QT_TRANSACTIONFILTERPROXY_H
-#define MOTION_QT_TRANSACTIONFILTERPROXY_H
+#ifndef CLG_QT_TRANSACTIONFILTERPROXY_H
+#define CLG_QT_TRANSACTIONFILTERPROXY_H
 
 #include "amount.h"
 
@@ -67,4 +67,4 @@ private:
     bool showInactive;
 };
 
-#endif // MOTION_QT_TRANSACTIONFILTERPROXY_H
+#endif // CLG_QT_TRANSACTIONFILTERPROXY_H

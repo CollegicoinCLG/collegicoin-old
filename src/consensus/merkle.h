@@ -2,8 +2,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef MOTION_MERKLE
-#define MOTION_MERKLE
+#ifndef CLG_MERKLE
+#define CLG_MERKLE
 
 #include <stdint.h>
 #include <vector>

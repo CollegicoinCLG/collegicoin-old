@@ -8,11 +8,11 @@
 # that spend (directly or indirectly) coinbase transactions.
 #
 
-from test_framework.test_framework import MotionTestFramework
+from test_framework.test_framework import CollegicoinTestFramework
 from test_framework.util import *
 
 # Create one-input, one-output, no-fee transaction:
-class MempoolCoinbaseTest(MotionTestFramework):
+class MempoolCoinbaseTest(CollegicoinTestFramework):
 
     alert_filename = None  # Set by setup_network
 

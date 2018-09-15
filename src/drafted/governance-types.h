@@ -16,9 +16,9 @@ enum GovernanceObjectType {
     ValueOverride = 1, 
 
     // -------------------------------
-    // MotionNetwork - is the root node
-    MotionNetwork = 1000,
-    MotionNetworkVariable = 1001,
+    // CollegicoinNetwork - is the root node
+    CollegicoinNetwork = 1000,
+    CollegicoinNetworkVariable = 1001,
     Category = 1002,
 
     // Actors

@@ -3,8 +3,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef MOTION_ALERT_H
-#define MOTION_ALERT_H
+#ifndef CLG_ALERT_H
+#define CLG_ALERT_H
 
 #include "serialize.h"
 #include "sync.h"
@@ -112,4 +112,4 @@ public:
     static CAlert getAlertByHash(const uint256 &hash);
 };
 
-#endif // MOTION_ALERT_H
+#endif // CLG_ALERT_H

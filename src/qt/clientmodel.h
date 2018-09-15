@@ -3,8 +3,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef MOTION_QT_CLIENTMODEL_H
-#define MOTION_QT_CLIENTMODEL_H
+#ifndef CLG_QT_CLIENTMODEL_H
+#define CLG_QT_CLIENTMODEL_H
 
 #include <QObject>
 #include <QDateTime>
@@ -38,7 +38,7 @@ enum NumConnections {
     CONNECTIONS_ALL  = (CONNECTIONS_IN | CONNECTIONS_OUT),
 };
 
-/** Model for Motion network client. */
+/** Model for Collegicoin network client. */
 class ClientModel : public QObject
 {
     Q_OBJECT
@@ -127,4 +127,4 @@ public Q_SLOTS:
     void updateBanlist();
 };
 
-#endif // MOTION_QT_CLIENTMODEL_H
+#endif // CLG_QT_CLIENTMODEL_H

@@ -2,8 +2,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef MOTION_CONSENSUS_VERSIONBITS
-#define MOTION_CONSENSUS_VERSIONBITS
+#ifndef CLG_CONSENSUS_VERSIONBITS
+#define CLG_CONSENSUS_VERSIONBITS
 
 #include "chain.h"
 #include <map>

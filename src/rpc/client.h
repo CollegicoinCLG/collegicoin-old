@@ -3,8 +3,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef MOTION_RPCCLIENT_H
-#define MOTION_RPCCLIENT_H
+#ifndef CLG_RPCCLIENT_H
+#define CLG_RPCCLIENT_H
 
 #include <univalue.h>
 
@@ -14,4 +14,4 @@ UniValue RPCConvertValues(const std::string& strMethod, const std::vector<std::s
  */
 UniValue ParseNonRFCJSONValue(const std::string& strVal);
 
-#endif // MOTION_RPCCLIENT_H
+#endif // CLG_RPCCLIENT_H

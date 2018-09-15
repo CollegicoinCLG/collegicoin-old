@@ -1,0 +1,33 @@
+# /etc/conf.d/collegicoind: config file for /etc/init.d/collegicoind
+
+# Config file location
+#CLGD_CONFIGFILE="/etc/collegicoincore/collegicoin.conf"
+
+# What directory to write pidfile to?  (created and owned by $CLGD_USER)
+#CLGD_PIDDIR="/var/run/collegicoind"
+
+# What filename to give the pidfile
+#CLGD_PIDFILE="${CLGD_PIDDIR}/collegicoind.pid"
+
+# Where to write collegicoind data (be mindful that the blockchain is large)
+#CLGD_DATADIR="/var/lib/collegicoind"
+
+# User and group to own collegicoind process
+#CLGD_USER="collegicoincore"
+#CLGD_GROUP="collegicoincore"
+
+# Path to collegicoind executable
+#CLGD_BIN="/usr/bin/collegicoind"
+
+# Nice value to run collegicoind under
+#CLGD_NICE=0
+
+# Additional options (avoid -conf and -datadir, use flags above)
+CLGD_OPTS="-disablewallet"
+
+# The timeout in seconds OpenRC will wait for collegicoind to terminate
+# after a SIGTERM has been raised.
+# Note that this will be mapped as argument to start-stop-daemon's
+# '--retry' option, which means you can specify a retry schedule
+# here. For more information see man 8 start-stop-daemon.
+CLGD_SIGTERM_TIMEOUT=60

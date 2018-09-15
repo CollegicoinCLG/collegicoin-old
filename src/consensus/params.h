@@ -6,8 +6,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef MOTION_CONSENSUS_PARAMS_H
-#define MOTION_CONSENSUS_PARAMS_H
+#ifndef CLG_CONSENSUS_PARAMS_H
+#define CLG_CONSENSUS_PARAMS_H
 
 #include "uint256.h"
 #include <map>
@@ -93,4 +93,4 @@ struct Params {
 };
 } // namespace Consensus
 
-#endif // MOTION_CONSENSUS_PARAMS_H
+#endif // CLG_CONSENSUS_PARAMS_H

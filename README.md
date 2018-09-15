@@ -1,35 +1,35 @@
-Motion Core 0.1.2
+Collegicoin Core 3.0.0
 ===============================
 
 
-https://www.motionproject.org
+https://www.collegicoin.com
 
 
-What is Motion?
+What is Collegicoin?
 ----------------
 
-Motion is an experimental new digital currency that enables anonymous, instant
-payments to anyone, anywhere in the world. Motion uses peer-to-peer technology
+Collegicoin is an experimental new digital currency that enables anonymous, instant
+payments to anyone, anywhere in the world. Collegicoin uses peer-to-peer technology
 to operate with no central authority: managing transactions and issuing money
-are carried out collectively by the network. Motion Core is the name of the open
+are carried out collectively by the network. Collegicoin Core is the name of the open
 source software which enables the use of this currency.
 
 For more information, as well as an immediately useable, binary version of
-the Motion Core software, see https://www.motionproject.org/.
+the Collegicoin Core software, see https://www.collegicoin.com/.
 
 
 License
 -------
 
-Motion Core is released under the terms of the MIT license. See [COPYING](COPYING) for more
+Collegicoin Core is released under the terms of the MIT license. See [COPYING](COPYING) for more
 information or see https://opensource.org/licenses/MIT.
 
 Development Process
 -------------------
 
 The `master` branch is meant to be stable. Development is normally done in separate branches.
-[Tags](https://github.com/motioncrypto/motion/tags) are created to indicate new official,
-stable release versions of Motion Core.
+[Tags](https://github.com/collegicoindev/collegicoin/tags) are created to indicate new official,
+stable release versions of Collegicoin Core.
 
 The contribution workflow is described in [CONTRIBUTING.md](CONTRIBUTING.md).
 

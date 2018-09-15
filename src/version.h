@@ -3,14 +3,14 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef MOTION_VERSION_H
-#define MOTION_VERSION_H
+#ifndef CLG_VERSION_H
+#define CLG_VERSION_H
 
 /**
  * network protocol versioning
  */
 
-static const int PROTOCOL_VERSION = 70208;
+static const int PROTOCOL_VERSION = 70210;
 
 //! initial proto version, to be increased after version/verack negotiation
 static const int INIT_PROTO_VERSION = 209;
@@ -19,7 +19,7 @@ static const int INIT_PROTO_VERSION = 209;
 static const int GETHEADERS_VERSION = 70077;
 
 //! disconnect from peers older than this proto version
-static const int MIN_PEER_PROTO_VERSION = 70208;
+static const int MIN_PEER_PROTO_VERSION = 70210;
 
 //! nTime field added to CAddress, starting with this version;
 //! if possible, avoid requesting addresses nodes older than this
@@ -44,4 +44,4 @@ static const int SENDHEADERS_VERSION = 70201;
 //! DIP0001 was activated in this version
 static const int DIP0001_PROTOCOL_VERSION = 70208;
 
-#endif // MOTION_VERSION_H
+#endif // CLG_VERSION_H

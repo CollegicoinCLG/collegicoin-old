@@ -3,8 +3,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef MOTION_SCRIPT_INTERPRETER_H
-#define MOTION_SCRIPT_INTERPRETER_H
+#ifndef CLG_SCRIPT_INTERPRETER_H
+#define CLG_SCRIPT_INTERPRETER_H
 
 #include "script_error.h"
 #include "primitives/transaction.h"
@@ -141,4 +141,4 @@ public:
 bool EvalScript(std::vector<std::vector<unsigned char> >& stack, const CScript& script, unsigned int flags, const BaseSignatureChecker& checker, ScriptError* error = NULL);
 bool VerifyScript(const CScript& scriptSig, const CScript& scriptPubKey, unsigned int flags, const BaseSignatureChecker& checker, ScriptError* error = NULL);
 
-#endif // MOTION_SCRIPT_INTERPRETER_H
+#endif // CLG_SCRIPT_INTERPRETER_H

@@ -2,21 +2,21 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef MOTION_CLIENTVERSION_H
-#define MOTION_CLIENTVERSION_H
+#ifndef CLG_CLIENTVERSION_H
+#define CLG_CLIENTVERSION_H
 
 #if defined(HAVE_CONFIG_H)
-#include "config/motion-config.h"
+#include "config/collegicoin-config.h"
 #else
 
 /**
  * client versioning and copyright year
  */
 
-//! These need to be macros, as clientversion.cpp's and motion*-res.rc's voodoo requires it
-#define CLIENT_VERSION_MAJOR 0
-#define CLIENT_VERSION_MINOR 1
-#define CLIENT_VERSION_REVISION 2
+//! These need to be macros, as clientversion.cpp's and collegicoin*-res.rc's voodoo requires it
+#define CLIENT_VERSION_MAJOR 3
+#define CLIENT_VERSION_MINOR 0
+#define CLIENT_VERSION_REVISION 0
 
 //! Set to true for release, false for prerelease or test build
 #define CLIENT_VERSION_IS_RELEASE true
@@ -37,10 +37,10 @@
 #define DO_STRINGIZE(X) #X
 
 //! Copyright string used in Windows .rc files
-#define COPYRIGHT_STR "2009-" STRINGIZE(COPYRIGHT_YEAR) " The Bitcoin Core Developers, 2014-" STRINGIZE(COPYRIGHT_YEAR) " The Dash Core Developers, 2017-" STRINGIZE(COPYRIGHT_YEAR) " The Motion Core Developers"
+#define COPYRIGHT_STR "2009-" STRINGIZE(COPYRIGHT_YEAR) " The Bitcoin Core Developers, 2014-" STRINGIZE(COPYRIGHT_YEAR) " The Dash Core Developers, 2017-" STRINGIZE(COPYRIGHT_YEAR) " The Collegicoin Core Developers"
 
 /**
- * motiond-res.rc includes this file, but it cannot cope with real c++ code.
+ * collegicoind-res.rc includes this file, but it cannot cope with real c++ code.
  * WINDRES_PREPROC is defined to indicate that its pre-processor is running.
  * Anything other than a define should be guarded below.
  */
@@ -65,4 +65,4 @@ std::string FormatSubVersion(const std::string& name, int nClientVersion, const 
 
 #endif // WINDRES_PREPROC
 
-#endif // MOTION_CLIENTVERSION_H
+#endif // CLG_CLIENTVERSION_H

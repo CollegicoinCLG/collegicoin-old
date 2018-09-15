@@ -1,0 +1,92 @@
+#!/sbin/runscript
+
+# backward compatibility for existing gentoo layout 
+#
+if [ -d "/var/lib/collegicoincore/.collegicoincore" ]; then
+	CLGD_DEFAULT_DATADIR="/var/lib/collegicoincore/.collegicoincore"
+else
+	CLGD_DEFAULT_DATADIR="/var/lib/collegicoind"
+fi
+
+CLGD_CONFIGFILE=${CLGD_CONFIGFILE:-/etc/collegicoincore/collegicoin.conf}
+CLGD_PIDDIR=${CLGD_PIDDIR:-/var/run/collegicoind}
+CLGD_PIDFILE=${CLGD_PIDFILE:-${CLGD_PIDDIR}/collegicoind.pid}
+CLGD_DATADIR=${CLGD_DATADIR:-${CLGD_DEFAULT_DATADIR}}
+CLGD_USER=${CLGD_USER:-${CLG_USER:-collegicoincore}}
+CLGD_GROUP=${CLGD_GROUP:-collegicoincore}
+CLGD_BIN=${CLGD_BIN:-/usr/bin/collegicoind}
+CLGD_NICE=${CLGD_NICE:-${NICELEVEL:-0}}
+CLGD_OPTS="${CLGD_OPTS:-${CLG_OPTS}}"
+
+name="Collegicoin Core Daemon"
+description="Collegicoin cryptocurrency P2P network daemon"
+
+command="/usr/bin/collegicoind"
+command_args="-pid=\"${CLGD_PIDFILE}\" \
+		-conf=\"${CLGD_CONFIGFILE}\" \
+		-datadir=\"${CLGD_DATADIR}\" \
+		-daemon \
+		${CLGD_OPTS}"
+
+required_files="${CLGD_CONFIGFILE}"
+start_stop_daemon_args="-u ${CLGD_USER} \
+			-N ${CLGD_NICE} -w 2000"
+pidfile="${CLGD_PIDFILE}"
+
+# The retry schedule to use when stopping the daemon. Could be either
+# a timeout in seconds or multiple signal/timeout pairs (like
+# "SIGKILL/180 SIGTERM/300")
+retry="${CLGD_SIGTERM_TIMEOUT}"
+
+depend() {
+	need localmount net
+}
+
+# verify
+# 1) that the datadir exists and is writable (or create it)
+# 2) that a directory for the pid exists and is writable
+# 3) ownership and permissions on the config file
+start_pre() {
+	checkpath \
+	-d \
+	--mode 0750 \
+	--owner "${CLGD_USER}:${CLGD_GROUP}" \
+	"${CLGD_DATADIR}"
+
+	checkpath \
+	-d \
+	--mode 0755 \
+	--owner "${CLGD_USER}:${CLGD_GROUP}" \
+	"${CLGD_PIDDIR}"
+
+	checkpath -f \
+	-o ${CLGD_USER}:${CLGD_GROUP} \
+	-m 0660 \
+	${CLGD_CONFIGFILE}
+
+	checkconfig || return 1
+}
+
+checkconfig()
+{
+	if ! grep -qs '^rpcpassword=' "${CLGD_CONFIGFILE}" ; then
+		eerror ""
+		eerror "ERROR: You must set a secure rpcpassword to run collegicoind."
+		eerror "The setting must appear in ${CLGD_CONFIGFILE}"
+		eerror ""
+		eerror "This password is security critical to securing wallets "
+		eerror "and must not be the same as the rpcuser setting."
+		eerror "You can generate a suitable random password using the following"
+		eerror "command from the shell:"
+		eerror ""
+		eerror "bash -c 'tr -dc a-zA-Z0-9 < /dev/urandom | head -c32 && echo'"
+		eerror ""
+		eerror "It is also recommended that you also set alertnotify so you are "
+		eerror "notified of problems:"
+		eerror ""
+		eerror "ie: alertnotify=echo %%s | mail -s \"Collegicoin Core Alert\"" \
+			"admin@foo.com"
+		eerror ""
+		return 1
+	fi
+}

@@ -2,11 +2,11 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef MOTION_QT_NOTIFICATOR_H
-#define MOTION_QT_NOTIFICATOR_H
+#ifndef CLG_QT_NOTIFICATOR_H
+#define CLG_QT_NOTIFICATOR_H
 
 #if defined(HAVE_CONFIG_H)
-#include "config/motion-config.h"
+#include "config/collegicoin-config.h"
 #endif
 
 #include <QIcon>
@@ -77,4 +77,4 @@ private:
 #endif
 };
 
-#endif // MOTION_QT_NOTIFICATOR_H
+#endif // CLG_QT_NOTIFICATOR_H

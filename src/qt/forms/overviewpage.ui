@@ -115,7 +115,7 @@
                                                         <string>Your current spendable balance</string>
                                                     </property>
                                                     <property name="text">
-                                                        <string notr="true">0.000 000 00 XMN</string>
+                                                        <string notr="true">0.000 000 00 CLG</string>
                                                     </property>
                                                     <property name="alignment">
                                                         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -128,7 +128,7 @@
                                             <item row="1" column="2">
                                                 <widget class="QLabel" name="labelWalletStatus">
                                                     <property name="toolTip">
-                                                        <string>The displayed information may be out of date. Your wallet automatically synchronizes with the Motion network after a connection is established, but this process has not completed yet.</string>
+                                                        <string>The displayed information may be out of date. Your wallet automatically synchronizes with the Collegicoin network after a connection is established, but this process has not completed yet.</string>
                                                     </property>
                                                     <property name="text">
                                                         <string notr="true">(out of sync)</string>
@@ -153,7 +153,7 @@
                                                         <string>Your current balance in watch-only addresses</string>
                                                     </property>
                                                     <property name="text">
-                                                        <string notr="true">0.000 000 00 XMN</string>
+                                                        <string notr="true">0.000 000 00 CLG</string>
                                                     </property>
                                                     <property name="alignment">
                                                         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -185,7 +185,7 @@
                                                         <string>Total of transactions that have yet to be confirmed, and do not yet count toward the spendable balance</string>
                                                     </property>
                                                     <property name="text">
-                                                        <string notr="true">0.000 000 00 XMN</string>
+                                                        <string notr="true">0.000 000 00 CLG</string>
                                                     </property>
                                                     <property name="alignment">
                                                         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -210,7 +210,7 @@
                                                         <string>Unconfirmed transactions to watch-only addresses</string>
                                                     </property>
                                                     <property name="text">
-                                                        <string notr="true">0.000 000 00 XMN</string>
+                                                        <string notr="true">0.000 000 00 CLG</string>
                                                     </property>
                                                     <property name="alignment">
                                                         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -255,7 +255,7 @@
                                                         <string>Mined balance that has not yet matured</string>
                                                     </property>
                                                     <property name="text">
-                                                        <string notr="true">0.000 000 00 XMN</string>
+                                                        <string notr="true">0.000 000 00 CLG</string>
                                                     </property>
                                                     <property name="alignment">
                                                         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -280,7 +280,7 @@
                                                         <string>Mined balance in watch-only addresses that has not yet matured</string>
                                                     </property>
                                                     <property name="text">
-                                                        <string notr="true">0.000 000 00 XMN</string>
+                                                        <string notr="true">0.000 000 00 CLG</string>
                                                     </property>
                                                     <property name="alignment">
                                                         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -338,7 +338,7 @@
                                                         <string>Your current total balance</string>
                                                     </property>
                                                     <property name="text">
-                                                        <string notr="true">0.000 000 00 XMN</string>
+                                                        <string notr="true">0.000 000 00 CLG</string>
                                                     </property>
                                                     <property name="alignment">
                                                         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -363,7 +363,7 @@
                                                         <string>Current total balance in watch-only addresses</string>
                                                     </property>
                                                     <property name="text">
-                                                        <string notr="true">0.000 000 00 XMN</string>
+                                                        <string notr="true">0.000 000 00 CLG</string>
                                                     </property>
                                                     <property name="alignment">
                                                         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -651,7 +651,7 @@
                                                         </font>
                                                     </property>
                                                     <property name="text">
-                                                        <string notr="true">0 XMN</string>
+                                                        <string notr="true">0 CLG</string>
                                                     </property>
                                                     
                                                 </widget>
@@ -667,7 +667,7 @@
                                             <item>
                                                 <widget class="QLabel" name="labelPrivateSendSyncStatus">
                                                     <property name="toolTip">
-                                                        <string>The displayed information may be out of date. Your wallet automatically synchronizes with the Motion network after a connection is established, but this process has not completed yet.</string>
+                                                        <string>The displayed information may be out of date. Your wallet automatically synchronizes with the Collegicoin network after a connection is established, but this process has not completed yet.</string>
                                                     </property>
                                                     <property name="styleSheet">
                                                         <string notr="true">QLabel { color: red; }</string>
@@ -706,7 +706,7 @@
                                 <item row="3" column="1">
                                     <widget class="QLabel" name="labelAmountRounds">
                                         <property name="text">
-                                            <string>0 XMN / 0 Rounds</string>
+                                            <string>0 CLG / 0 Rounds</string>
                                         </property>
                                     </widget>
                                 </item>

@@ -3,8 +3,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef MOTION_ADDRDB_H
-#define MOTION_ADDRDB_H
+#ifndef CLG_ADDRDB_H
+#define CLG_ADDRDB_H
 
 #include "serialize.h"
 
@@ -100,4 +100,4 @@ public:
     bool Read(banmap_t& banSet);
 };
 
-#endif // MOTION_ADDRDB_H
+#endif // CLG_ADDRDB_H

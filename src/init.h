@@ -3,8 +3,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef MOTION_INIT_H
-#define MOTION_INIT_H
+#ifndef CLG_INIT_H
+#define CLG_INIT_H
 
 #include <string>
 
@@ -32,8 +32,8 @@ void PrepareShutdown();
 
 /** The help message mode determines what help message to show */
 enum HelpMessageMode {
-    HMM_MOTIOND,
-    HMM_MOTION_QT
+    HMM_CLGD,
+    HMM_CLG_QT
 };
 
 /** Help for options shared between UI and daemon (for -help) */
@@ -41,4 +41,4 @@ std::string HelpMessage(HelpMessageMode mode);
 /** Returns licensing information (for -version) */
 std::string LicenseInfo();
 
-#endif // MOTION_INIT_H
+#endif // CLG_INIT_H

@@ -9,7 +9,7 @@
 #include "uint256.h"
 #include "util.h"
 #include "utilstrencodings.h"
-#include "test/test_motion.h"
+#include "test/test_collegicoin.h"
 
 #include <string>
 #include <vector>
@@ -90,18 +90,18 @@ void RunTest(const TestVector &test) {
         pubkey.Encode(data);
 
         // Test private key
-        CMotionExtKey b58key; b58key.SetKey(key);
+        CCollegicoinExtKey b58key; b58key.SetKey(key);
         BOOST_CHECK(b58key.ToString() == derive.prv);
 
-        CMotionExtKey b58keyDecodeCheck(derive.prv);
+        CCollegicoinExtKey b58keyDecodeCheck(derive.prv);
         CExtKey checkKey = b58keyDecodeCheck.GetKey();
         assert(checkKey == key); //ensure a base58 decoded key also matches
 
         // Test public key
-        CMotionExtPubKey b58pubkey; b58pubkey.SetKey(pubkey);
+        CCollegicoinExtPubKey b58pubkey; b58pubkey.SetKey(pubkey);
         BOOST_CHECK(b58pubkey.ToString() == derive.pub);
 
-        CMotionExtPubKey b58PubkeyDecodeCheck(derive.pub);
+        CCollegicoinExtPubKey b58PubkeyDecodeCheck(derive.pub);
         CExtPubKey checkPubKey = b58PubkeyDecodeCheck.GetKey();
         assert(checkPubKey == pubkey); //ensure a base58 decoded pubkey also matches
 

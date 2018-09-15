@@ -1,0 +1,67 @@
+#!/bin/bash
+#
+#  collegicoind The Collegicoin Core server.
+#
+#
+# chkconfig: 345 80 20
+# description: collegicoind
+# processname: collegicoind
+#
+
+# Source function library.
+. /etc/init.d/functions
+
+# you can override defaults in /etc/sysconfig/collegicoind, see below
+if [ -f /etc/sysconfig/collegicoind ]; then
+        . /etc/sysconfig/collegicoind
+fi
+
+RETVAL=0
+
+prog=collegicoind
+# you can override the lockfile via CLGD_LOCKFILE in /etc/sysconfig/collegicoind
+lockfile=${CLGD_LOCKFILE-/var/lock/subsys/collegicoind}
+
+# collegicoind defaults to /usr/bin/collegicoind, override with CLGD_BIN
+collegicoind=${CLGD_BIN-/usr/bin/collegicoind}
+
+# collegicoind opts default to -disablewallet, override with CLGD_OPTS
+collegicoind_opts=${CLGD_OPTS--disablewallet}
+
+start() {
+    echo -n $"Starting $prog: "
+    daemon $DAEMONOPTS $collegicoind $collegicoind_opts
+    RETVAL=$?
+    echo
+    [ $RETVAL -eq 0 ] && touch $lockfile
+    return $RETVAL
+}
+
+stop() {
+    echo -n $"Stopping $prog: "
+    killproc $prog
+    RETVAL=$?
+    echo
+    [ $RETVAL -eq 0 ] && rm -f $lockfile
+    return $RETVAL
+}
+
+case "$1" in
+    start)
+        start
+        ;;
+    stop)
+        stop
+        ;;
+    status)
+        status $prog
+        ;;
+    restart)
+        stop
+        start
+        ;;
+    *)
+        echo "Usage: service $prog {start|stop|status|restart}"
+        exit 1
+        ;;
+esac

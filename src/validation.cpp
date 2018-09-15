@@ -53,7 +53,7 @@
 using namespace std;
 
 #if defined(NDEBUG)
-# error "Motion Core cannot be compiled without assertions."
+# error "Collegicoin Core cannot be compiled without assertions."
 #endif
 
 /**
@@ -982,7 +982,7 @@ bool AcceptToMemoryPoolWorker(CTxMemPool& pool, CValidationState &state, const C
         // Remove conflicting transactions from the mempool
         BOOST_FOREACH(const CTxMemPool::txiter it, allConflicting)
         {
-            LogPrint("mempool", "replacing tx %s with %s for %s XMN additional fees, %d delta bytes\n",
+            LogPrint("mempool", "replacing tx %s with %s for %s CLG additional fees, %d delta bytes\n",
                     it->GetTx().GetHash().ToString(),
                     hash.ToString(),
                     FormatMoney(nModifiedFees - nConflictingFees),
@@ -1233,8 +1233,8 @@ CAmount GetBlockSubsidy(int nPrevBits, int nPrevHeight, const Consensus::Params&
 {
     double dDiff;
 
-    if (!nPrevHeight && Params().NetworkIDString() != "test" || nPrevHeight <= 2) { // No Premine on testnet
-        return 350400 * COIN;
+    if (!nPrevHeight) { // No Premine on testnet
+        return 4307280 * COIN;
     }
 
     // Ninja Launch, first 500 blocks 1 XMN reward
@@ -1242,9 +1242,9 @@ CAmount GetBlockSubsidy(int nPrevBits, int nPrevHeight, const Consensus::Params&
         return 1 * COIN;
     }
 
-    // Total supply 22,075,700
-    if (nPrevHeight >= 3154101) {
-        return 0;
+    // Total supply 21,000,000
+    if (nPrevHeight >= 3600000) {
+        return 0 * COIN;
     }
 
     if (nPrevHeight <= 4500 && Params().NetworkIDString() == CBaseChainParams::MAIN) {
@@ -1256,27 +1256,22 @@ CAmount GetBlockSubsidy(int nPrevBits, int nPrevHeight, const Consensus::Params&
 
     // LogPrintf("height %u diff %4.2f reward %d\n", nPrevHeight, dDiff, nSubsidyBase);
     // Block reward starts at 20 and declines 50% every 2 years, getting in 10 years ~21M XMN.
-    CAmount nSubsidy = 20 * COIN;
+    CAmount nSubsidy = 21 * COIN;
 
     for (int i = consensusParams.nSubsidyHalvingInterval; i <= nPrevHeight; i += consensusParams.nSubsidyHalvingInterval) {
         nSubsidy = nSubsidy/2;
     }
 
-    // Minimum reward is 1.25
-    if (nSubsidy < (1.25 * COIN)) {
-        nSubsidy = 1.25 * COIN;
-    }
-
-    // Hard fork to reduce the block reward by 10 extra percent (allowing budget/superblocks)
-    CAmount nSuperblockPart = (nPrevHeight > consensusParams.nBudgetPaymentsStartBlock) ? nSubsidy/10 : 0;
+    // // Hard fork to reduce the block reward by 10 extra percent (allowing budget/superblocks)
+    // CAmount nSuperblockPart = (nPrevHeight > consensusParams.nBudgetPaymentsStartBlock) ? nSubsidy/10 : 0;
+    CAmount nSuperblockPart = 0;
 
     return fSuperblockPartOnly ? nSuperblockPart : nSubsidy - nSuperblockPart;
 }
 
 CAmount GetMasternodePayment(int nHeight, CAmount blockValue)
 {
-    // Until tiers implementation, MN gets 60% from block reward
-    return blockValue * 0.6;
+    return blockValue * 0.5;
 }
 
 bool IsInitialBlockDownload()
@@ -1847,7 +1842,7 @@ bool FindUndoPos(CValidationState &state, int nFile, CDiskBlockPos &pos, unsigne
 static CCheckQueue<CScriptCheck> scriptcheckqueue(128);
 
 void ThreadScriptCheck() {
-    RenameThread("motion-scriptch");
+    RenameThread("collegicoin-scriptch");
     scriptcheckqueue.Thread();
 }
 
@@ -2199,7 +2194,7 @@ static bool ConnectBlock(const CBlock& block, CValidationState& state, CBlockInd
     int64_t nTime3 = GetTimeMicros(); nTimeConnect += nTime3 - nTime2;
     LogPrint("bench", "      - Connect %u transactions: %.2fms (%.3fms/tx, %.3fms/txin) [%.2fs]\n", (unsigned)block.vtx.size(), 0.001 * (nTime3 - nTime2), 0.001 * (nTime3 - nTime2) / block.vtx.size(), nInputs <= 1 ? 0 : 0.001 * (nTime3 - nTime2) / (nInputs-1), nTimeConnect * 0.000001);
 
-    // MOTION : MODIFIED TO CHECK MASTERNODE PAYMENTS AND SUPERBLOCKS
+    // CLG : MODIFIED TO CHECK MASTERNODE PAYMENTS AND SUPERBLOCKS
 
     // It's possible that we simply don't have enough data and this could fail
     // (i.e. block itself could be a correct one and we need to store it),
@@ -2210,15 +2205,15 @@ static bool ConnectBlock(const CBlock& block, CValidationState& state, CBlockInd
     CAmount blockReward = nFees + GetBlockSubsidy(pindex->pprev->nBits, pindex->pprev->nHeight, chainparams.GetConsensus());
     std::string strError = "";
     if (!IsBlockValueValid(block, pindex->nHeight, blockReward, strError)) {
-        return state.DoS(0, error("ConnectBlock(MOTION): %s", strError), REJECT_INVALID, "bad-cb-amount");
+        return state.DoS(0, error("ConnectBlock(CLG): %s", strError), REJECT_INVALID, "bad-cb-amount");
     }
 
     if (!IsBlockPayeeValid(block.vtx[0], pindex->nHeight, blockReward)) {
         mapRejectedBlocks.insert(make_pair(block.GetHash(), GetTime()));
-        return state.DoS(0, error("ConnectBlock(MOTION): couldn't find masternode or superblock payments"),
+        return state.DoS(0, error("ConnectBlock(CLG): couldn't find masternode or superblock payments"),
                                 REJECT_INVALID, "bad-cb-payee");
     }
-    // END MOTION
+    // END CLG
 
     if (!control.Wait())
         return state.DoS(100, false);
@@ -3150,7 +3145,7 @@ bool CheckBlock(const CBlock& block, CValidationState& state, bool fCheckPOW, bo
                              REJECT_INVALID, "bad-cb-multiple");
 
 
-    // MOTION : CHECK TRANSACTIONS FOR INSTANTSEND
+    // CLG : CHECK TRANSACTIONS FOR INSTANTSEND
 
     if(sporkManager.IsSporkActive(SPORK_3_INSTANTSEND_BLOCK_FILTERING)) {
         // We should never accept block which conflicts with completed transaction lock,
@@ -3167,17 +3162,17 @@ bool CheckBlock(const CBlock& block, CValidationState& state, bool fCheckPOW, bo
                     // relaying instantsend data won't help it.
                     LOCK(cs_main);
                     mapRejectedBlocks.insert(make_pair(block.GetHash(), GetTime()));
-                    return state.DoS(0, error("CheckBlock(MOTION): transaction %s conflicts with transaction lock %s",
+                    return state.DoS(0, error("CheckBlock(CLG): transaction %s conflicts with transaction lock %s",
                                                 tx.GetHash().ToString(), hashLocked.ToString()),
                                      REJECT_INVALID, "conflict-tx-lock");
                 }
             }
         }
     } else {
-        LogPrintf("CheckBlock(MOTION): spork is off, skipping transaction locking checks\n");
+        LogPrintf("CheckBlock(CLG): spork is off, skipping transaction locking checks\n");
     }
 
-    // END MOTION
+    // END CLG
 
     // Check transactions
     BOOST_FOREACH(const CTransaction& tx, block.vtx)

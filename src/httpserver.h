@@ -2,8 +2,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef MOTION_HTTPSERVER_H
-#define MOTION_HTTPSERVER_H
+#ifndef CLG_HTTPSERVER_H
+#define CLG_HTTPSERVER_H
 
 #include <string>
 #include <stdint.h>
@@ -146,4 +146,4 @@ private:
     struct event* ev;
 };
 
-#endif // MOTION_HTTPSERVER_H
+#endif // CLG_HTTPSERVER_H

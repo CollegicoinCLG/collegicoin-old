@@ -2,8 +2,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef MOTION_POLICY_RBF_H
-#define MOTION_POLICY_RBF_H
+#ifndef CLG_POLICY_RBF_H
+#define CLG_POLICY_RBF_H
 
 #include "txmempool.h"
 
@@ -17,4 +17,4 @@ bool SignalsOptInRBF(const CTransaction &tx);
 // as the sequence numbers of all in-mempool ancestors.
 bool IsRBFOptIn(const CTxMemPoolEntry &entry, CTxMemPool &pool);
 
-#endif // MOTION_POLICY_RBF_H
+#endif // CLG_POLICY_RBF_H

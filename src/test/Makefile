@@ -1,6 +1,6 @@
 all:
-	$(MAKE) -C .. motion_test
+	$(MAKE) -C .. collegicoin_test
 clean:
-	$(MAKE) -C .. motion_test_clean
+	$(MAKE) -C .. collegicoin_test_clean
 check:
-	$(MAKE) -C .. motion_test_check
+	$(MAKE) -C .. collegicoin_test_check

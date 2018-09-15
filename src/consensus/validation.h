@@ -3,8 +3,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef MOTION_CONSENSUS_VALIDATION_H
-#define MOTION_CONSENSUS_VALIDATION_H
+#ifndef CLG_CONSENSUS_VALIDATION_H
+#define CLG_CONSENSUS_VALIDATION_H
 
 #include <string>
 
@@ -82,4 +82,4 @@ public:
     std::string GetDebugMessage() const { return strDebugMessage; }
 };
 
-#endif // MOTION_CONSENSUS_VALIDATION_H
+#endif // CLG_CONSENSUS_VALIDATION_H

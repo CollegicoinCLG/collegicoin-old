@@ -2,8 +2,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef MOTION_QT_RECEIVECOINSDIALOG_H
-#define MOTION_QT_RECEIVECOINSDIALOG_H
+#ifndef CLG_QT_RECEIVECOINSDIALOG_H
+#define CLG_QT_RECEIVECOINSDIALOG_H
 
 #include "guiutil.h"
 
@@ -27,7 +27,7 @@ QT_BEGIN_NAMESPACE
 class QModelIndex;
 QT_END_NAMESPACE
 
-/** Dialog for requesting payment of motion */
+/** Dialog for requesting payment of collegicoin */
 class ReceiveCoinsDialog : public QDialog
 {
     Q_OBJECT
@@ -79,4 +79,4 @@ private Q_SLOTS:
     void updateRequestView(int);
 };
 
-#endif // MOTION_QT_RECEIVECOINSDIALOG_H
+#endif // CLG_QT_RECEIVECOINSDIALOG_H

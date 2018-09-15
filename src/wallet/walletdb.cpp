@@ -359,13 +359,13 @@ ReadKeyValue(CWallet* pwallet, CDataStream& ssKey, CDataStream& ssValue,
         {
             string strAddress;
             ssKey >> strAddress;
-            ssValue >> pwallet->mapAddressBook[CMotionAddress(strAddress).Get()].name;
+            ssValue >> pwallet->mapAddressBook[CCollegicoinAddress(strAddress).Get()].name;
         }
         else if (strType == "purpose")
         {
             string strAddress;
             ssKey >> strAddress;
-            ssValue >> pwallet->mapAddressBook[CMotionAddress(strAddress).Get()].purpose;
+            ssValue >> pwallet->mapAddressBook[CCollegicoinAddress(strAddress).Get()].purpose;
         }
         else if (strType == "tx")
         {
@@ -586,7 +586,7 @@ ReadKeyValue(CWallet* pwallet, CDataStream& ssKey, CDataStream& ssValue,
             ssKey >> strAddress;
             ssKey >> strKey;
             ssValue >> strValue;
-            if (!pwallet->LoadDestData(CMotionAddress(strAddress).Get(), strKey, strValue))
+            if (!pwallet->LoadDestData(CCollegicoinAddress(strAddress).Get(), strKey, strValue))
             {
                 strErr = "Error reading wallet database: LoadDestData failed";
                 return false;
@@ -842,7 +842,7 @@ DBErrors CWalletDB::ZapWalletTx(CWallet* pwallet, vector<CWalletTx>& vWtx)
 void ThreadFlushWalletDB(const string& strFile)
 {
     // Make this thread recognisable as the wallet flushing thread
-    RenameThread("motion-wallet");
+    RenameThread("collegicoin-wallet");
 
     static bool fOneThread;
     if (fOneThread)

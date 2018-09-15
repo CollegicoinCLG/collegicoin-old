@@ -2,8 +2,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef MOTION_QT_SENDCOINSENTRY_H
-#define MOTION_QT_SENDCOINSENTRY_H
+#ifndef CLG_QT_SENDCOINSENTRY_H
+#define CLG_QT_SENDCOINSENTRY_H
 
 #include "walletmodel.h"
 
@@ -17,7 +17,7 @@ namespace Ui {
 }
 
 /**
- * A single entry in the dialog for sending motions.
+ * A single entry in the dialog for sending collegicoins.
  * Stacked widget, with different UIs for payment requests
  * with a strong payee identity.
  */
@@ -70,4 +70,4 @@ private:
     bool updateLabel(const QString &address);
 };
 
-#endif // MOTION_QT_SENDCOINSENTRY_H
+#endif // CLG_QT_SENDCOINSENTRY_H

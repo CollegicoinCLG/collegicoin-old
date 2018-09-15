@@ -2,11 +2,11 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef MOTION_NETADDRESS_H
-#define MOTION_NETADDRESS_H
+#ifndef CLG_NETADDRESS_H
+#define CLG_NETADDRESS_H
 
 #if defined(HAVE_CONFIG_H)
-#include "config/motion-config.h"
+#include "config/collegicoin-config.h"
 #endif
 
 #include "compat.h"
@@ -167,4 +167,4 @@ class CService : public CNetAddr
         }
 };
 
-#endif // MOTION_NETADDRESS_H
+#endif // CLG_NETADDRESS_H

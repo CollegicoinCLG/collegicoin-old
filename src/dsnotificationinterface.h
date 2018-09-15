@@ -2,8 +2,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef MOTION_DSNOTIFICATIONINTERFACE_H
-#define MOTION_DSNOTIFICATIONINTERFACE_H
+#ifndef CLG_DSNOTIFICATIONINTERFACE_H
+#define CLG_DSNOTIFICATIONINTERFACE_H
 
 #include "validationinterface.h"
 
@@ -27,4 +27,4 @@ private:
     CConnman& connman;
 };
 
-#endif // MOTION_DSNOTIFICATIONINTERFACE_H
+#endif // CLG_DSNOTIFICATIONINTERFACE_H

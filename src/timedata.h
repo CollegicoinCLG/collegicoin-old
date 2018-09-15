@@ -2,8 +2,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef MOTION_TIMEDATA_H
-#define MOTION_TIMEDATA_H
+#ifndef CLG_TIMEDATA_H
+#define CLG_TIMEDATA_H
 
 #include <algorithm>
 #include <assert.h>
@@ -73,4 +73,4 @@ int64_t GetTimeOffset();
 int64_t GetAdjustedTime();
 void AddTimeData(const CNetAddr& ip, int64_t nTime);
 
-#endif // MOTION_TIMEDATA_H
+#endif // CLG_TIMEDATA_H

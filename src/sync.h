@@ -3,8 +3,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef MOTION_SYNC_H
-#define MOTION_SYNC_H
+#ifndef CLG_SYNC_H
+#define CLG_SYNC_H
 
 #include "threadsafety.h"
 
@@ -280,4 +280,4 @@ public:
     }
 };
 
-#endif // MOTION_SYNC_H
+#endif // CLG_SYNC_H

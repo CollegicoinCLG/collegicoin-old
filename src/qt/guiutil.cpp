@@ -5,8 +5,8 @@
 
 #include "guiutil.h"
 
-#include "motionaddressvalidator.h"
-#include "motionunits.h"
+#include "collegicoinaddressvalidator.h"
+#include "collegicoinunits.h"
 #include "qvalidatedlineedit.h"
 #include "walletmodel.h"
 
@@ -117,10 +117,10 @@ void setupAddressWidget(QValidatedLineEdit *widget, QWidget *parent)
 #if QT_VERSION >= 0x040700
     // We don't want translators to use own addresses in translations
     // and this is the only place, where this address is supplied.
-    widget->setPlaceholderText(QObject::tr("Enter a Motion address (e.g. %1)").arg("MbWMQqUNEosjjEb9WAGuJ5KGN9h4WL5bqf"));
+    widget->setPlaceholderText(QObject::tr("Enter a Collegicoin address (e.g. %1)").arg("MbWMQqUNEosjjEb9WAGuJ5KGN9h4WL5bqf"));
 #endif
-    widget->setValidator(new MotionAddressEntryValidator(parent));
-    widget->setCheckValidator(new MotionAddressCheckValidator(parent));
+    widget->setValidator(new CollegicoinAddressEntryValidator(parent));
+    widget->setCheckValidator(new CollegicoinAddressCheckValidator(parent));
 }
 
 void setupAmountWidget(QLineEdit *widget, QWidget *parent)
@@ -132,10 +132,10 @@ void setupAmountWidget(QLineEdit *widget, QWidget *parent)
     widget->setAlignment(Qt::AlignRight|Qt::AlignVCenter);
 }
 
-bool parseMotionURI(const QUrl &uri, SendCoinsRecipient *out)
+bool parseCollegicoinURI(const QUrl &uri, SendCoinsRecipient *out)
 {
-    // return if URI is not valid or is no motion: URI
-    if(!uri.isValid() || uri.scheme() != QString("motion"))
+    // return if URI is not valid or is no collegicoin: URI
+    if(!uri.isValid() || uri.scheme() != QString("collegicoin"))
         return false;
 
     SendCoinsRecipient rv;
@@ -184,7 +184,7 @@ bool parseMotionURI(const QUrl &uri, SendCoinsRecipient *out)
         {
             if(!i->second.isEmpty())
             {
-                if(!MotionUnits::parse(MotionUnits::XMN, i->second, &rv.amount))
+                if(!CollegicoinUnits::parse(CollegicoinUnits::CLG, i->second, &rv.amount))
                 {
                     return false;
                 }
@@ -202,28 +202,28 @@ bool parseMotionURI(const QUrl &uri, SendCoinsRecipient *out)
     return true;
 }
 
-bool parseMotionURI(QString uri, SendCoinsRecipient *out)
+bool parseCollegicoinURI(QString uri, SendCoinsRecipient *out)
 {
-    // Convert motion:// to motion:
+    // Convert collegicoin:// to collegicoin:
     //
-    //    Cannot handle this later, because motion:// will cause Qt to see the part after // as host,
+    //    Cannot handle this later, because collegicoin:// will cause Qt to see the part after // as host,
     //    which will lower-case it (and thus invalidate the address).
-    if(uri.startsWith("motion://", Qt::CaseInsensitive))
+    if(uri.startsWith("collegicoin://", Qt::CaseInsensitive))
     {
-        uri.replace(0, 7, "motion:");
+        uri.replace(0, 7, "collegicoin:");
     }
     QUrl uriInstance(uri);
-    return parseMotionURI(uriInstance, out);
+    return parseCollegicoinURI(uriInstance, out);
 }
 
-QString formatMotionURI(const SendCoinsRecipient &info)
+QString formatCollegicoinURI(const SendCoinsRecipient &info)
 {
-    QString ret = QString("motion:%1").arg(info.address);
+    QString ret = QString("collegicoin:%1").arg(info.address);
     int paramCount = 0;
 
     if (info.amount)
     {
-        ret += QString("?amount=%1").arg(MotionUnits::format(MotionUnits::XMN, info.amount, false, MotionUnits::separatorNever));
+        ret += QString("?amount=%1").arg(CollegicoinUnits::format(CollegicoinUnits::CLG, info.amount, false, CollegicoinUnits::separatorNever));
         paramCount++;
     }
 
@@ -252,7 +252,7 @@ QString formatMotionURI(const SendCoinsRecipient &info)
 
 bool isDust(const QString& address, const CAmount& amount)
 {
-    CTxDestination dest = CMotionAddress(address.toStdString()).Get();
+    CTxDestination dest = CCollegicoinAddress(address.toStdString()).Get();
     CScript script = GetScriptForDestination(dest);
     CTxOut txOut(amount, script);
     return txOut.IsDust(::minRelayTxFee);
@@ -424,7 +424,7 @@ void openConfigfile()
 {
     boost::filesystem::path pathConfig = GetConfigFile();
 
-    /* Open motion.conf with the associated application */
+    /* Open collegicoin.conf with the associated application */
     if (boost::filesystem::exists(pathConfig))
         QDesktopServices::openUrl(QUrl::fromLocalFile(boostPathToQString(pathConfig)));
 }
@@ -634,15 +634,15 @@ boost::filesystem::path static StartupShortcutPath()
 {
     std::string chain = ChainNameFromCommandLine();
     if (chain == CBaseChainParams::MAIN)
-        return GetSpecialFolderPath(CSIDL_STARTUP) / "Motion Core.lnk";
+        return GetSpecialFolderPath(CSIDL_STARTUP) / "Collegicoin Core.lnk";
     if (chain == CBaseChainParams::TESTNET) // Remove this special case when CBaseChainParams::TESTNET = "testnet4"
-        return GetSpecialFolderPath(CSIDL_STARTUP) / "Motion Core (testnet).lnk";
-    return GetSpecialFolderPath(CSIDL_STARTUP) / strprintf("Motion Core (%s).lnk", chain);
+        return GetSpecialFolderPath(CSIDL_STARTUP) / "Collegicoin Core (testnet).lnk";
+    return GetSpecialFolderPath(CSIDL_STARTUP) / strprintf("Collegicoin Core (%s).lnk", chain);
 }
 
 bool GetStartOnSystemStartup()
 {
-    // check for "Motion Core*.lnk"
+    // check for "Collegicoin Core*.lnk"
     return boost::filesystem::exists(StartupShortcutPath());
 }
 
@@ -734,8 +734,8 @@ boost::filesystem::path static GetAutostartFilePath()
 {
     std::string chain = ChainNameFromCommandLine();
     if (chain == CBaseChainParams::MAIN)
-        return GetAutostartDir() / "motioncore.desktop";
-    return GetAutostartDir() / strprintf("motioncore-%s.lnk", chain);
+        return GetAutostartDir() / "collegicoincore.desktop";
+    return GetAutostartDir() / strprintf("collegicoincore-%s.lnk", chain);
 }
 
 bool GetStartOnSystemStartup()
@@ -774,13 +774,13 @@ bool SetStartOnSystemStartup(bool fAutoStart)
         if (!optionFile.good())
             return false;
         std::string chain = ChainNameFromCommandLine();
-        // Write a motioncore.desktop file to the autostart directory:
+        // Write a collegicoincore.desktop file to the autostart directory:
         optionFile << "[Desktop Entry]\n";
         optionFile << "Type=Application\n";
         if (chain == CBaseChainParams::MAIN)
-            optionFile << "Name=Motion Core\n";
+            optionFile << "Name=Collegicoin Core\n";
         else
-            optionFile << strprintf("Name=Motion Core (%s)\n", chain);
+            optionFile << strprintf("Name=Collegicoin Core (%s)\n", chain);
         optionFile << "Exec=" << pszExePath << strprintf(" -min -testnet=%d -regtest=%d\n", GetBoolArg("-testnet", false), GetBoolArg("-regtest", false));
         optionFile << "Terminal=false\n";
         optionFile << "Hidden=false\n";
@@ -799,7 +799,7 @@ bool SetStartOnSystemStartup(bool fAutoStart)
 LSSharedFileListItemRef findStartupItemInList(LSSharedFileListRef list, CFURLRef findUrl);
 LSSharedFileListItemRef findStartupItemInList(LSSharedFileListRef list, CFURLRef findUrl)
 {
-    // loop through the list of startup items and try to find the Motion Core app
+    // loop through the list of startup items and try to find the Collegicoin Core app
     CFArrayRef listSnapshot = LSSharedFileListCopySnapshot(list, NULL);
     for(int i = 0; i < CFArrayGetCount(listSnapshot); i++) {
         LSSharedFileListItemRef item = (LSSharedFileListItemRef)CFArrayGetValueAtIndex(listSnapshot, i);
@@ -831,21 +831,21 @@ LSSharedFileListItemRef findStartupItemInList(LSSharedFileListRef list, CFURLRef
 
 bool GetStartOnSystemStartup()
 {
-    CFURLRef motionAppUrl = CFBundleCopyBundleURL(CFBundleGetMainBundle());
+    CFURLRef collegicoinAppUrl = CFBundleCopyBundleURL(CFBundleGetMainBundle());
     LSSharedFileListRef loginItems = LSSharedFileListCreate(NULL, kLSSharedFileListSessionLoginItems, NULL);
-    LSSharedFileListItemRef foundItem = findStartupItemInList(loginItems, motionAppUrl);
+    LSSharedFileListItemRef foundItem = findStartupItemInList(loginItems, collegicoinAppUrl);
     return !!foundItem; // return boolified object
 }
 
 bool SetStartOnSystemStartup(bool fAutoStart)
 {
-    CFURLRef motionAppUrl = CFBundleCopyBundleURL(CFBundleGetMainBundle());
+    CFURLRef collegicoinAppUrl = CFBundleCopyBundleURL(CFBundleGetMainBundle());
     LSSharedFileListRef loginItems = LSSharedFileListCreate(NULL, kLSSharedFileListSessionLoginItems, NULL);
-    LSSharedFileListItemRef foundItem = findStartupItemInList(loginItems, motionAppUrl);
+    LSSharedFileListItemRef foundItem = findStartupItemInList(loginItems, collegicoinAppUrl);
 
     if(fAutoStart && !foundItem) {
-        // add Motion Core app to startup item list
-        LSSharedFileListInsertItemURL(loginItems, kLSSharedFileListItemBeforeFirst, NULL, NULL, motionAppUrl, NULL, NULL);
+        // add Collegicoin Core app to startup item list
+        LSSharedFileListInsertItemURL(loginItems, kLSSharedFileListItemBeforeFirst, NULL, NULL, collegicoinAppUrl, NULL, NULL);
     }
     else if(!fAutoStart && foundItem) {
         // remove item

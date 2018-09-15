@@ -2,11 +2,11 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef MOTION_ZMQ_ZMQCONFIG_H
-#define MOTION_ZMQ_ZMQCONFIG_H
+#ifndef CLG_ZMQ_ZMQCONFIG_H
+#define CLG_ZMQ_ZMQCONFIG_H
 
 #if defined(HAVE_CONFIG_H)
-#include "config/motion-config.h"
+#include "config/collegicoin-config.h"
 #endif
 
 #include <stdarg.h>
@@ -21,4 +21,4 @@
 
 void zmqError(const char *str);
 
-#endif // MOTION_ZMQ_ZMQCONFIG_H
+#endif // CLG_ZMQ_ZMQCONFIG_H

@@ -2,8 +2,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef MOTION_QT_BANTABLEMODEL_H
-#define MOTION_QT_BANTABLEMODEL_H
+#ifndef CLG_QT_BANTABLEMODEL_H
+#define CLG_QT_BANTABLEMODEL_H
 
 #include "net.h"
 
@@ -70,4 +70,4 @@ private:
     std::unique_ptr<BanTablePriv> priv;
 };
 
-#endif // MOTION_QT_BANTABLEMODEL_H
+#endif // CLG_QT_BANTABLEMODEL_H

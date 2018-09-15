@@ -3,8 +3,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef MOTION_MERKLEBLOCK_H
-#define MOTION_MERKLEBLOCK_H
+#ifndef CLG_MERKLEBLOCK_H
+#define CLG_MERKLEBLOCK_H
 
 #include "serialize.h"
 #include "uint256.h"
@@ -153,4 +153,4 @@ public:
     }
 };
 
-#endif // MOTION_MERKLEBLOCK_H
+#endif // CLG_MERKLEBLOCK_H

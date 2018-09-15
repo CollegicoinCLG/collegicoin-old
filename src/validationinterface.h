@@ -3,8 +3,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef MOTION_VALIDATIONINTERFACE_H
-#define MOTION_VALIDATIONINTERFACE_H
+#ifndef CLG_VALIDATIONINTERFACE_H
+#define CLG_VALIDATIONINTERFACE_H
 
 #include <boost/signals2/signal.hpp>
 #include <boost/shared_ptr.hpp>
@@ -76,4 +76,4 @@ struct CMainSignals {
 
 CMainSignals& GetMainSignals();
 
-#endif // MOTION_VALIDATIONINTERFACE_H
+#endif // CLG_VALIDATIONINTERFACE_H

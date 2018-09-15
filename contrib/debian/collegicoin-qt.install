@@ -1,0 +1,6 @@
+usr/local/bin/collegicoin-qt usr/bin
+share/pixmaps/collegicoin32.xpm usr/share/pixmaps
+share/pixmaps/collegicoin16.xpm usr/share/pixmaps
+share/pixmaps/collegicoin128.png usr/share/pixmaps
+debian/collegicoin-qt.desktop usr/share/applications
+debian/collegicoin-qt.protocol usr/share/kde4/services/

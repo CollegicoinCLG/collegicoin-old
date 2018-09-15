@@ -2,7 +2,7 @@
 #
 # key.py - OpenSSL wrapper
 #
-# This file is modified from python-motionlib.
+# This file is modified from python-collegicoinlib.
 #
 
 """ECC secp256k1 crypto routines

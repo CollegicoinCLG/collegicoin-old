@@ -1,0 +1,22 @@
+[Unit]
+Description=Collegicoin's distributed currency daemon
+After=network.target
+
+[Service]
+User=collegicoincore
+Group=collegicoincore
+
+Type=forking
+PIDFile=/var/lib/collegicoind/collegicoind.pid
+ExecStart=/usr/bin/collegicoind -daemon -pid=/var/lib/collegicoind/collegicoind.pid \
+-conf=/etc/collegicoincore/collegicoin.conf -datadir=/var/lib/collegicoind -disablewallet
+
+Restart=always
+PrivateTmp=true
+TimeoutStopSec=60s
+TimeoutStartSec=2s
+StartLimitInterval=120s
+StartLimitBurst=5
+
+[Install]
+WantedBy=multi-user.target

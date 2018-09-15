@@ -3,8 +3,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef MOTION_AMOUNT_H
-#define MOTION_AMOUNT_H
+#ifndef CLG_AMOUNT_H
+#define CLG_AMOUNT_H
 
 #include "serialize.h"
 
@@ -20,8 +20,8 @@ extern const std::string CURRENCY_UNIT;
 
 /** No amount larger than this (in satoshi) is valid.
  *
- * Note that this constant is *not* the total money supply, which in Motion
- * currently happens to be less than 21,000,000 XMN for various reasons, but
+ * Note that this constant is *not* the total money supply, which in Collegicoin
+ * currently happens to be less than 21,000,000 CLG for various reasons, but
  * rather a sanity check. As this sanity check is used by consensus-critical
  * validation code, the exact value of the MAX_MONEY constant is consensus
  * critical; in unusual circumstances like a(nother) overflow bug that allowed
@@ -62,4 +62,4 @@ public:
     }
 };
 
-#endif //  MOTION_AMOUNT_H
+#endif //  CLG_AMOUNT_H

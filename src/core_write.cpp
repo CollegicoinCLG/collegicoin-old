@@ -144,7 +144,7 @@ void ScriptPubKeyToUniv(const CScript& scriptPubKey,
 
     UniValue a(UniValue::VARR);
     BOOST_FOREACH(const CTxDestination& addr, addresses)
-        a.push_back(CMotionAddress(addr).ToString());
+        a.push_back(CCollegicoinAddress(addr).ToString());
     out.pushKV("addresses", a);
 }
 

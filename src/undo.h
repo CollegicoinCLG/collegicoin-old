@@ -3,8 +3,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef MOTION_UNDO_H
-#define MOTION_UNDO_H
+#ifndef CLG_UNDO_H
+#define CLG_UNDO_H
 
 #include "compressor.h" 
 #include "consensus/consensus.h"
@@ -108,4 +108,4 @@ public:
     }
 };
 
-#endif // MOTION_UNDO_H
+#endif // CLG_UNDO_H

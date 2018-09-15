@@ -1,9 +1,9 @@
-Motion Core 0.12.1
+Collegicoin Core 0.12.1
 =====================
 
 Intro
 -----
-Motion is a free open source peer-to-peer electronic cash system that is
+Collegicoin is a free open source peer-to-peer electronic cash system that is
 completely decentralized, without the need for a central server or trusted
 parties.  Users hold the crypto keys to their own money and transact directly
 with each other, with the help of a P2P network to check for double-spending.
@@ -11,13 +11,13 @@ with each other, with the help of a P2P network to check for double-spending.
 
 Setup
 -----
-Unpack the files into a directory and run motion-qt.exe.
+Unpack the files into a directory and run collegicoin-qt.exe.
 
-Motion Core is the original Motion client and it builds the backbone of the network.
-However, it downloads and stores the entire history of Motion transactions;
+Collegicoin Core is the original Collegicoin client and it builds the backbone of the network.
+However, it downloads and stores the entire history of Collegicoin transactions;
 depending on the speed of your computer and network connection, the synchronization
 process can take anywhere from a few hours to a day or more.
 
-See the motion wiki at:
+See the collegicoin wiki at:
   https://dashpay.atlassian.net/wiki/
 for more help and information.

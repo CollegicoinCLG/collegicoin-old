@@ -3,8 +3,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef MOTION_UI_INTERFACE_H
-#define MOTION_UI_INTERFACE_H
+#ifndef CLG_UI_INTERFACE_H
+#define CLG_UI_INTERFACE_H
 
 #include <stdint.h>
 #include <string>
@@ -121,4 +121,4 @@ public:
 
 extern CClientUIInterface uiInterface;
 
-#endif // MOTION_UI_INTERFACE_H
+#endif // CLG_UI_INTERFACE_H

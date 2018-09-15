@@ -1,11 +1,11 @@
 Sample configuration files for:
 
-SystemD: motiond.service
-Upstart: motiond.conf
-OpenRC:  motiond.openrc
-         motiond.openrcconf
-CentOS:  motiond.init
-OS X:    org.motion.motiond.plist
+SystemD: collegicoind.service
+Upstart: collegicoind.conf
+OpenRC:  collegicoind.openrc
+         collegicoind.openrcconf
+CentOS:  collegicoind.init
+OS X:    org.collegicoin.collegicoind.plist
 
 have been made available to assist packagers in creating node packages here.
 
