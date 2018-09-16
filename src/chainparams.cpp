@@ -152,9 +152,9 @@ public:
         nDelayGetHeadersTime = 24 * 60 * 60;
         nPruneAfterHeight = 100000;
 
-        genesis = CreateGenesisBlock(1537033788, 2828163, 0x1e0ffff0, 1, 50 * COIN);
+        genesis = CreateGenesisBlock(1537136163, 123373, 0x1e0ffff0, 1, 50 * COIN);
         consensus.hashGenesisBlock = genesis.GetHash();
-        assert(consensus.hashGenesisBlock == uint256S("0x0000064c7fd2c6e5a2a423ed786207f1866104242352563d7ae70f94a40a984a"));
+        assert(consensus.hashGenesisBlock == uint256S("0x000005cbc423d0d019d4bf0ae973fed7bc44ec08322ea308910ce69e3fecfc08"));
         assert(genesis.hashMerkleRoot == uint256S("0xa0b54793d678d2731fad495d97710f8db05636e33e0dcc8920bba1bfa6aac803"));
 
         vSeeds.push_back(CDNSSeedData("collegicoin.com", "seed.collegicoin.com"));
@@ -270,7 +270,7 @@ public:
         pchMessageStart[2] = 0x13;
         pchMessageStart[3] = 0xd3;
         vAlertPubKey = ParseHex("0477ff7e578595f2bd4c550288cb4756b37d4491e944cec988c52b27fd01e53d88c8de207c0434d1091446efc672a14db6bac0fbcfce49e22b03bccd998e1832fd");
-        nDefaultPort = 112034;
+        nDefaultPort = 11034;
         nMaxTipAge = 0x7fffffff; // allow mining on top of old blocks for testnet
         nDelayGetHeadersTime = 24 * 60 * 60;
         nPruneAfterHeight = 1000;
