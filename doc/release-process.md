@@ -61,7 +61,7 @@ Check out the source code in the following directory hierarchy.
 ### Fetch and create inputs: (first time, or when dependency versions change)
 
 	mkdir -p inputs
-	wget -P inputs https://collegicoincore.org/cfields/osslsigncode-Backports-to-1.7.1.patch
+	wget -P inputs https://collegicoin.org/cfields/osslsigncode-Backports-to-1.7.1.patch
 	wget -P inputs http://downloads.sourceforge.net/project/osslsigncode/osslsigncode/osslsigncode-1.7.1.tar.gz
 
  Register and download the Apple SDK: see [OS X readme](README_osx.txt) for details.

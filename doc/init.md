@@ -13,7 +13,7 @@ can be found in the contrib/init folder.
 1. Service User
 ---------------------------------
 
-All three Linux startup configurations assume the existence of a "collegicoincore" user
+All three Linux startup configurations assume the existence of a "collegicoin" user
 and group.  They must be created before attempting to use these scripts.
 The OS X configuration assumes collegicoind will be set up for the current user.
 
@@ -54,23 +54,23 @@ see `contrib/debian/examples/collegicoin.conf`.
 All three configurations assume several paths that might need to be adjusted.
 
 Binary:              `/usr/bin/collegicoind`  
-Configuration file:  `/etc/collegicoincore/collegicoin.conf`  
+Configuration file:  `/etc/collegicoin/collegicoin.conf`  
 Data directory:      `/var/lib/collegicoind`  
 PID file:            `/var/run/collegicoind/collegicoind.pid` (OpenRC and Upstart) or `/var/lib/collegicoind/collegicoind.pid` (systemd)  
 Lock file:           `/var/lock/subsys/collegicoind` (CentOS)  
 
 The configuration file, PID directory (if applicable) and data directory
-should all be owned by the collegicoincore user and group.  It is advised for security
+should all be owned by the collegicoin user and group.  It is advised for security
 reasons to make the configuration file and data directory only readable by the
-collegicoincore user and group.  Access to collegicoin-cli and other collegicoind rpc clients
+collegicoin user and group.  Access to collegicoin-cli and other collegicoind rpc clients
 can then be controlled by group membership.
 
 3b) Mac OS X
 
 Binary:              `/usr/local/bin/collegicoind`  
-Configuration file:  `~/Library/Application Support/CollegicoinCore/collegicoin.conf`  
-Data directory:      `~/Library/Application Support/CollegicoinCore`
-Lock file:           `~/Library/Application Support/CollegicoinCore/.lock`
+Configuration file:  `~/Library/Application Support/Collegicoin/collegicoin.conf`  
+Data directory:      `~/Library/Application Support/Collegicoin`
+Lock file:           `~/Library/Application Support/Collegicoin/.lock`
 
 4. Installing Service Configuration
 -----------------------------------
@@ -116,7 +116,7 @@ This Launch Agent will cause collegicoind to start whenever the user logs in.
 
 NOTE: This approach is intended for those wanting to run collegicoind as the current user.
 You will need to modify org.collegicoin.collegicoind.plist if you intend to use it as a
-Launch Daemon with a dedicated collegicoincore user.
+Launch Daemon with a dedicated collegicoin user.
 
 5. Auto-respawn
 -----------------------------------

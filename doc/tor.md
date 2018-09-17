@@ -51,7 +51,7 @@ If you configure your Tor system accordingly, it is possible to make your node a
 reachable from the Tor network. Add these lines to your /etc/tor/torrc (or equivalent
 config file):
 
-	HiddenServiceDir /var/lib/tor/collegicoincore-service/
+	HiddenServiceDir /var/lib/tor/collegicoin-service/
 	HiddenServicePort 12034 127.0.0.1:12034
 	HiddenServicePort 11034 127.0.0.1:11034
 
@@ -61,7 +61,7 @@ your collegicoind's P2P listen port (12034 by default).
 	-externalip=X   You can tell Collegicoin Core about its publicly reachable address using
 	                this option, and this can be a .onion address. Given the above
 	                configuration, you can find your onion address in
-	                /var/lib/tor/collegicoincore-service/hostname. Onion addresses are given
+	                /var/lib/tor/collegicoin-service/hostname. Onion addresses are given
 	                preference for your node to advertise itself with, for connections
 	                coming from unroutable addresses (such as 127.0.0.1, where the
 	                Tor proxy typically runs).

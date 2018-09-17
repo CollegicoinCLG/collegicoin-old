@@ -2,18 +2,18 @@
 
 # backward compatibility for existing gentoo layout 
 #
-if [ -d "/var/lib/collegicoincore/.collegicoincore" ]; then
-	CLGD_DEFAULT_DATADIR="/var/lib/collegicoincore/.collegicoincore"
+if [ -d "/var/lib/collegicoin/.collegicoin" ]; then
+	CLGD_DEFAULT_DATADIR="/var/lib/collegicoin/.collegicoin"
 else
 	CLGD_DEFAULT_DATADIR="/var/lib/collegicoind"
 fi
 
-CLGD_CONFIGFILE=${CLGD_CONFIGFILE:-/etc/collegicoincore/collegicoin.conf}
+CLGD_CONFIGFILE=${CLGD_CONFIGFILE:-/etc/collegicoin/collegicoin.conf}
 CLGD_PIDDIR=${CLGD_PIDDIR:-/var/run/collegicoind}
 CLGD_PIDFILE=${CLGD_PIDFILE:-${CLGD_PIDDIR}/collegicoind.pid}
 CLGD_DATADIR=${CLGD_DATADIR:-${CLGD_DEFAULT_DATADIR}}
-CLGD_USER=${CLGD_USER:-${CLG_USER:-collegicoincore}}
-CLGD_GROUP=${CLGD_GROUP:-collegicoincore}
+CLGD_USER=${CLGD_USER:-${CLG_USER:-collegicoin}}
+CLGD_GROUP=${CLGD_GROUP:-collegicoin}
 CLGD_BIN=${CLGD_BIN:-/usr/bin/collegicoind}
 CLGD_NICE=${CLGD_NICE:-${NICELEVEL:-0}}
 CLGD_OPTS="${CLGD_OPTS:-${CLG_OPTS}}"

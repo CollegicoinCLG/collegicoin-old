@@ -171,11 +171,11 @@ void DebugMessageHandler(QtMsgType type, const QMessageLogContext& context, cons
 /** Class encapsulating Collegicoin startup and shutdown.
  * Allows running startup and shutdown in a different thread from the UI thread.
  */
-class CollegicoinCore: public QObject
+class Collegicoin: public QObject
 {
     Q_OBJECT
 public:
-    explicit CollegicoinCore();
+    explicit Collegicoin();
 
 public Q_SLOTS:
     void initialize();
@@ -262,18 +262,18 @@ private:
 
 #include "collegicoin.moc"
 
-CollegicoinCore::CollegicoinCore():
+Collegicoin::Collegicoin():
     QObject()
 {
 }
 
-void CollegicoinCore::handleRunawayException(const std::exception *e)
+void Collegicoin::handleRunawayException(const std::exception *e)
 {
     PrintExceptionContinue(e, "Runaway exception");
     Q_EMIT runawayException(QString::fromStdString(strMiscWarning));
 }
 
-void CollegicoinCore::initialize()
+void Collegicoin::initialize()
 {
     execute_restart = true;
 
@@ -289,7 +289,7 @@ void CollegicoinCore::initialize()
     }
 }
 
-void CollegicoinCore::restart(QStringList args)
+void Collegicoin::restart(QStringList args)
 {
     if(execute_restart) { // Only restart 1x, no matter how often a user clicks on a restart-button
         execute_restart = false;
@@ -313,7 +313,7 @@ void CollegicoinCore::restart(QStringList args)
     }
 }
 
-void CollegicoinCore::shutdown()
+void Collegicoin::shutdown()
 {
     try
     {
@@ -420,7 +420,7 @@ void CollegicoinApplication::startThread()
     if(coreThread)
         return;
     coreThread = new QThread(this);
-    CollegicoinCore *executor = new CollegicoinCore();
+    Collegicoin *executor = new Collegicoin();
     executor->moveToThread(coreThread);
 
     /*  communication to and from thread */

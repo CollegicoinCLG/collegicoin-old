@@ -35,10 +35,10 @@ def check_json_precision():
 def determine_db_dir():
     """Return the default location of the Collegicoin Core data directory"""
     if platform.system() == "Darwin":
-        return os.path.expanduser("~/Library/Application Support/CollegicoinCore/")
+        return os.path.expanduser("~/Library/Application Support/Collegicoin/")
     elif platform.system() == "Windows":
-        return os.path.join(os.environ['APPDATA'], "CollegicoinCore")
-    return os.path.expanduser("~/.collegicoincore")
+        return os.path.join(os.environ['APPDATA'], "Collegicoin")
+    return os.path.expanduser("~/.collegicoin")
 
 def read_collegicoin_config(dbdir):
     """Read the collegicoin.conf file from dbdir, returns dictionary of settings"""

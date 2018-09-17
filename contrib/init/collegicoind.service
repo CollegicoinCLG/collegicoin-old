@@ -3,13 +3,13 @@ Description=Collegicoin's distributed currency daemon
 After=network.target
 
 [Service]
-User=collegicoincore
-Group=collegicoincore
+User=collegicoin
+Group=collegicoin
 
 Type=forking
 PIDFile=/var/lib/collegicoind/collegicoind.pid
 ExecStart=/usr/bin/collegicoind -daemon -pid=/var/lib/collegicoind/collegicoind.pid \
--conf=/etc/collegicoincore/collegicoin.conf -datadir=/var/lib/collegicoind -disablewallet
+-conf=/etc/collegicoin/collegicoin.conf -datadir=/var/lib/collegicoind -disablewallet
 
 Restart=always
 PrivateTmp=true

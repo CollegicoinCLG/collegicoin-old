@@ -734,8 +734,8 @@ boost::filesystem::path static GetAutostartFilePath()
 {
     std::string chain = ChainNameFromCommandLine();
     if (chain == CBaseChainParams::MAIN)
-        return GetAutostartDir() / "collegicoincore.desktop";
-    return GetAutostartDir() / strprintf("collegicoincore-%s.lnk", chain);
+        return GetAutostartDir() / "collegicoin.desktop";
+    return GetAutostartDir() / strprintf("collegicoin-%s.lnk", chain);
 }
 
 bool GetStartOnSystemStartup()
@@ -774,7 +774,7 @@ bool SetStartOnSystemStartup(bool fAutoStart)
         if (!optionFile.good())
             return false;
         std::string chain = ChainNameFromCommandLine();
-        // Write a collegicoincore.desktop file to the autostart directory:
+        // Write a collegicoin.desktop file to the autostart directory:
         optionFile << "[Desktop Entry]\n";
         optionFile << "Type=Application\n";
         if (chain == CBaseChainParams::MAIN)

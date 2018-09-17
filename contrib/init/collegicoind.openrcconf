@@ -1,7 +1,7 @@
 # /etc/conf.d/collegicoind: config file for /etc/init.d/collegicoind
 
 # Config file location
-#CLGD_CONFIGFILE="/etc/collegicoincore/collegicoin.conf"
+#CLGD_CONFIGFILE="/etc/collegicoin/collegicoin.conf"
 
 # What directory to write pidfile to?  (created and owned by $CLGD_USER)
 #CLGD_PIDDIR="/var/run/collegicoind"
@@ -13,8 +13,8 @@
 #CLGD_DATADIR="/var/lib/collegicoind"
 
 # User and group to own collegicoind process
-#CLGD_USER="collegicoincore"
-#CLGD_GROUP="collegicoincore"
+#CLGD_USER="collegicoin"
+#CLGD_GROUP="collegicoin"
 
 # Path to collegicoind executable
 #CLGD_BIN="/usr/bin/collegicoind"

@@ -48,11 +48,11 @@ Var StartMenuGroup
 !insertmacro MUI_LANGUAGE English
 
 # Installer attributes
-OutFile @abs_top_srcdir@/collegicoincore-${VERSION}-win@WINDOWS_BITS@-setup.exe
+OutFile @abs_top_srcdir@/collegicoin-${VERSION}-win@WINDOWS_BITS@-setup.exe
 !if "@WINDOWS_BITS@" == "64"
-InstallDir $PROGRAMFILES64\CollegicoinCore
+InstallDir $PROGRAMFILES64\Collegicoin
 !else
-InstallDir $PROGRAMFILES\CollegicoinCore
+InstallDir $PROGRAMFILES\Collegicoin
 !endif
 CRCCheck on
 XPStyle on
